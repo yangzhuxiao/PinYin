@@ -7,19 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
+#import "ParentPracticeViewController.h"
+@class PracticeTwoCollectionViewCell;
 
+@interface PracticeTwoViewController : ParentPracticeViewController < UICollectionViewDelegate, UICollectionViewDataSource >
 
-@interface PracticeTwoViewController : UIViewController
-
-@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
-
-@property (strong, nonatomic) UICollectionView *itemCollectionView;
-@property (nonatomic, strong) UIPageControl *pageControl;
-
-@property (nonatomic, strong) UIButton *backButton;
-@property (nonatomic, strong) UILabel *indexLabel;
-
-@property (nonatomic, strong) UILabel *countLabel;
+@property (nonatomic, strong) PracticeTwoCollectionViewCell *selectedCell;
 
 @end

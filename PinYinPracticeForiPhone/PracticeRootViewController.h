@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ParentRootViewController.h"
 
-@interface PracticeRootViewController : UIViewController
-
+@interface PracticeRootViewController : ParentRootViewController
 
 @end
 

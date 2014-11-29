@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ParentRootViewController.h"
 
-@interface ListenRootViewController : UIViewController
+@interface ListenRootViewController : ParentRootViewController <UIActionSheetDelegate >
 
 @end
 
