@@ -14,25 +14,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _tag = 0;
+    self.viewTitleLabel.text = @"Pick the first tone";
     self.catogoriesArray = @[@"Level Tone", @"Rising Tone", @"Falling-rising Tone", @"Falling Tone"];
 }
 
 - (void)selectConfirmed:(id)sender
 {
-    NSUInteger cellIndex = self.selectedCell.tag;
     NSString *actionSheetTitle;
-    switch (cellIndex) {
+    switch (self.selectedCellIndex) {
         case 0:
             actionSheetTitle = @"Level Tone With";
+            _tag = 1;
             break;
         case 1:
             actionSheetTitle = @"Rising Tone With";
+            _tag = 2;
             break;
         case 2:
             actionSheetTitle = @"Falling-rising Tone With";
+            _tag = 3;
             break;
         case 3:
             actionSheetTitle = @"Falling Tone With";
+            _tag = 4;
             break;
         default:
             actionSheetTitle = @"";
@@ -51,19 +56,27 @@
     
     switch (buttonIndex) {
         case 0:
+            itemController.tag = _tag*10 + 1;
             [self presentViewController:itemController animated:YES completion:nil];
             break;
         case 1:
-
+            itemController.tag = _tag*10 + 2;
+            [self presentViewController:itemController animated:YES completion:nil];
             break;
         case 2:
-
+            itemController.tag = _tag*10 + 3;
+            [self presentViewController:itemController animated:YES completion:nil];
             break;
         case 3:
-
+            itemController.tag = _tag*10 + 4;
+            [self presentViewController:itemController animated:YES completion:nil];
+            break;
+        case 4:
+            itemController.tag = _tag*10 + 5;
+            [self presentViewController:itemController animated:YES completion:nil];
             break;
         default:
-
+            _tag = 0;
             break;
     }
 }

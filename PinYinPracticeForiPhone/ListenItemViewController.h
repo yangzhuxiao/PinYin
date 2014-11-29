@@ -20,4 +20,6 @@
 @property (nonatomic, strong) UIButton *autoPlayButton;
 @property (nonatomic, strong) UILabel *indexLabel;
 
+@property (nonatomic, assign) NSInteger tag;
+
 @end

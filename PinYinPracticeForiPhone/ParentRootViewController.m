@@ -14,6 +14,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _selectedCellIndex = 0;
     // watch the order!
     [self setUpListenCollectionView];
     [self setUpViewTitleLabel];
@@ -23,7 +24,6 @@
 {
     _viewTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(TitleLabelXOffset, TitleLabelYOffset, TitleLabelWidth, TitleLabelHeight)];
     _viewTitleLabel.numberOfLines = 0;
-    _viewTitleLabel.text = @"Pick the test";
     _viewTitleLabel.textAlignment = NSTextAlignmentCenter;
     _viewTitleLabel.textColor = [UIColor blackColor];
     _viewTitleLabel.font = [UIFont systemFontOfSize:TitleLabelFontPercentWidth * WIDTH];
@@ -43,6 +43,7 @@
     
     _categoryCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, CollectionViewYUpperOffset, CollectionViewWidth, CollectionViewHeight) collectionViewLayout:calendarLayout];
     _categoryCollectionView.dataSource = self;
+    ((UIScrollView *)_categoryCollectionView).delegate = self;
     
     [_categoryCollectionView registerClass:[ParentRootCollectionViewCell class] forCellWithReuseIdentifier:@"ListenCell"];
     
@@ -53,24 +54,6 @@
     
 }
 
-//- (void)selectConfirmed:(id)sender
-//{
-//    id superView1 = [sender superview];
-//    if ([superView1 isKindOfClass:[ParentRootCollectionViewCell class]]) {
-//        _selectedCell = (ParentRootCollectionViewCell *)superView1;
-//    } else {
-//        id superView2 = [superView1 superview];
-//        if ([superView2 isKindOfClass:[ParentRootCollectionViewCell class]]) {
-//            _selectedCell = (ParentRootCollectionViewCell *)superView2;
-//        } else {
-//            id superView3 = [superView2 superview];
-//            if ([superView3 isKindOfClass:[ParentRootCollectionViewCell class]]) {
-//                _selectedCell = (ParentRootCollectionViewCell *)superView3;
-//            } else return;
-//        }
-//    }
-//}
-
 #pragma mark - UICollectionView Data Source
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -80,12 +63,19 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ParentRootCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ListenCell" forIndexPath: indexPath];
+    ParentRootCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ListenCell" forIndexPath:indexPath];
     
     cell.contentLabel.text = _catogoriesArray[indexPath.row];
     [cell.selectButton addTarget:self action:@selector(selectConfirmed:) forControlEvents:UIControlEventTouchUpInside];
-    cell.tag = indexPath.row;
     return cell;
+}
+
+#pragma mark - UIScrollView Delegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    int index = fabs(scrollView.contentOffset.x)/(ItemWidth + MinimumLineSpacing);
+    _selectedCellIndex = index;
 }
 
 @end

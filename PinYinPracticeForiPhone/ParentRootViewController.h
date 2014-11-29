@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "ParentRootCollectionViewCell.h"
 
-@interface ParentRootViewController : UIViewController < UICollectionViewDataSource >
+@interface ParentRootViewController : UIViewController < UICollectionViewDataSource, UIScrollViewDelegate >
 
 @property (strong, nonatomic) UICollectionView *categoryCollectionView;
 @property (strong, nonatomic) UILabel *viewTitleLabel;
 @property (nonatomic, copy) NSArray *catogoriesArray;
-@property (nonatomic, strong) ParentRootCollectionViewCell *selectedCell;
+@property (nonatomic, assign) NSInteger selectedCellIndex;
 
 @end

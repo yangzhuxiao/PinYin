@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _tag = 0;
     
     // must not be omitted, otherwise the color of subview "collectionView" will crash
     self.view.backgroundColor = [UIColor whiteColor];
