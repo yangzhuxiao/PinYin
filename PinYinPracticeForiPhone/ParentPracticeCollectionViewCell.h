@@ -11,6 +11,8 @@
 @interface ParentPracticeCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) UIButton *playButton;
-@property (nonatomic, strong) UILabel *wordLabel;
+@property (nonatomic, strong) UIButton *confirmSelectionButton;
+@property (nonatomic, strong) UILabel *congratulateLabel;
+@property (nonatomic, strong) UILabel *righAnswerLabel;
 
 @end

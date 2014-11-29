@@ -15,29 +15,53 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // play button
-        _playButton = [[UIButton alloc] initWithFrame:CGRectMake(PlayButtonXOriginPercent * frame.size.width, PlayButtonYOriginPercent * frame.size.height, PlayButtonWidthPercent * frame.size.width, PlayButtonHeightPercent * frame.size.height)];
+        
+// play button
+        _playButton = [[UIButton alloc] initWithFrame:CGRectMake(PlayButtonForPracOneXOriginPercent * frame.size.width, PlayButtonForPracOneYOriginPercent * frame.size.height, PlayButtonForPracOneWidthPercent * frame.size.width, PlayButtonForPracOneHeightPercent * frame.size.height)];
         [_playButton setTitle:@"Replay" forState:UIControlStateNormal];
         [_playButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        _playButton.titleLabel.font = [UIFont systemFontOfSize:frame.size.width * PlayButtonFontPercentWidth];
+        _playButton.titleLabel.font = [UIFont systemFontOfSize:frame.size.width * PlayButtonForPracOneFontPercentWidth];
         
         _playButton.layer.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.2].CGColor;
         _playButton.layer.borderWidth = 1.0f;
         _playButton.layer.cornerRadius = 5.0f;
         
-        // word label
-        _wordLabel = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width * WordLabelXOriginPercent, frame.size.height * WordLabelYOriginPercent, frame.size.width * WordLabelWidthPercent, frame.size.height * WordLabelHeightPercent)];
-        _wordLabel.font = [UIFont systemFontOfSize:frame.size.width * WordLabelFontPercentWidth];
-        _wordLabel.textAlignment = NSTextAlignmentCenter;
-        _wordLabel.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
-        _wordLabel.textColor = [UIColor blackColor];
-        _wordLabel.layer.borderWidth = 1.0f;
-        //        _wordLabel.layer.cornerRadius = 8.0f;
+// confirmSelectionButton
+        _confirmSelectionButton = [[UIButton alloc] initWithFrame:CGRectMake(frame.size.width * confirmSelectionButtonXOriginPercent, frame.size.height * confirmSelectionButtonYOriginPercent, frame.size.width * confirmSelectionButtonWidthPercent, frame.size.height * confirmSelectionButtonHeightPercent)];
+        
+        [_confirmSelectionButton setTitle:@"Confirm" forState:UIControlStateNormal];
+        [_confirmSelectionButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        _confirmSelectionButton.titleLabel.font = [UIFont systemFontOfSize:frame.size.width * confirmSelectionButtonFontPercentWidth];
+        
+        _confirmSelectionButton.layer.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.2].CGColor;
+        _confirmSelectionButton.layer.borderWidth = 1.0f;
+        _confirmSelectionButton.layer.cornerRadius = 5.0f;
+        
+// congratulateLabel
+        _congratulateLabel = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width * congratulateLabelXOriginPercent, frame.size.height * congratulateLabelYOriginPercent, frame.size.width * congratulateLabelWidthPercent, frame.size.height * congratulateLabelHeightPercent)];
+        _congratulateLabel.text = @"Congratulations!";
+        _congratulateLabel.font = [UIFont systemFontOfSize:frame.size.width * congratulateLabelFontPercentWidth];
+        _congratulateLabel.textAlignment = NSTextAlignmentCenter;
+        _congratulateLabel.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
+        _congratulateLabel.textColor = [UIColor blackColor];
+        _congratulateLabel.layer.borderWidth = 1.0f;
+        
+// righAnswerLabel
+        _righAnswerLabel = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width * congratulateLabelXOriginPercent, frame.size.height * congratulateLabelYOriginPercent, frame.size.width * congratulateLabelWidthPercent, frame.size.height * congratulateLabelHeightPercent)];
+        _righAnswerLabel.font = [UIFont systemFontOfSize:frame.size.width * righAnswerLabelFontPercentWidth];
+        _righAnswerLabel.textAlignment = NSTextAlignmentCenter;
+        _righAnswerLabel.numberOfLines = 0;
+        _righAnswerLabel.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
+        _righAnswerLabel.textColor = [UIColor blackColor];
+        _righAnswerLabel.layer.borderWidth = 1.0f;
         
         [self.contentView addSubview:_playButton];
-        [self.contentView addSubview:_wordLabel];
+        [self.contentView addSubview:_confirmSelectionButton];
+        [self.contentView addSubview:_congratulateLabel];
+        [self.contentView addSubview:_righAnswerLabel];
     }
     return self;
 }
+
 
 @end

@@ -7,20 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ParentPracticeCollectionViewCell.h"
 
-@interface PracticeThreeCollectionViewCell : UICollectionViewCell
-
-@property (nonatomic, strong) UIButton *playButton;
+@interface PracticeThreeCollectionViewCell : ParentPracticeCollectionViewCell
 
 @property (nonatomic, strong) UITextField *pinyinOneTextField;
 @property (nonatomic, strong) UITextField *pinyinTwoTextField;
 
 @property (nonatomic, strong) UILabel *SelectToneIndicatorLabelOne;
 @property (nonatomic, strong) UILabel *SelectToneIndicatorLabelTwo;
-
-@property (nonatomic, strong) UIButton *confirmSelectionButton;
-
-@property (nonatomic, strong) UILabel *congratulateLabel;
-@property (nonatomic, strong) UILabel *righAnswerLabel;
 
 @end

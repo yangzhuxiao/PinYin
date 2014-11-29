@@ -41,7 +41,7 @@
     } else {
         _selectedCell.righAnswerLabel.hidden = NO;
     }
-    _selectedCell.confirmInputButton.hidden = YES;
+    _selectedCell.confirmSelectionButton.hidden = YES;
     [self updateCountLabel];
 }
 
@@ -57,7 +57,7 @@
     PracticeTwoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TwoCell" forIndexPath: indexPath];
     
     // must do this, otherwise the two buttons will be seen !
-    _selectedCell.confirmInputButton.hidden= NO;
+    _selectedCell.confirmSelectionButton.hidden= NO;
     cell.congratulateLabel.hidden = YES;
     cell.righAnswerLabel.hidden = YES;
     cell.pinyinOneTextField.text = @"";
@@ -77,7 +77,7 @@
     // register for touch event
     [cell.playButton addTarget:self action:@selector(playMP3File:) forControlEvents:UIControlEventTouchUpInside];
     // register for confimation Input
-    [cell.confirmInputButton addTarget:self action:@selector(confirmSelection:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.confirmSelectionButton addTarget:self action:@selector(confirmSelection:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.audioPlayer stop];
     self.audioPlayer.currentTime = 0;
