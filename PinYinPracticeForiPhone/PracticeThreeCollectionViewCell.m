@@ -21,18 +21,14 @@
         _SelectToneIndicatorLabelOne.text = @" Pick a tone for the first pinyin";
         _SelectToneIndicatorLabelOne.font = [UIFont systemFontOfSize:frame.size.width * SelectToneIndicatorLabelOneFontPercentWidth];
         _SelectToneIndicatorLabelOne.textAlignment = NSTextAlignmentLeft;
-        _SelectToneIndicatorLabelOne.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
-        _SelectToneIndicatorLabelOne.textColor = [UIColor blackColor];
-        _SelectToneIndicatorLabelOne.layer.borderWidth = 1.0f;
+        _SelectToneIndicatorLabelOne.textColor = txtColor;
         
         // SelectToneIndicatorLabel - Two
         _SelectToneIndicatorLabelTwo = [[UILabel alloc] initWithFrame:CGRectMake(SelectToneIndicatorLabelTwoXOriginPercent * frame.size.width, SelectToneIndicatorLabelTwoYOriginPercent *frame.size.height, SelectToneIndicatorLabelTwoWidthPercent * frame.size.width, SelectToneIndicatorLabelTwoHeightPercent * frame.size.height)];
         _SelectToneIndicatorLabelTwo.text = @" Pick a tone for the second pinyin";
         _SelectToneIndicatorLabelTwo.font = [UIFont systemFontOfSize:frame.size.width * SelectToneIndicatorLabelTwoFontPercentWidth];
         _SelectToneIndicatorLabelTwo.textAlignment = NSTextAlignmentLeft;
-        _SelectToneIndicatorLabelTwo.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
-        _SelectToneIndicatorLabelTwo.textColor = [UIColor blackColor];
-        _SelectToneIndicatorLabelTwo.layer.borderWidth = 1.0f;
+        _SelectToneIndicatorLabelTwo.textColor = txtColor;
         
         
         // ToneButtons
@@ -65,12 +61,13 @@
                 }
                 
                 [toneButton setTitle:buttonText forState:UIControlStateNormal];
+                [toneButton setTitleColor:txtColor forState:UIControlStateNormal];
                 toneButton.showsTouchWhenHighlighted = YES;
                 
                 toneButton.titleLabel.font = [UIFont systemFontOfSize:frame.size.width * ToneButtonBasicFontPercentWidth];
                 
                 toneButton.layer.borderWidth = 1.0f;
-                toneButton.layer.borderColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.2].CGColor;
+                toneButton.layer.borderColor = bdColor.CGColor;
                 toneButton.layer.cornerRadius = 5.0f;
                 toneButton.tag = i*10+j;
                 [self.contentView addSubview:toneButton];
@@ -79,13 +76,13 @@
         
         // pinyinOneTextField
         _pinyinOneTextField = [[UITextField alloc] initWithFrame:CGRectMake(pinyinOneTextFieldForPrac3XOriginPercent * frame.size.width, pinyinOneTextFieldForPrac3YOriginPercent *frame.size.height, pinyinOneTextFieldWidthPercent *frame.size.width, pinyinOneTextFieldHeightPercent *frame.size.height)];
-        _pinyinOneTextField.placeholder = @"Please input pinyin";
+        _pinyinOneTextField.placeholder = @"Input pinyin";
         _pinyinOneTextField.borderStyle = UITextBorderStyleRoundedRect;
         _pinyinOneTextField.textAlignment = NSTextAlignmentCenter;
         
         // pinyinTwoTextField
         _pinyinTwoTextField = [[UITextField alloc] initWithFrame:CGRectMake(pinyinTwoTextFieldForPrac3XOriginPercent * frame.size.width, pinyinTwoTextFieldForPrac3YOriginPercent *frame.size.height, pinyinTwoTextFieldForPrac3WidthPercent *frame.size.width, pinyinTwoTextFieldForPrac3HeightPercent *frame.size.height)];
-        _pinyinTwoTextField.placeholder = @"Please input pinyin";
+        _pinyinTwoTextField.placeholder = @"Input pinyin";
         _pinyinTwoTextField.borderStyle = UITextBorderStyleRoundedRect;
         _pinyinTwoTextField.textAlignment = NSTextAlignmentCenter;
         

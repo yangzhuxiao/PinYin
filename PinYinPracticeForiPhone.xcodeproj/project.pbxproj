@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		97134EA71A2435D5009A748D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97134EA61A2435D5009A748D /* AVFoundation.framework */; };
 		97134EAC1A2447D8009A748D /* ListenItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97134EAB1A2447D8009A748D /* ListenItemViewController.m */; };
-		97422C331A2B078F00CFA5B8 /* close-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 97422C321A2B078E00CFA5B8 /* close-100.png */; };
-		97422C371A2B0B1400CFA5B8 /* listen-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 97422C361A2B0B1400CFA5B8 /* listen-30.png */; };
-		97422C391A2B0C4200CFA5B8 /* listen-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 97422C381A2B0C4200CFA5B8 /* listen-100.png */; };
 		97616FD31A22D0AB00C3CBD1 /* ListenCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97616FD21A22D0AB00C3CBD1 /* ListenCollectionViewCell.m */; };
 		97616FD61A23201000C3CBD1 /* ParentRootViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 97616FD51A23201000C3CBD1 /* ParentRootViewFlowLayout.m */; };
 		97891A971A26199C00FBE71F /* PracticeOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97891A961A26199C00FBE71F /* PracticeOneViewController.m */; };
@@ -37,6 +34,7 @@
 		97C897A61A28E02400C56490 /* FinalPinYinList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 97C897A51A28E02400C56490 /* FinalPinYinList.txt */; };
 		97C897A81A28E03D00C56490 /* FullPinyin in Resources */ = {isa = PBXBuildFile; fileRef = 97C897A71A28E03D00C56490 /* FullPinyin */; };
 		97FA57521A26CA0100C47156 /* PracticeOneCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FA57511A26CA0100C47156 /* PracticeOneCollectionViewCell.m */; };
+		A21CAD2EDAC5426F9FC0040A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D101F4BFE0492EA0764C61 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,12 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		72D101F4BFE0492EA0764C61 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		97134EA61A2435D5009A748D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		97134EAA1A2447D8009A748D /* ListenItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenItemViewController.h; sourceTree = "<group>"; };
 		97134EAB1A2447D8009A748D /* ListenItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenItemViewController.m; sourceTree = "<group>"; };
-		97422C321A2B078E00CFA5B8 /* close-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-100.png"; sourceTree = "<group>"; };
-		97422C361A2B0B1400CFA5B8 /* listen-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listen-30.png"; sourceTree = "<group>"; };
-		97422C381A2B0C4200CFA5B8 /* listen-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listen-100.png"; sourceTree = "<group>"; };
 		97616FD11A22D0AB00C3CBD1 /* ListenCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenCollectionViewCell.h; sourceTree = "<group>"; };
 		97616FD21A22D0AB00C3CBD1 /* ListenCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenCollectionViewCell.m; sourceTree = "<group>"; };
 		97616FD41A23201000C3CBD1 /* ParentRootViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentRootViewFlowLayout.h; sourceTree = "<group>"; };
@@ -104,6 +100,7 @@
 		97C897A71A28E03D00C56490 /* FullPinyin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FullPinyin; sourceTree = "<group>"; };
 		97FA57501A26CA0100C47156 /* PracticeOneCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PracticeOneCollectionViewCell.h; sourceTree = "<group>"; };
 		97FA57511A26CA0100C47156 /* PracticeOneCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PracticeOneCollectionViewCell.m; sourceTree = "<group>"; };
+		A4AAA91D6DCD45D1935DA92F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +109,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97134EA71A2435D5009A748D /* AVFoundation.framework in Frameworks */,
+				A21CAD2EDAC5426F9FC0040A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +166,8 @@
 				9789D8E41A220D5600298C9B /* PinYinPracticeForiPhone */,
 				9789D9011A220D5600298C9B /* PinYinPracticeForiPhoneTests */,
 				9789D8E31A220D5600298C9B /* Products */,
+				A4AAA91D6DCD45D1935DA92F /* Pods.xcconfig */,
+				DA79205EBCFF4DF99A53F1DE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,7 +192,6 @@
 				97891A941A26154700FBE71F /* Practice */,
 				9789D8F21A220D5600298C9B /* Main.storyboard */,
 				9789D8F51A220D5600298C9B /* Images.xcassets */,
-				97422C381A2B0C4200CFA5B8 /* listen-100.png */,
 				9789D8F71A220D5600298C9B /* LaunchScreen.xib */,
 				9789D8E51A220D5600298C9B /* Supporting Files */,
 			);
@@ -204,8 +203,6 @@
 			children = (
 				9789D8E61A220D5600298C9B /* Info.plist */,
 				97C897A51A28E02400C56490 /* FinalPinYinList.txt */,
-				97422C321A2B078E00CFA5B8 /* close-100.png */,
-				97422C361A2B0B1400CFA5B8 /* listen-30.png */,
 				97C897A71A28E03D00C56490 /* FullPinyin */,
 				9789D8E71A220D5600298C9B /* main.m */,
 			);
@@ -297,6 +294,14 @@
 			name = "Practice One";
 			sourceTree = "<group>";
 		};
+		DA79205EBCFF4DF99A53F1DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72D101F4BFE0492EA0764C61 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -304,9 +309,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9789D9081A220D5700298C9B /* Build configuration list for PBXNativeTarget "PinYinPracticeForiPhone" */;
 			buildPhases = (
+				52084D6CD6644C96B29CCD34 /* Check Pods Manifest.lock */,
 				9789D8DE1A220D5600298C9B /* Sources */,
 				9789D8DF1A220D5600298C9B /* Frameworks */,
 				9789D8E01A220D5600298C9B /* Resources */,
+				5E315096CDF54409ADE71D8D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -380,10 +387,7 @@
 				9789D8F41A220D5600298C9B /* Main.storyboard in Resources */,
 				9789D8F91A220D5600298C9B /* LaunchScreen.xib in Resources */,
 				97C897A61A28E02400C56490 /* FinalPinYinList.txt in Resources */,
-				97422C371A2B0B1400CFA5B8 /* listen-30.png in Resources */,
 				9789D8F61A220D5600298C9B /* Images.xcassets in Resources */,
-				97422C331A2B078F00CFA5B8 /* close-100.png in Resources */,
-				97422C391A2B0C4200CFA5B8 /* listen-100.png in Resources */,
 				97C897A81A28E03D00C56490 /* FullPinyin in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,6 +400,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		52084D6CD6644C96B29CCD34 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5E315096CDF54409ADE71D8D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9789D8DE1A220D5600298C9B /* Sources */ = {
@@ -541,6 +578,7 @@
 		};
 		9789D9091A220D5700298C9B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4AAA91D6DCD45D1935DA92F /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -554,6 +592,7 @@
 		};
 		9789D90A1A220D5700298C9B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4AAA91D6DCD45D1935DA92F /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

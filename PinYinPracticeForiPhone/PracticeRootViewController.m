@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.viewTitleLabel.text = @"Pick the test";
-    self.catogoriesArray = @[@"Select the right tones according to recording and Pinyin", @"Write down the right Pinyin according to recording and the tones", @"Write down the right Pinyin and tones according to the recording"];
+    self.catogoriesArray = @[@"Select the right tones", @"Write down the \nright Pinyin", @"Write down the right \nPinyin and tones"];
 }
 
 - (void)selectConfirmed:(id)sender

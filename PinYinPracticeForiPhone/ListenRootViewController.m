@@ -15,36 +15,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _tag = 0;
-    self.viewTitleLabel.text = @"Pick the first tone";
+    self.viewTitleLabel.text = @"Pick the tone of the first charater";
     self.catogoriesArray = @[@"Level Tone", @"Rising Tone", @"Falling-rising Tone", @"Falling Tone"];
 }
 
 - (void)selectConfirmed:(id)sender
 {
-    NSString *actionSheetTitle;
     switch (self.selectedCellIndex) {
         case 0:
-            actionSheetTitle = @"Level Tone With";
             _tag = 1;
             break;
         case 1:
-            actionSheetTitle = @"Rising Tone With";
             _tag = 2;
             break;
         case 2:
-            actionSheetTitle = @"Falling-rising Tone With";
             _tag = 3;
             break;
         case 3:
-            actionSheetTitle = @"Falling Tone With";
             _tag = 4;
             break;
         default:
-            actionSheetTitle = @"";
             break;
     }
     
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:actionSheetTitle delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"level Tone", @"rising Tone", @"falling-rising tone", @"falling tone", @"neutral tone", nil];
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"level Tone", @"rising Tone", @"falling-rising tone", @"falling tone", @"light tone", nil];
     [sheet showInView:self.view];
 }
 

@@ -11,18 +11,6 @@
 
 @implementation ParentRootViewFlowLayout
 
--(id)init
-{
-    self = [super init];
-    if (self) {
-//        self.itemSize = CGSizeMake(ItemWidth, ItemHeight);
-//        self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-//        self.sectionInset = UIEdgeInsetsMake(200, 0.0, 200, 0.0);
-//        self.minimumLineSpacing = 50.0;
-    }
-    return self;
-}
-
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)oldBounds
 {
     return YES;

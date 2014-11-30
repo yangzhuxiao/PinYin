@@ -8,9 +8,10 @@
 
 #import "ListenItemViewController.h"
 #import "Constants.h"
-#import "ItemCollectionViewCell.h"
 #import "PhraseManager.h"
 #import "Phrase.h"
+#import "ItemCollectionViewCell.h"
+#import <FontAwesomeKit/FAKIonIcons.h>
 
 @interface ListenItemViewController () < UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate >
 {
@@ -28,6 +29,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    
+//    self.tabBarItem setImage:[FAKIcon ]
     
     // must not be omitted, otherwise the color of subview "collectionView" will crash
     self.view.backgroundColor = [UIColor whiteColor];
@@ -35,7 +39,7 @@
     _dataArray = [[PhraseManager sharedManager] phrasesArrayForTag:_tag];
     
     // The order of the following three must not be changed !
-    [self setUpCollectionViewAndPageControl];
+    [self setUpCollectionView];
     [self setUpBackButton];
     [self setUpAutoPlayButton];
     [self setUpIndexLabel];
@@ -46,7 +50,7 @@
     isDragging = NO;
 }
 
-- (void)setUpCollectionViewAndPageControl
+- (void)setUpCollectionView
 {
     //Item collection
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
@@ -56,10 +60,10 @@
     layout.itemSize = _itemCollectionView.bounds.size;
     _itemCollectionView.delegate = self;
     _itemCollectionView.dataSource = self;
-    _itemCollectionView.backgroundColor = [UIColor whiteColor];
     _itemCollectionView.pagingEnabled = YES;
     _itemCollectionView.showsHorizontalScrollIndicator = NO;
     [_itemCollectionView registerClass:[ItemCollectionViewCell class] forCellWithReuseIdentifier:@"ItemCell"];
+    _itemCollectionView.backgroundColor = bgColor;
 
     [self.view addSubview:_itemCollectionView];
 }
@@ -70,15 +74,11 @@
 
     [_backButton setFrame:CGRectMake(BackButtonXOriginPercent *WIDTH, BackButtonYOriginPercent *HEIGHT, BackButtonWidthPercentWidth*WIDTH, BackButtonHeightPercentWidth*WIDTH)];
     
-    [_backButton setImage:[UIImage imageNamed:@"close-100.png"] forState:UIControlStateNormal];
+    FAKIonIcons *backIcon = [FAKIonIcons ios7CloseOutlineIconWithSize:BackButtonWidthPercentWidth*WIDTH];
+    UIImage *backImage = [backIcon imageWithSize:CGSizeMake(BackButtonWidthPercentWidth*WIDTH, BackButtonWidthPercentWidth*WIDTH)];
+    [_backButton setImage:backImage forState:UIControlStateNormal];
     _backButton.showsTouchWhenHighlighted = YES;
     
-//    [_backButton setTitle:@"<<Exit" forState:UIControlStateNormal];
-//    [_backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-////    _backButton.titleLabel.font = [UIFont boldSystemFontOfSize:self.view.frame.size.width * BackButtonFontPercentWidth];
-//    _backButton.layer.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.1].CGColor;
-//    _backButton.layer.borderWidth = 1.0f;
-//    _backButton.layer.cornerRadius = 5.0f;
     [_backButton addTarget:self action:@selector(backToRoot:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:_backButton];
@@ -86,13 +86,14 @@
 
 - (void)setUpAutoPlayButton
 {
-    _autoPlayButton = [[UIButton alloc] initWithFrame:CGRectMake((1 - autoPlayButtonXOffsetToRightPercent - autoPlayButtonWidthPercent) *WIDTH, autoPlayButtonYOriginPercent *HEIGHT, autoPlayButtonWidthPercent *WIDTH, autoPlayButtonHeightPercent *HEIGHT)];
-    [_autoPlayButton setTitle:@"AutoPlay" forState:UIControlStateNormal];
-    [_autoPlayButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    _autoPlayButton.titleLabel.font = [UIFont boldSystemFontOfSize:self.view.frame.size.width * autoPlayButtonFontPercentWidth];
-    _autoPlayButton.layer.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.1].CGColor;
-    _autoPlayButton.layer.borderWidth = 1.0f;
-    _autoPlayButton.layer.cornerRadius = 5.0f;
+    _autoPlayButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [_autoPlayButton setFrame:CGRectMake((1 - autoPlayButtonXOffsetToRightPercent - autoPlayButtonWidthPercentWidth) *WIDTH, autoPlayButtonYOriginPercent *HEIGHT, autoPlayButtonWidthPercentWidth *WIDTH, autoPlayButtonHeightPercentWidth *WIDTH)];
+    
+    FAKIonIcons *backIcon = [FAKIonIcons videocameraIconWithSize:autoPlayButtonWidthPercentWidth*WIDTH];
+    UIImage *backImage = [backIcon imageWithSize:CGSizeMake(autoPlayButtonWidthPercentWidth*WIDTH, autoPlayButtonWidthPercentWidth*WIDTH)];
+    [_autoPlayButton setImage:backImage forState:UIControlStateNormal];
+    _autoPlayButton.showsTouchWhenHighlighted = YES;
+    
     [_autoPlayButton addTarget:self action:@selector(beginAutoPlay:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:_autoPlayButton];
@@ -103,12 +104,11 @@
     _indexLabel = [[UILabel alloc] initWithFrame:CGRectMake(IndexLabelXOriginPercent *WIDTH, IndexLabelYOriginPercent *HEIGHT, IndexLabelWidthPercent *WIDTH, IndexLabelHeightPercent *HEIGHT)];
     _indexLabel.font = [UIFont systemFontOfSize:self.view.frame.size.width * IndexLabelFontPercentWidth];
     _indexLabel.textAlignment = NSTextAlignmentCenter;
-    _indexLabel.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
-    _indexLabel.textColor = [UIColor blackColor];
+    _indexLabel.textColor = txtColor;
     
     // must initialize, otherwise won't be able to see it at first!
     _indexLabel.text = [NSString stringWithFormat:@"1/%lu", (unsigned long)_dataArray.count];
-
+    
     [self.view addSubview:_indexLabel];
 }
 

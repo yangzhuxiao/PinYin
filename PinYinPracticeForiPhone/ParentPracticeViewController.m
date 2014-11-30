@@ -9,6 +9,7 @@
 #import "ParentPracticeViewController.h"
 #import "PhraseManager.h"
 #import "Constants.h"
+#import <FontAwesomeKit/FAKIonIcons.h>
 
 @implementation ParentPracticeViewController
 
@@ -24,7 +25,7 @@
     _dataArray = [[PhraseManager sharedManager] randomOrderedAllPhrases];
     
     // The order of the following three must not be changed !
-    [self setUpCollectionViewAndPageControl];
+    [self setUpCollectionView];
     [self setUpBackButton];
     [self setUpIndexLabel];
     
@@ -37,12 +38,11 @@
     _countLabel = [[UILabel alloc] initWithFrame:CGRectMake(CountLabelXOriginPercent *WIDTH, CountLabelYOriginPercent *HEIGHT, CountLabelWidthPercent *WIDTH, CountLabelHeightPercent *HEIGHT)];
     _countLabel.font = [UIFont systemFontOfSize:self.view.frame.size.width * CountLabelFontPercentWidth];
     _countLabel.textAlignment = NSTextAlignmentRight;
-    _countLabel.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
-    _countLabel.textColor = [UIColor blackColor];
-    
+    _countLabel.textColor = txtColor;
+    _countLabel.numberOfLines = 0;
     // must initialize, otherwise won't be able to see it at first!
-//    _countLabel.text = [NSString stringWithFormat:@"1/%lu", (unsigned long)_pinYinWithoutToneArray.count];
-    _countLabel.text = @"0/0";
+
+    _countLabel.text = @"Correct/All\n0/0";
     
     [self updateCountLabel];
     
@@ -51,10 +51,10 @@
 
 - (void)updateCountLabel
 {
-    _countLabel.text = [NSString stringWithFormat:@"Correct/All: %ld/%lu", (long)_correctNumber, (unsigned long)_currentIndex];
+    _countLabel.text = [NSString stringWithFormat:@"Correct/All\n%ld/%lu", (long)_correctNumber, (unsigned long)_currentIndex];
 }
 
-- (void)setUpCollectionViewAndPageControl
+- (void)setUpCollectionView
 {
     //Item collection
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
@@ -62,10 +62,10 @@
     layout.minimumLineSpacing = 0;
     _itemCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0.0, 0.0, ItemColletionViewWidth, ItemColletionViewHeight) collectionViewLayout:layout];
     layout.itemSize = _itemCollectionView.bounds.size;
-    _itemCollectionView.backgroundColor = [UIColor whiteColor];
     _itemCollectionView.pagingEnabled = YES;
     _itemCollectionView.showsHorizontalScrollIndicator = NO;
-    
+    _itemCollectionView.backgroundColor = bgColor;
+
     [self.view addSubview:_itemCollectionView];
 }
 
@@ -74,15 +74,10 @@
     _backButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_backButton setFrame:CGRectMake(BackButtonXOriginPercent *WIDTH, BackButtonYOriginPercent *HEIGHT, BackButtonWidthPercentWidth*WIDTH, BackButtonHeightPercentWidth*WIDTH)];
     
-    [_backButton setImage:[UIImage imageNamed:@"close-100.png"] forState:UIControlStateNormal];
-    _backButton.showsTouchWhenHighlighted = YES;
+    FAKIonIcons *backIcon = [FAKIonIcons ios7CloseOutlineIconWithSize:BackButtonWidthPercentWidth*WIDTH];
+    UIImage *backImage = [backIcon imageWithSize:CGSizeMake(BackButtonWidthPercentWidth*WIDTH, BackButtonWidthPercentWidth*WIDTH)];
+    [_backButton setImage:backImage forState:UIControlStateNormal];
     
-//    [_backButton setTitle:@"<<Exit" forState:UIControlStateNormal];
-//    [_backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    _backButton.titleLabel.font = [UIFont boldSystemFontOfSize:self.view.frame.size.width * BackButtonFontPercentWidth];
-//    _backButton.layer.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.1].CGColor;
-//    _backButton.layer.borderWidth = 1.0f;
-//    _backButton.layer.cornerRadius = 5.0f;
     [_backButton addTarget:self action:@selector(backToRoot:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:_backButton];
@@ -93,8 +88,7 @@
     _indexLabel = [[UILabel alloc] initWithFrame:CGRectMake(IndexLabelXOriginPercent *WIDTH, IndexLabelYOriginPercent *HEIGHT, IndexLabelWidthPercent *WIDTH, IndexLabelHeightPercent *HEIGHT)];
     _indexLabel.font = [UIFont systemFontOfSize:self.view.frame.size.width * IndexLabelFontPercentWidth];
     _indexLabel.textAlignment = NSTextAlignmentCenter;
-    _indexLabel.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
-    _indexLabel.textColor = [UIColor blackColor];
+    _indexLabel.textColor = txtColor;
     
     // must initialize, otherwise won't be able to see it at first!
     _indexLabel.text = [NSString stringWithFormat:@"1/%lu", (unsigned long)_dataArray.count];

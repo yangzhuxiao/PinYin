@@ -14,7 +14,6 @@
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 
 @property (strong, nonatomic) UICollectionView *itemCollectionView;
-@property (nonatomic, strong) UIPageControl *pageControl;
 
 @property (nonatomic, strong) UIButton *backButton;
 @property (nonatomic, strong) UIButton *autoPlayButton;

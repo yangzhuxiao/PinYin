@@ -18,13 +18,13 @@
 
 // pinyinOneTextField
         _pinyinOneTextField = [[UITextField alloc] initWithFrame:CGRectMake(pinyinOneTextFieldXOriginPercent * frame.size.width, pinyinOneTextFieldYOriginPercent *frame.size.height, pinyinOneTextFieldWidthPercent *frame.size.width, pinyinOneTextFieldHeightPercent *frame.size.height)];
-        _pinyinOneTextField.placeholder = @"Please input pinyin";
+        _pinyinOneTextField.placeholder = @"Input pinyin";
         _pinyinOneTextField.borderStyle = UITextBorderStyleRoundedRect;
         _pinyinOneTextField.textAlignment = NSTextAlignmentCenter;
         
 // pinyinTwoTextField
         _pinyinTwoTextField = [[UITextField alloc] initWithFrame:CGRectMake(pinyinTwoTextFieldXOriginPercent * frame.size.width, pinyinTwoTextFieldYOriginPercent *frame.size.height, pinyinTwoTextFieldWidthPercent *frame.size.width, pinyinTwoTextFieldHeightPercent *frame.size.height)];
-        _pinyinTwoTextField.placeholder = @"Please input pinyin";
+        _pinyinTwoTextField.placeholder = @"Input pinyin";
         _pinyinTwoTextField.borderStyle = UITextBorderStyleRoundedRect;
         _pinyinTwoTextField.textAlignment = NSTextAlignmentCenter;
         
@@ -33,7 +33,7 @@
         _toneLabelOne.font = [UIFont systemFontOfSize:frame.size.width * ToneLabelOneFontPercentWidth];
         _toneLabelOne.textAlignment = NSTextAlignmentCenter;
 //        _toneLabelOne.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
-        _toneLabelOne.textColor = [UIColor blackColor];
+        _toneLabelOne.textColor = txtColor;
 //        _toneLabelOne.layer.borderWidth = 1.0f;
         
 // ToneLabelTwo
@@ -41,7 +41,7 @@
         _toneLabelTwo.font = [UIFont systemFontOfSize:frame.size.width * ToneLabelTwoFontPercentWidth];
         _toneLabelTwo.textAlignment = NSTextAlignmentCenter;
 //        _toneLabelTwo.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
-        _toneLabelTwo.textColor = [UIColor blackColor];
+        _toneLabelTwo.textColor = txtColor;
 //        _toneLabelTwo.layer.borderWidth = 1.0f;
         
         [self.contentView addSubview:_pinyinOneTextField];

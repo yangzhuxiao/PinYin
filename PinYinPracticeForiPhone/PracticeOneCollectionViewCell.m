@@ -20,19 +20,14 @@
         _SelectToneIndicatorLabelOne.text = @" Pick a tone for the first pinyin";
         _SelectToneIndicatorLabelOne.font = [UIFont systemFontOfSize:frame.size.width * SelectToneIndicatorLabelOneFontPercentWidth];
         _SelectToneIndicatorLabelOne.textAlignment = NSTextAlignmentLeft;
-        _SelectToneIndicatorLabelOne.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
-        _SelectToneIndicatorLabelOne.textColor = [UIColor blackColor];
-        _SelectToneIndicatorLabelOne.layer.borderWidth = 1.0f;
+        _SelectToneIndicatorLabelOne.textColor = txtColor;
         
         // SelectToneIndicatorLabel - Two
         _SelectToneIndicatorLabelTwo = [[UILabel alloc] initWithFrame:CGRectMake(SelectToneIndicatorLabelTwoXOriginPercent * frame.size.width, SelectToneIndicatorLabelTwoYOriginPercent *frame.size.height, SelectToneIndicatorLabelTwoWidthPercent * frame.size.width, SelectToneIndicatorLabelTwoHeightPercent * frame.size.height)];
         _SelectToneIndicatorLabelTwo.text = @" Pick a tone for the second pinyin";
         _SelectToneIndicatorLabelTwo.font = [UIFont systemFontOfSize:frame.size.width * SelectToneIndicatorLabelTwoFontPercentWidth];
         _SelectToneIndicatorLabelTwo.textAlignment = NSTextAlignmentLeft;
-        _SelectToneIndicatorLabelTwo.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
-        _SelectToneIndicatorLabelTwo.textColor = [UIColor blackColor];
-        _SelectToneIndicatorLabelTwo.layer.borderWidth = 1.0f;
-        
+        _SelectToneIndicatorLabelTwo.textColor = txtColor;
         
         // ToneButtons
         for (int i = 0; i < 2; i++) {
@@ -64,12 +59,13 @@
                 }
                 
                 [toneButton setTitle:buttonText forState:UIControlStateNormal];
+                [toneButton setTitleColor:txtColor forState:UIControlStateNormal];
                 toneButton.showsTouchWhenHighlighted = YES;
                 
                 toneButton.titleLabel.font = [UIFont systemFontOfSize:frame.size.width * ToneButtonBasicFontPercentWidth];
                 
                 toneButton.layer.borderWidth = 1.0f;
-                toneButton.layer.borderColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.2].CGColor;
+                toneButton.layer.borderColor = bdColor.CGColor;
                 toneButton.layer.cornerRadius = 5.0f;
                 toneButton.tag = i*10+j;
                 [self.contentView addSubview:toneButton];
@@ -80,17 +76,13 @@
         _PinYinLabelOne = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width * PinYinLabelOneXOriginPercent, frame.size.height * PinYinLabelOneYOriginPercent, frame.size.width * PinYinLabelOneWidthPercent, frame.size.height * PinYinLabelOneHeightPercent)];
         _PinYinLabelOne.font = [UIFont systemFontOfSize:frame.size.width * PinYinLabelOneFontPercentWidth];
         _PinYinLabelOne.textAlignment = NSTextAlignmentCenter;
-        _PinYinLabelOne.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
-        _PinYinLabelOne.textColor = [UIColor blackColor];
-        _PinYinLabelOne.layer.borderWidth = 1.0f;
+        _PinYinLabelOne.textColor = txtColor;
         
         // PinYinLabelTwo
         _PinYinLabelTwo = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width * PinYinLabelTwoXOriginPercent, frame.size.height * PinYinLabelTwoYOriginPercent, frame.size.width * PinYinLabelTwoWidthPercent, frame.size.height * PinYinLabelTwoHeightPercent)];
         _PinYinLabelTwo.font = [UIFont systemFontOfSize:frame.size.width * PinYinLabelTwoFontPercentWidth];
         _PinYinLabelTwo.textAlignment = NSTextAlignmentCenter;
-        _PinYinLabelTwo.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
-        _PinYinLabelTwo.textColor = [UIColor blackColor];
-        _PinYinLabelTwo.layer.borderWidth = 1.0f;
+        _PinYinLabelTwo.textColor = txtColor;
 
         [self.contentView addSubview:_SelectToneIndicatorLabelOne];
         [self.contentView addSubview:_SelectToneIndicatorLabelTwo];

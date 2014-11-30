@@ -7,6 +7,8 @@
 //
 
 #import "ItemCollectionViewCell.h"
+#import <FontAwesomeKit/FAKIonIcons.h>
+
 #import "Constants.h"
 
 @implementation ItemCollectionViewCell
@@ -16,23 +18,23 @@
     self = [super initWithFrame:frame];
     if (self) {
         // play button
-        _playButton = [[UIButton alloc] initWithFrame:CGRectMake(PlayButtonXOriginPercent * frame.size.width, PlayButtonYOriginPercent * frame.size.height, PlayButtonWidthPercent * frame.size.width, PlayButtonHeightPercent * frame.size.height)];
-        [_playButton setTitle:@"Replay" forState:UIControlStateNormal];
-        [_playButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        _playButton.titleLabel.font = [UIFont systemFontOfSize:frame.size.width * PlayButtonFontPercentWidth];
-        
-        _playButton.layer.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.2].CGColor;
+        _playButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        [_playButton setFrame:CGRectMake(PlayButtonXOriginPercent * frame.size.width, PlayButtonYOriginPercent * frame.size.height, PlayButtonWidthPercentWidth*frame.size.width, PlayButtonHeightPercentWidth*frame.size.width)];
         _playButton.layer.borderWidth = 1.0f;
-        _playButton.layer.cornerRadius = 5.0f;
+        _playButton.layer.cornerRadius = 3.0f;
+        _playButton.layer.borderColor = bdColor.CGColor;
+        
+        FAKIcon *playIconNormal = [FAKIonIcons ios7PlayIconWithSize:PlayButtonHeightPercentWidth*frame.size.width];
+        playIconNormal.drawingPositionAdjustment = UIOffsetMake(PlayButtonWidthPercentWidth * frame.size.width*0.05, 0);
+        UIImage *playImageNormal = [playIconNormal imageWithSize:CGSizeMake(_playButton.frame.size.width, _playButton.frame.size.height)];
+        [_playButton setImage:playImageNormal forState:UIControlStateNormal];
+        _playButton.showsTouchWhenHighlighted = YES;
         
         // word label
         _wordLabel = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width * WordLabelXOriginPercent, frame.size.height * WordLabelYOriginPercent, frame.size.width * WordLabelWidthPercent, frame.size.height * WordLabelHeightPercent)];
         _wordLabel.font = [UIFont systemFontOfSize:frame.size.width * WordLabelFontPercentWidth];
         _wordLabel.textAlignment = NSTextAlignmentCenter;
-        _wordLabel.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
-        _wordLabel.textColor = [UIColor blackColor];
-        _wordLabel.layer.borderWidth = 1.0f;
-//        _wordLabel.layer.cornerRadius = 8.0f;
+        _wordLabel.textColor = txtColor;
         
         [self.contentView addSubview:_playButton];
         [self.contentView addSubview:_wordLabel];

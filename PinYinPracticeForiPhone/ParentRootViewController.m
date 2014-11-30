@@ -15,6 +15,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // watch the order!
+    self.view.backgroundColor = [UIColor whiteColor];
     [self setUpListenCollectionView];
     [self setUpViewTitleLabel];
 }
@@ -24,9 +25,8 @@
     _viewTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(TitleLabelXOffset, TitleLabelYOffset, TitleLabelWidth, TitleLabelHeight)];
     _viewTitleLabel.numberOfLines = 0;
     _viewTitleLabel.textAlignment = NSTextAlignmentCenter;
-    _viewTitleLabel.textColor = [UIColor blackColor];
+    _viewTitleLabel.textColor = txtColor;
     _viewTitleLabel.font = [UIFont systemFontOfSize:TitleLabelFontPercentWidth * WIDTH];
-    _viewTitleLabel.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.2];
     [self.view addSubview:_viewTitleLabel];
 }
 
@@ -47,10 +47,7 @@
     [_categoryCollectionView registerClass:[ParentRootCollectionViewCell class] forCellWithReuseIdentifier:@"ListenCell"];
     
     [self.view addSubview:_categoryCollectionView];
-    _categoryCollectionView.backgroundColor = [UIColor colorWithRed:0 green:1 blue:0 alpha:0.1];
-    
-    //    self.view.backgroundColor = [UIColor colorWithRed:0.8 green:0.8 blue:0 alpha:1];
-    
+    _categoryCollectionView.backgroundColor = bgColor;
 }
 
 #pragma mark - UICollectionView Data Source

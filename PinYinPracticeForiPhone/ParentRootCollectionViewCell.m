@@ -21,24 +21,27 @@
         _contentLabel.textAlignment = NSTextAlignmentCenter;
         _contentLabel.font = [UIFont systemFontOfSize:listenCellLabelFontPercentWidth * frame.size.width];
         _contentLabel.numberOfLines = 0;
+        [_contentLabel setTextColor:txtColor];
         [self.contentView addSubview:_contentLabel];
         
-        CGRect buttonRect = CGRectMake(frame.size.width * 0.15, frame.size.height * 0.75, frame.size.width * 0.7, frame.size.height * 0.12);
+        CGRect buttonRect = CGRectMake(frame.size.width * 0.1, frame.size.height * 0.75, frame.size.width * 0.8, frame.size.height * 0.15);
         _selectButton = [[UIButton alloc] initWithFrame:buttonRect];
+        _selectButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+        _selectButton.titleLabel.numberOfLines = 0;
         
-        [_selectButton setTitle:@"Press to enter" forState:UIControlStateNormal];
-        [_selectButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_selectButton setTitle:@"Pick the tone of \nthe second charater" forState:UIControlStateNormal];
+        [_selectButton setTitleColor:txtColor forState:UIControlStateNormal];
         _selectButton.titleLabel.font = [UIFont systemFontOfSize:listenCellButtonFontPercentWidth * frame.size.width];
+        _selectButton.backgroundColor = [UIColor whiteColor];
         
         [_selectButton sendActionsForControlEvents:UIControlEventTouchUpInside];
-        _selectButton.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5];
+        _selectButton.layer.cornerRadius = 5.0;
         [self.contentView addSubview:_selectButton];
         
         UIView *bgView = [[UIView alloc] initWithFrame:frame];
-        bgView.layer.borderColor = [UIColor blueColor].CGColor;
-        bgView.layer.borderWidth = 1.0;
+
         self.backgroundView = bgView;
-        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.2];
+        self.backgroundColor = [UIColor colorWithRed:204/255 green:204/255 blue:1 alpha:0.2];
     }
     return self;
 }

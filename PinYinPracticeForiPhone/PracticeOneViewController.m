@@ -78,9 +78,10 @@
     [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
     
     // must do this, otherwise the buttons will be seen !
-    _selectedCell.confirmSelectionButton.hidden = NO;
     cell.congratulateLabel.hidden = YES;
     cell.righAnswerLabel.hidden = YES;
+    _selectedCell.confirmSelectionButton.hidden = NO;
+
     
     // store the right tones for latter comparing use
     self.firstTone = [[self.currentPhrase tones] substringToIndex:toneStringLength];
