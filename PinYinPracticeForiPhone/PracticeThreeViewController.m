@@ -55,6 +55,7 @@
         _selectedCell.righAnswerLabel.hidden = NO;
     }
     _selectedCell.confirmSelectionButton.hidden = YES;
+    self.currentIndex ++;
     [self updateCountLabel];
 }
 

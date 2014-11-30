@@ -163,7 +163,7 @@ static const CGFloat PickerXOriginPercent = 0;
 static const CGFloat PickerYOriginPercent = 0.2;
 
 // Auto-scrolling timeInterval
-static const NSTimeInterval ScrollingTimeInterval = 2;
+static const NSTimeInterval ScrollingTimeInterval = 2.5;
 
 
 #pragma mark - Practice Two

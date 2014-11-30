@@ -11,7 +11,7 @@
 
 @interface ListenRootViewController : ParentRootViewController <UIActionSheetDelegate >
 
-@property (nonatomic, assign) NSInteger tag;
+@property (nonatomic, assign) int tag;
 
 @end
 

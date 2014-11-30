@@ -22,6 +22,7 @@ static const NSString *fallingToneString = @"ˋ";
     
     //correctNumber is initialized as 0
     _correctNumber = 0;
+    _currentIndex = 0;
     
     // must not be omitted, otherwise the color of subview "collectionView" will crash
     self.view.backgroundColor = [UIColor whiteColor];
@@ -122,7 +123,8 @@ static const NSString *fallingToneString = @"ˋ";
     _countLabel.textColor = [UIColor blackColor];
     
     // must initialize, otherwise won't be able to see it at first!
-    _countLabel.text = [NSString stringWithFormat:@"1/%lu", (unsigned long)_pinYinWithoutToneArray.count];
+//    _countLabel.text = [NSString stringWithFormat:@"1/%lu", (unsigned long)_pinYinWithoutToneArray.count];
+    _countLabel.text = @"0/0";
     
     [self updateCountLabel];
     
@@ -131,7 +133,7 @@ static const NSString *fallingToneString = @"ˋ";
 
 - (void)updateCountLabel
 {
-    _countLabel.text = [NSString stringWithFormat:@"Correct/All: %ld/%lu", (long)_correctNumber, (unsigned long)_pinYinWithoutToneArray.count];
+    _countLabel.text = [NSString stringWithFormat:@"Correct/All: %ld/%lu", (long)_correctNumber, (unsigned long)_currentIndex];
 }
 
 - (void)setUpCollectionViewAndPageControl
@@ -152,7 +154,7 @@ static const NSString *fallingToneString = @"ˋ";
 - (void)setUpBackButton
 {
     _backButton = [[UIButton alloc] initWithFrame:CGRectMake(BackButtonXOriginPercent *WIDTH, BackButtonYOriginPercent *HEIGHT, BackButtonWidthPercent *WIDTH, BackButtonHeightPercent *HEIGHT)];
-    [_backButton setTitle:@"<<Back" forState:UIControlStateNormal];
+    [_backButton setTitle:@"<<Exit" forState:UIControlStateNormal];
     [_backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _backButton.titleLabel.font = [UIFont boldSystemFontOfSize:self.view.frame.size.width * BackButtonFontPercentWidth];
     _backButton.layer.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.1].CGColor;
@@ -212,7 +214,6 @@ static const NSString *fallingToneString = @"ˋ";
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     int index = fabs(scrollView.contentOffset.x)/self.view.frame.size.width;
-    
     // figure out the page down the view, must be "index+1", otherwise will start from 0
     _indexLabel.text = [NSString stringWithFormat:@"%d/%lu", index+1, (unsigned long)_pinYinWithoutToneArray.count];
 }

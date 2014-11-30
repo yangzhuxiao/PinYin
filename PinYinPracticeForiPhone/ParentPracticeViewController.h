@@ -33,6 +33,8 @@
 @property (nonatomic, copy) NSString *secondPinyin;
 
 @property (nonatomic, assign) NSInteger correctNumber;
+@property (nonatomic, assign) NSInteger currentIndex;
+
 
 - (void)updateCountLabel;
 

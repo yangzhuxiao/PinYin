@@ -10,8 +10,10 @@
 
 @interface PhraseManager : NSObject
 
-+ (NSArray *)allPhrasesArray;
++ (PhraseManager *)sharedManager;
 
-+ (NSArray *)arrayWithCharactersAndMp3FilesForFirstTone:(NSInteger)firstTone andSecondTone:(NSInteger)secondTone;
+- (NSMutableArray *)allPhrasesArray;
+
+- (NSMutableArray *)phrasesArrayForTag:(int)tag;
 
 @end
