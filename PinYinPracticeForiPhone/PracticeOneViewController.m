@@ -8,6 +8,7 @@
 
 #import "PracticeOneViewController.h"
 #import "PracticeOneCollectionViewCell.h"
+#import "Constants.h"
 
 @implementation PracticeOneViewController
 
@@ -34,11 +35,15 @@
 }
 
 - (void)toneIsSelected:(id)sender {
-    [sender setSelected:YES];
-    
     if ([sender tag] >= 10) {
+        [self.selectedButtonSecondRow setSelected:NO];
+        self.selectedButtonSecondRow = sender;
+        [self.selectedButtonSecondRow setSelected:YES];
         self.tempSecondTone = [sender titleLabel].text;
     } else if ([sender tag] < 10) {
+        [self.selectedButtonFirstRow setSelected:NO];
+        self.selectedButtonFirstRow = sender;
+        [self.selectedButtonFirstRow setSelected:YES];
         self.tempFirstTone = [sender titleLabel].text;
     }
 }
@@ -78,8 +83,8 @@
     cell.righAnswerLabel.hidden = YES;
     
     // store the right tones for latter comparing use
-    self.firstTone = [[self.currentPhrase tones] substringToIndex:1];
-    self.secondTone = [[self.currentPhrase tones] substringFromIndex:1];
+    self.firstTone = [[self.currentPhrase tones] substringToIndex:toneStringLength];
+    self.secondTone = [[self.currentPhrase tones] substringFromIndex:toneStringLength];
     
     NSArray *pinYinWithoutTones = [[self.currentPhrase pinyinWithoutTones] componentsSeparatedByString:@" "];
     
@@ -100,11 +105,7 @@
             [subview addTarget:self action:@selector(toneIsSelected:) forControlEvents:UIControlEventTouchUpInside];
         }
     }
-    
-//    [self.audioPlayer stop];
-//    self.audioPlayer.currentTime = 0;
-//    [self.audioPlayer play];
-//    
+
     _selectedCell = cell;
     return cell;
 }

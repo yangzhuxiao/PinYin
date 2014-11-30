@@ -28,21 +28,21 @@
         _pinyinTwoTextField.borderStyle = UITextBorderStyleRoundedRect;
         _pinyinTwoTextField.textAlignment = NSTextAlignmentCenter;
         
-// PinYinLabelOne
+// ToneLabelOne
         _toneLabelOne = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width * ToneLabelOneXOriginPercent, frame.size.height * ToneLabelOneYOriginPercent, frame.size.width * ToneLabelOneWidthPercent, frame.size.height * ToneLabelOneHeightPercent)];
         _toneLabelOne.font = [UIFont systemFontOfSize:frame.size.width * ToneLabelOneFontPercentWidth];
         _toneLabelOne.textAlignment = NSTextAlignmentCenter;
-        _toneLabelOne.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
+//        _toneLabelOne.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
         _toneLabelOne.textColor = [UIColor blackColor];
-        _toneLabelOne.layer.borderWidth = 1.0f;
+//        _toneLabelOne.layer.borderWidth = 1.0f;
         
-// PinYinLabelTwo
+// ToneLabelTwo
         _toneLabelTwo = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width * ToneLabelTwoXOriginPercent, frame.size.height * ToneLabelTwoYOriginPercent, frame.size.width * ToneLabelTwoWidthPercent, frame.size.height * ToneLabelTwoHeightPercent)];
         _toneLabelTwo.font = [UIFont systemFontOfSize:frame.size.width * ToneLabelTwoFontPercentWidth];
         _toneLabelTwo.textAlignment = NSTextAlignmentCenter;
-        _toneLabelTwo.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
+//        _toneLabelTwo.layer.backgroundColor = [UIColor colorWithRed:0.2 green:0.6 blue:0.3 alpha:0.2].CGColor;
         _toneLabelTwo.textColor = [UIColor blackColor];
-        _toneLabelTwo.layer.borderWidth = 1.0f;
+//        _toneLabelTwo.layer.borderWidth = 1.0f;
         
         [self.contentView addSubview:_pinyinOneTextField];
         [self.contentView addSubview:_pinyinTwoTextField];

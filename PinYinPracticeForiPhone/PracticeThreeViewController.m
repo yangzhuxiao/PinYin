@@ -8,7 +8,7 @@
 
 #import "PracticeThreeViewController.h"
 #import "PracticeThreeCollectionViewCell.h"
-
+#import "Constants.h"
 @implementation PracticeThreeViewController
 
 - (void)viewDidLoad {
@@ -38,8 +38,14 @@
     [sender setSelected:YES];
     
     if ([sender tag] >= 10) {
+        [self.selectedButtonSecondRow setSelected:NO];
+        self.selectedButtonSecondRow = sender;
+        [self.selectedButtonSecondRow setSelected:YES];
         self.tempSecondTone = [sender titleLabel].text;
     } else if ([sender tag] < 10) {
+        [self.selectedButtonFirstRow setSelected:NO];
+        self.selectedButtonFirstRow = sender;
+        [self.selectedButtonFirstRow setSelected:YES];
         self.tempFirstTone = [sender titleLabel].text;
     }
 }
@@ -84,8 +90,8 @@
 
     
     // store the right tones for latter comparing use
-    self.firstTone = [[self.currentPhrase tones] substringToIndex:1];
-    self.secondTone = [[self.currentPhrase tones] substringFromIndex:1];
+    self.firstTone = [[self.currentPhrase tones] substringToIndex:toneStringLength];
+    self.secondTone = [[self.currentPhrase tones] substringFromIndex:toneStringLength];
     
     // store the right pinyin for latter comparing use
     NSArray *pinYinWithoutTones = [[self.currentPhrase pinyinWithoutTones] componentsSeparatedByString:@" "];

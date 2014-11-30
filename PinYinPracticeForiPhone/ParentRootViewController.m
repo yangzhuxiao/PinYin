@@ -14,7 +14,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _selectedCellIndex = 0;
     // watch the order!
     [self setUpListenCollectionView];
     [self setUpViewTitleLabel];

@@ -37,38 +37,42 @@
         // ToneButtons
         for (int i = 0; i < 2; i++) {
             for (int j=0; j<5; j++) {
-                UIButton *toneLabel = [[UIButton alloc] initWithFrame:CGRectMake((ToneButtonBasicXOriginPercent + j * ToneButtonXSpaceWidthPercent) * frame.size.width, (ToneButtonBasicYOriginPercent + i * ToneButtonYSpaceHeightPercent) *frame.size.height, ToneButtonBasicWidthPercent * frame.size.width, ToneButtonBasicHeightPercent * frame.size.height)];
+                
+                UIButton *toneButton = [UIButton buttonWithType:UIButtonTypeSystem];
+                [toneButton setFrame:CGRectMake((ToneButtonBasicXOriginPercent + j * ToneButtonXSpaceWidthPercent) * frame.size.width, (ToneButtonBasicYOriginPercent + i * ToneButtonYSpaceHeightPercent) *frame.size.height, ToneButtonBasicWidthPercent * frame.size.width, ToneButtonBasicHeightPercent * frame.size.height)];
                 
                 NSString *buttonText;
                 switch (j) {
                     case 0:
-                        buttonText = @"ˉ";
+                        buttonText = (NSString *)firstToneString;
                         break;
                     case 1:
-                        buttonText = @"ˊ";
+                        buttonText = (NSString *)secondToneString;
                         break;
                     case 2:
-                        buttonText = @"ˇ";
+                        buttonText = (NSString *)thirdToneString;
                         break;
                     case 3:
-                        buttonText = @"ˋ";
+                        buttonText = (NSString *)fourthToneString;
                         break;
                     case 4:
-                        buttonText = @"·";
+                        buttonText = (NSString *)lightToneString;
                         break;
                         
                     default:
                         break;
                 }
-                [toneLabel setTitle:buttonText forState:UIControlStateNormal];
-                [toneLabel setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-                toneLabel.titleLabel.font = [UIFont systemFontOfSize:frame.size.width * ToneButtonBasicFontPercentWidth];
                 
-                toneLabel.layer.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.2].CGColor;
-                toneLabel.layer.borderWidth = 1.0f;
-                toneLabel.layer.cornerRadius = 5.0f;
-                toneLabel.tag = i*10+j;
-                [self.contentView addSubview:toneLabel];
+                [toneButton setTitle:buttonText forState:UIControlStateNormal];
+                toneButton.showsTouchWhenHighlighted = YES;
+                
+                toneButton.titleLabel.font = [UIFont systemFontOfSize:frame.size.width * ToneButtonBasicFontPercentWidth];
+                
+                toneButton.layer.borderWidth = 1.0f;
+                toneButton.layer.borderColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.2].CGColor;
+                toneButton.layer.cornerRadius = 5.0f;
+                toneButton.tag = i*10+j;
+                [self.contentView addSubview:toneButton];
             }
         }
         

@@ -8,6 +8,7 @@
 
 #import "PracticeTwoViewController.h"
 #import "PracticeTwoCollectionViewCell.h"
+#import "Constants.h"
 
 @implementation PracticeTwoViewController
 
@@ -74,8 +75,8 @@
     self.firstPinyin = pinYinWithoutTones[0];
     self.secondPinyin = pinYinWithoutTones[1];
     
-    cell.toneLabelOne.text = [[self.currentPhrase tones] substringToIndex:1];
-    cell.toneLabelTwo.text = [[self.currentPhrase tones] substringFromIndex:1];
+    cell.toneLabelOne.text = [[self.currentPhrase tones] substringToIndex:toneStringLength];
+    cell.toneLabelTwo.text = [[self.currentPhrase tones] substringFromIndex:toneStringLength];
     
     cell.righAnswerLabel.text = [NSString stringWithFormat:@"Sorry! The answer is \n\" %@\"", self.currentPhrase.pinyinFull];
     

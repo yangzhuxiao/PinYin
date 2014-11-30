@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		97134EA71A2435D5009A748D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97134EA61A2435D5009A748D /* AVFoundation.framework */; };
 		97134EAC1A2447D8009A748D /* ListenItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97134EAB1A2447D8009A748D /* ListenItemViewController.m */; };
+		97422C331A2B078F00CFA5B8 /* close-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 97422C321A2B078E00CFA5B8 /* close-100.png */; };
+		97422C371A2B0B1400CFA5B8 /* listen-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 97422C361A2B0B1400CFA5B8 /* listen-30.png */; };
+		97422C391A2B0C4200CFA5B8 /* listen-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 97422C381A2B0C4200CFA5B8 /* listen-100.png */; };
 		97616FD31A22D0AB00C3CBD1 /* ListenCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97616FD21A22D0AB00C3CBD1 /* ListenCollectionViewCell.m */; };
 		97616FD61A23201000C3CBD1 /* ParentRootViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 97616FD51A23201000C3CBD1 /* ParentRootViewFlowLayout.m */; };
 		97891A971A26199C00FBE71F /* PracticeOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97891A961A26199C00FBE71F /* PracticeOneViewController.m */; };
@@ -50,6 +53,9 @@
 		97134EA61A2435D5009A748D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		97134EAA1A2447D8009A748D /* ListenItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenItemViewController.h; sourceTree = "<group>"; };
 		97134EAB1A2447D8009A748D /* ListenItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenItemViewController.m; sourceTree = "<group>"; };
+		97422C321A2B078E00CFA5B8 /* close-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-100.png"; sourceTree = "<group>"; };
+		97422C361A2B0B1400CFA5B8 /* listen-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listen-30.png"; sourceTree = "<group>"; };
+		97422C381A2B0C4200CFA5B8 /* listen-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listen-100.png"; sourceTree = "<group>"; };
 		97616FD11A22D0AB00C3CBD1 /* ListenCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenCollectionViewCell.h; sourceTree = "<group>"; };
 		97616FD21A22D0AB00C3CBD1 /* ListenCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenCollectionViewCell.m; sourceTree = "<group>"; };
 		97616FD41A23201000C3CBD1 /* ParentRootViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentRootViewFlowLayout.h; sourceTree = "<group>"; };
@@ -186,6 +192,7 @@
 				97891A941A26154700FBE71F /* Practice */,
 				9789D8F21A220D5600298C9B /* Main.storyboard */,
 				9789D8F51A220D5600298C9B /* Images.xcassets */,
+				97422C381A2B0C4200CFA5B8 /* listen-100.png */,
 				9789D8F71A220D5600298C9B /* LaunchScreen.xib */,
 				9789D8E51A220D5600298C9B /* Supporting Files */,
 			);
@@ -197,6 +204,8 @@
 			children = (
 				9789D8E61A220D5600298C9B /* Info.plist */,
 				97C897A51A28E02400C56490 /* FinalPinYinList.txt */,
+				97422C321A2B078E00CFA5B8 /* close-100.png */,
+				97422C361A2B0B1400CFA5B8 /* listen-30.png */,
 				97C897A71A28E03D00C56490 /* FullPinyin */,
 				9789D8E71A220D5600298C9B /* main.m */,
 			);
@@ -371,7 +380,10 @@
 				9789D8F41A220D5600298C9B /* Main.storyboard in Resources */,
 				9789D8F91A220D5600298C9B /* LaunchScreen.xib in Resources */,
 				97C897A61A28E02400C56490 /* FinalPinYinList.txt in Resources */,
+				97422C371A2B0B1400CFA5B8 /* listen-30.png in Resources */,
 				9789D8F61A220D5600298C9B /* Images.xcassets in Resources */,
+				97422C331A2B078F00CFA5B8 /* close-100.png in Resources */,
+				97422C391A2B0C4200CFA5B8 /* listen-100.png in Resources */,
 				97C897A81A28E03D00C56490 /* FullPinyin in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Listen" id="8UZ-eQ-Ffr"/>
+                    <tabBarItem key="tabBarItem" title="Listen" image="listen-100.png" id="8UZ-eQ-Ffr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,6 +75,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="listen-100.png" width="100" height="100"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>

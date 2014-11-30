@@ -66,13 +66,19 @@
 
 - (void)setUpBackButton
 {
-    _backButton = [[UIButton alloc] initWithFrame:CGRectMake(BackButtonXOriginPercent *WIDTH, BackButtonYOriginPercent *HEIGHT, BackButtonWidthPercent *WIDTH, BackButtonHeightPercent *HEIGHT)];
-    [_backButton setTitle:@"<<Exit" forState:UIControlStateNormal];
-    [_backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    _backButton.titleLabel.font = [UIFont boldSystemFontOfSize:self.view.frame.size.width * BackButtonFontPercentWidth];
-    _backButton.layer.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.1].CGColor;
-    _backButton.layer.borderWidth = 1.0f;
-    _backButton.layer.cornerRadius = 5.0f;
+    _backButton = [UIButton buttonWithType:UIButtonTypeSystem];
+
+    [_backButton setFrame:CGRectMake(BackButtonXOriginPercent *WIDTH, BackButtonYOriginPercent *HEIGHT, BackButtonWidthPercentWidth*WIDTH, BackButtonHeightPercentWidth*WIDTH)];
+    
+    [_backButton setImage:[UIImage imageNamed:@"close-100.png"] forState:UIControlStateNormal];
+    _backButton.showsTouchWhenHighlighted = YES;
+    
+//    [_backButton setTitle:@"<<Exit" forState:UIControlStateNormal];
+//    [_backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+////    _backButton.titleLabel.font = [UIFont boldSystemFontOfSize:self.view.frame.size.width * BackButtonFontPercentWidth];
+//    _backButton.layer.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.1].CGColor;
+//    _backButton.layer.borderWidth = 1.0f;
+//    _backButton.layer.cornerRadius = 5.0f;
     [_backButton addTarget:self action:@selector(backToRoot:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:_backButton];

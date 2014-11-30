@@ -16,7 +16,7 @@
     // Override point for customization after application launch.
     
     [[PhraseManager sharedManager] allPhrasesArray];
-    
+        
 // construct plist file
 
 //    NSString *textPath = @"/Users/yangxiaozhu/Desktop/test.txt";

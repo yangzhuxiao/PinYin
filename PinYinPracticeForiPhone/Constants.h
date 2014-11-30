@@ -9,6 +9,16 @@
 #ifndef PinYinPracticeForiPhone_Constants_h
 #define PinYinPracticeForiPhone_Constants_h
 
+#import <UIKit/UIKit.h>
+// tones
+
+static const NSString *firstToneString =  @"  ˉ  ";
+static const NSString *secondToneString = @"  ˊ  ";
+static const NSString *thirdToneString =  @"  ˇ  ";
+static const NSString *fourthToneString = @"  ˋ  ";
+static const NSString *lightToneString =  @"     ";
+static const NSInteger toneStringLength = 5;
+
 // View frame size
 #define WIDTH self.view.frame.size.width
 #define HEIGHT self.view.frame.size.height
@@ -57,11 +67,10 @@ static const CGFloat PlayButtonYOriginPercent = 0.7;
 static const CGFloat PlayButtonFontPercentWidth = 0.07;
 
 // BackButton size
-static const CGFloat BackButtonWidthPercent = 0.25;
-static const CGFloat BackButtonHeightPercent = 0.08;
+static const CGFloat BackButtonWidthPercentWidth = 0.10;
+static const CGFloat BackButtonHeightPercentWidth = 0.10;
 static const CGFloat BackButtonXOriginPercent = 0.0469;
 static const CGFloat BackButtonYOriginPercent = 0.0528;
-static const CGFloat BackButtonFontPercentWidth = 0.05;
 
 // AutoPlayButton size
 static const CGFloat autoPlayButtonWidthPercent = 0.25;
@@ -126,7 +135,7 @@ static const CGFloat ToneButtonBasicWidthPercent = 0.15;
 static const CGFloat ToneButtonBasicHeightPercent = 0.06;
 static const CGFloat ToneButtonBasicXOriginPercent = 0.12;
 static const CGFloat ToneButtonBasicYOriginPercent = 0.42;
-static const CGFloat ToneButtonBasicFontPercentWidth = 0.05;
+static const CGFloat ToneButtonBasicFontPercentWidth = 0.1;
 
 // confirmSelectionButton
 static const CGFloat confirmSelectionButtonWidthPercent = 0.4;

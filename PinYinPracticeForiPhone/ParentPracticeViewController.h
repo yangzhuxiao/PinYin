@@ -20,6 +20,9 @@
 @property (nonatomic, strong) UILabel *indexLabel;
 @property (nonatomic, strong) UILabel *countLabel;
 
+@property (nonatomic, strong) UIButton *selectedButtonFirstRow;
+@property (nonatomic, strong) UIButton *selectedButtonSecondRow;
+
 // Data
 @property (nonatomic, copy) NSArray *dataArray;
 

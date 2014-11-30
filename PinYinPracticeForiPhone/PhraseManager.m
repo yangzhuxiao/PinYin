@@ -8,6 +8,7 @@
 
 #import "PhraseManager.h"
 #import "Phrase.h"
+#import "Constants.h"
 
 @interface PhraseManager()
 {
@@ -107,19 +108,19 @@
     NSString *tone;
     switch (toneNumber) {
         case 1:
-            tone = @"ˉ";
+            tone = (NSString *)firstToneString;
             break;
         case 2:
-            tone = @"ˊ";
+            tone = (NSString *)secondToneString;
             break;
         case 3:
-            tone = @"ˇ";
+            tone = (NSString *)thirdToneString;
             break;
         case 4:
-            tone = @"ˋ";
+            tone = (NSString *)fourthToneString;
             break;
         case 5:
-            tone = @"·";
+            tone = (NSString *)lightToneString;
             break;
         default:
             tone = @"";
