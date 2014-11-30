@@ -50,12 +50,17 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.pinYinWithoutToneArray.count;
+    return self.dataArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     PracticeTwoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TwoCell" forIndexPath: indexPath];
+    
+    self.currentPhrase = self.dataArray[indexPath.row];
+    
+    // play once immediately
+    [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
     
     // must do this, otherwise the two buttons will be seen !
     _selectedCell.confirmSelectionButton.hidden= NO;
@@ -65,27 +70,40 @@
     cell.pinyinTwoTextField.text = @"";
 
     // store the right pinyin for latter comparing use
-    NSString *pinyinString = self.pinYinWithoutToneArray[indexPath.row];
-    NSArray *pinyinArray = [pinyinString componentsSeparatedByString:@" "];
-    self.firstPinyin = pinyinArray[0];
-    self.secondPinyin = pinyinArray[1];
+    NSArray *pinYinWithoutTones = [[self.currentPhrase pinyinWithoutTones] componentsSeparatedByString:@" "];
+    self.firstPinyin = pinYinWithoutTones[0];
+    self.secondPinyin = pinYinWithoutTones[1];
     
-    cell.toneLabelOne.text = self.tonesArray[indexPath.row][0];
-    cell.toneLabelTwo.text = self.tonesArray[indexPath.row][1];
+    cell.toneLabelOne.text = [[self.currentPhrase tones] substringToIndex:1];
+    cell.toneLabelTwo.text = [[self.currentPhrase tones] substringFromIndex:1];
     
-    cell.righAnswerLabel.text = [NSString stringWithFormat:@"Sorry! The answer is \n\" %@\"", self.pinYinWithToneArray[indexPath.row]];
+    cell.righAnswerLabel.text = [NSString stringWithFormat:@"Sorry! The answer is \n\" %@\"", self.currentPhrase.pinyinFull];
     
+    // set textfield's delegate
+    cell.pinyinOneTextField.delegate = self;
+    cell.pinyinTwoTextField.delegate = self;
+
     // register for touch event
     [cell.playButton addTarget:self action:@selector(playMP3File:) forControlEvents:UIControlEventTouchUpInside];
     // register for confimation Input
     [cell.confirmSelectionButton addTarget:self action:@selector(confirmSelection:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.audioPlayer stop];
-    self.audioPlayer.currentTime = 0;
-    [self.audioPlayer play];
-    
     _selectedCell = cell;
     return cell;
 }
 
+#pragma mark - UITextField Delegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 @end
+
+
+
+
+
+

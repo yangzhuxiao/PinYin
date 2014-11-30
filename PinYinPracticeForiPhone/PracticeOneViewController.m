@@ -60,12 +60,17 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.pinYinWithoutToneArray.count;
+    return self.dataArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     PracticeOneCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"OneCell" forIndexPath: indexPath];
+    
+    self.currentPhrase = self.dataArray[indexPath.row];
+    
+    // play once immediately
+    [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
     
     // must do this, otherwise the buttons will be seen !
     _selectedCell.confirmSelectionButton.hidden = NO;
@@ -73,17 +78,15 @@
     cell.righAnswerLabel.hidden = YES;
     
     // store the right tones for latter comparing use
-    self.firstTone = self.tonesArray[indexPath.row][0];
-    self.secondTone = self.tonesArray[indexPath.row][1];
+    self.firstTone = [[self.currentPhrase tones] substringToIndex:1];
+    self.secondTone = [[self.currentPhrase tones] substringFromIndex:1];
     
-    NSArray *pinYinArrayWithoutTone = [self.pinYinWithoutToneArray[indexPath.row] componentsSeparatedByString:@" "];
+    NSArray *pinYinWithoutTones = [[self.currentPhrase pinyinWithoutTones] componentsSeparatedByString:@" "];
     
-    if (pinYinArrayWithoutTone.count == 2) {
-        cell.PinYinLabelOne.text = pinYinArrayWithoutTone[0];
-        cell.PinYinLabelTwo.text = pinYinArrayWithoutTone[1];
-        cell.tag = indexPath.row;
-        cell.righAnswerLabel.text = [NSString stringWithFormat:@"Sorry! The answer is \n\" %@\"", self.pinYinWithToneArray[indexPath.row]];
-    }
+    cell.PinYinLabelOne.text = pinYinWithoutTones[0];
+    cell.PinYinLabelTwo.text = pinYinWithoutTones[1];
+    cell.tag = indexPath.row;
+    cell.righAnswerLabel.text = [NSString stringWithFormat:@"Sorry! The answer is \n\" %@\"", self.currentPhrase.pinyinFull];
     
     // register for touch event
     [cell.playButton addTarget:self action:@selector(playMP3File:) forControlEvents:UIControlEventTouchUpInside];
@@ -98,10 +101,10 @@
         }
     }
     
-    [self.audioPlayer stop];
-    self.audioPlayer.currentTime = 0;
-    [self.audioPlayer play];
-    
+//    [self.audioPlayer stop];
+//    self.audioPlayer.currentTime = 0;
+//    [self.audioPlayer play];
+//    
     _selectedCell = cell;
     return cell;
 }

@@ -7,6 +7,7 @@
 //
 
 #import "ParentPracticeViewController.h"
+#import "PhraseManager.h"
 #import "Constants.h"
 
 static const NSString *lightToneString = @"light";
@@ -26,83 +27,7 @@ static const NSString *fallingToneString = @"ˋ";
     
     // must not be omitted, otherwise the color of subview "collectionView" will crash
     self.view.backgroundColor = [UIColor whiteColor];
-    NSMutableArray *dataArray = [NSMutableArray array];
-    NSString *plistPath = @"/Users/yangxiaozhu/Desktop/practice11.plist";
-    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-    
-    // pinyin without tones array
-    for (id item in data) {
-        [dataArray addObject:item];
-    }
-    _pinYinWithoutToneArray = [data allKeys];
-    
-    // all tones array
-    dataArray = [NSMutableArray array];
-    for (NSString *key in _pinYinWithoutToneArray) {
-        NSString *firstTone;
-        NSString *secondTone;
-        id value = [data valueForKey:key];
-        int firstToneNumber = [value intValue]/10;
-        int secondToneNumber = [value intValue]%10;
-        
-        switch (firstToneNumber) {
-            case 0:
-                firstTone = (NSString *)lightToneString;
-                break;
-            case 1:
-                firstTone = (NSString *)levelToneString;
-                break;
-            case 2:
-                firstTone = (NSString *)risingToneString;
-                break;
-            case 3:
-                firstTone = (NSString *)fallingRisingToneString;
-                break;
-            case 4:
-                firstTone = (NSString *)fallingToneString;
-                break;
-            default:
-                firstTone = @"";
-                break;
-        }
-        
-        switch (secondToneNumber) {
-            case 0:
-                secondTone = (NSString *)lightToneString;
-                break;
-            case 1:
-                secondTone = (NSString *)levelToneString;
-                break;
-            case 2:
-                secondTone = (NSString *)risingToneString;
-                break;
-            case 3:
-                secondTone = (NSString *)fallingRisingToneString;
-                break;
-            case 4:
-                secondTone = (NSString *)fallingToneString;
-                break;
-            default:
-                secondTone = @"";
-                break;
-        }
-        NSArray *unitArray = [NSArray array];
-        unitArray = @[firstTone, secondTone];
-        [dataArray addObject:unitArray];
-    }
-    _tonesArray = dataArray;
-    
-    // pinyin with tones array
-    dataArray = [NSMutableArray array];
-    plistPath = @"/Users/yangxiaozhu/Desktop/practice12.plist";
-    data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-    
-    for (NSString *key in _pinYinWithoutToneArray) {
-        id value = [data valueForKey:key];
-        [dataArray addObject:value];
-    }
-    _pinYinWithToneArray = dataArray;
-    
+    _dataArray = [[PhraseManager sharedManager] randomOrderedAllPhrases];
     
     // The order of the following three must not be changed !
     [self setUpCollectionViewAndPageControl];
@@ -110,7 +35,6 @@ static const NSString *fallingToneString = @"ˋ";
     [self setUpIndexLabel];
     
     // repare audioPlayer and play once
-    [self setUpAudioPlayer];
     [self setUpCountLabel];
 }
 
@@ -174,19 +98,22 @@ static const NSString *fallingToneString = @"ˋ";
     _indexLabel.textColor = [UIColor blackColor];
     
     // must initialize, otherwise won't be able to see it at first!
-    _indexLabel.text = [NSString stringWithFormat:@"1/%lu", (unsigned long)_pinYinWithoutToneArray.count];
+    _indexLabel.text = [NSString stringWithFormat:@"1/%lu", (unsigned long)_dataArray.count];
     
     [self.view addSubview:_indexLabel];
 }
 
-- (void)setUpAudioPlayer
+- (void)setUpAudioPlayerWithMp3FilePath:(NSString *)mp3Path
 {
+    if (_audioPlayer.playing == YES) {
+        _audioPlayer = nil;
+    }
+    
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
     [audioSession setActive:YES error:nil];
     
-    NSString *audioPath = [[NSBundle mainBundle] pathForResource:@"example" ofType:@"mp3"];
-    NSURL *audioUrl = [NSURL fileURLWithPath:audioPath];
+    NSURL *audioUrl = [NSURL fileURLWithPath:mp3Path];
     NSError *playerError;
     _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioUrl error:&playerError];
     if (_audioPlayer == NULL)
@@ -214,8 +141,13 @@ static const NSString *fallingToneString = @"ˋ";
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     int index = fabs(scrollView.contentOffset.x)/self.view.frame.size.width;
+    
+    _audioPlayer = nil;
+    _currentPhrase = _dataArray[index];
+    [self setUpAudioPlayerWithMp3FilePath:_currentPhrase.mp3Path];
+    
     // figure out the page down the view, must be "index+1", otherwise will start from 0
-    _indexLabel.text = [NSString stringWithFormat:@"%d/%lu", index+1, (unsigned long)_pinYinWithoutToneArray.count];
+    _indexLabel.text = [NSString stringWithFormat:@"%d/%lu", index+1, (unsigned long)_dataArray.count];
 }
 
 @end

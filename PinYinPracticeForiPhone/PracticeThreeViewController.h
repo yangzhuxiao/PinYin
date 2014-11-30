@@ -10,7 +10,7 @@
 #import "ParentPracticeViewController.h"
 @class PracticeThreeCollectionViewCell;
 
-@interface PracticeThreeViewController : ParentPracticeViewController < UICollectionViewDelegate, UICollectionViewDataSource >
+@interface PracticeThreeViewController : ParentPracticeViewController < UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate >
 
 @property (nonatomic, strong) PracticeThreeCollectionViewCell *selectedCell;
 

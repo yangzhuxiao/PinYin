@@ -56,7 +56,15 @@
         phrase.tag = [listArray[i] integerValue];
         phrase.pinyinFull = listArray[i+1];
         phrase.pinyinWithoutTones = listArray[i+2];
-        phrase.tones = [NSString stringWithFormat:@"%ld", phrase.tag/100];
+        
+//        phrase.tones = [NSString stringWithFormat:@"%ld", phrase.tag/100];
+        NSString *tonesNumber = [NSString stringWithFormat:@"%ld", phrase.tag/100];
+        int firstToneNumber = [[tonesNumber substringToIndex:1] intValue];
+        int secondToneNumber = [[tonesNumber substringFromIndex:1] intValue];
+        NSString *firstTone = [self toneFromToneNumber:firstToneNumber];
+        NSString *secondTone = [self toneFromToneNumber:secondToneNumber];
+        phrase.tones = [firstTone stringByAppendingString:secondTone];
+        
         phrase.characters = listArray[i+3];
         
         NSString *rootFolderName = @"FullPinyin";
@@ -75,6 +83,12 @@
     return allPhrasesArray;
 }
 
+- (NSArray *)randomOrderedAllPhrases
+{
+    NSSet *allPhrasesSet = [NSSet setWithArray:allPhrasesArray];
+    return [allPhrasesSet allObjects];
+}
+
 - (NSMutableArray *)phrasesArrayForTag:(int)tag
 {
     NSMutableArray *phrases = [NSMutableArray array];
@@ -84,6 +98,34 @@
         [phrases addObject:allPhrasesArray[i]];
     }
     return phrases;
+}
+
+// private methods
+
+- (NSString *)toneFromToneNumber:(int)toneNumber
+{
+    NSString *tone;
+    switch (toneNumber) {
+        case 1:
+            tone = @"ˉ";
+            break;
+        case 2:
+            tone = @"ˊ";
+            break;
+        case 3:
+            tone = @"ˇ";
+            break;
+        case 4:
+            tone = @"ˋ";
+            break;
+        case 5:
+            tone = @"·";
+            break;
+        default:
+            tone = @"";
+            break;
+    }
+    return tone;
 }
 
 @end

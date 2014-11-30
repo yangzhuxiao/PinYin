@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "Phrase.h"
 
 @interface ParentPracticeViewController : UIViewController < UIScrollViewDelegate >
 
@@ -20,9 +21,7 @@
 @property (nonatomic, strong) UILabel *countLabel;
 
 // Data
-@property (nonatomic, copy) NSArray *pinYinWithoutToneArray;
-@property (nonatomic, copy) NSArray *pinYinWithToneArray;
-@property (nonatomic, copy) NSArray *tonesArray;
+@property (nonatomic, copy) NSArray *dataArray;
 
 @property (nonatomic, copy) NSString *firstTone;
 @property (nonatomic, copy) NSString *secondTone;
@@ -35,8 +34,9 @@
 @property (nonatomic, assign) NSInteger correctNumber;
 @property (nonatomic, assign) NSInteger currentIndex;
 
+@property (nonatomic, strong) Phrase *currentPhrase;
 
 - (void)updateCountLabel;
-
+- (void)setUpAudioPlayerWithMp3FilePath:(NSString *)mp3Path;
 
 @end

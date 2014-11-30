@@ -42,19 +42,19 @@
                 NSString *buttonText;
                 switch (j) {
                     case 0:
-                        buttonText = @"light";
-                        break;
-                    case 1:
                         buttonText = @"ˉ";
                         break;
-                    case 2:
+                    case 1:
                         buttonText = @"ˊ";
                         break;
-                    case 3:
+                    case 2:
                         buttonText = @"ˇ";
                         break;
-                    case 4:
+                    case 3:
                         buttonText = @"ˋ";
+                        break;
+                    case 4:
+                        buttonText = @"·";
                         break;
                         
                     default:
