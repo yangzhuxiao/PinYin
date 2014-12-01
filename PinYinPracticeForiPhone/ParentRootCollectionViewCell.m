@@ -15,23 +15,22 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        // content Label
         CGRect contentRect = CGRectMake(0, frame.size.height * 0.1, frame.size.width, frame.size.height * 0.6);
-        
         _contentLabel = [[UILabel alloc] initWithFrame:contentRect];
         _contentLabel.textAlignment = NSTextAlignmentCenter;
-        _contentLabel.font = [UIFont systemFontOfSize:listenCellLabelFontPercentWidth * frame.size.width];
         _contentLabel.numberOfLines = 0;
         [_contentLabel setTextColor:txtColor];
         [self.contentView addSubview:_contentLabel];
         
+        // select button
         CGRect buttonRect = CGRectMake(frame.size.width * 0.1, frame.size.height * 0.75, frame.size.width * 0.8, frame.size.height * 0.15);
         _selectButton = [[UIButton alloc] initWithFrame:buttonRect];
         _selectButton.titleLabel.textAlignment = NSTextAlignmentCenter;
         _selectButton.titleLabel.numberOfLines = 0;
         
-        [_selectButton setTitle:@"Pick the tone of \nthe second charater" forState:UIControlStateNormal];
         [_selectButton setTitleColor:txtColor forState:UIControlStateNormal];
-        _selectButton.titleLabel.font = [UIFont systemFontOfSize:listenCellButtonFontPercentWidth * frame.size.width];
+        _selectButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:listenCellButtonFontPercentWidth * frame.size.width];
         _selectButton.backgroundColor = [UIColor whiteColor];
         
         [_selectButton sendActionsForControlEvents:UIControlEventTouchUpInside];

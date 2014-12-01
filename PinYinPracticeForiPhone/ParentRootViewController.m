@@ -26,7 +26,7 @@
     _viewTitleLabel.numberOfLines = 0;
     _viewTitleLabel.textAlignment = NSTextAlignmentCenter;
     _viewTitleLabel.textColor = txtColor;
-    _viewTitleLabel.font = [UIFont systemFontOfSize:TitleLabelFontPercentWidth * WIDTH];
+    _viewTitleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:TitleLabelFontPercentWidth * WIDTH];
     [self.view addSubview:_viewTitleLabel];
 }
 
@@ -48,22 +48,6 @@
     
     [self.view addSubview:_categoryCollectionView];
     _categoryCollectionView.backgroundColor = bgColor;
-}
-
-#pragma mark - UICollectionView Data Source
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return _catogoriesArray.count;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    ParentRootCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ListenCell" forIndexPath:indexPath];
-    
-    cell.contentLabel.text = _catogoriesArray[indexPath.row];
-    [cell.selectButton addTarget:self action:@selector(selectConfirmed:) forControlEvents:UIControlEventTouchUpInside];
-    return cell;
 }
 
 #pragma mark - UIScrollView Delegate

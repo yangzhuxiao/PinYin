@@ -32,11 +32,11 @@ static const NSInteger toneStringLength = 5;
 #define HEIGHT self.view.frame.size.height
 
 // View TitleLabel size
-#define TitleLabelWidth self.view.frame.size.width * 0.8
-#define TitleLabelHeight self.view.frame.size.height * 0.06
-#define TitleLabelXOffset self.view.frame.size.width * 0.1
+#define TitleLabelWidth self.view.frame.size.width * 0.9
+#define TitleLabelHeight self.view.frame.size.height * 0.1
+#define TitleLabelXOffset self.view.frame.size.width * 0.05
 #define TitleLabelYOffset self.view.frame.size.width * 0.2
-static const CGFloat TitleLabelFontPercentWidth = 0.05;
+static const CGFloat TitleLabelFontPercentWidth = 0.06;
 
 
 // CollectionView size
@@ -56,8 +56,9 @@ static const CGFloat TitleLabelFontPercentWidth = 0.05;
 #define SectionInsetRight CollectionViewWidth * 0.25
 
 // CollectionViewCell content
-static const CGFloat listenCellLabelFontPercentWidth = 0.08;
-static const CGFloat listenCellButtonFontPercentWidth = 0.05;
+static const CGFloat listenCellLabelWordsFontPercentWidth = 0.08;
+static const CGFloat listenCellButtonFontPercentWidth = 0.06;
+static const CGFloat listenCellLabelTonesFontPercentWidth = 0.3;
 
 // ScrollView size
 #define ItemColletionViewWidth self.view.frame.size.width

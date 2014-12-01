@@ -11,14 +11,23 @@
 #import "PracticeOneViewController.h"
 #import "PracticeTwoViewController.h"
 #import "PracticeThreeViewController.h"
+#import "Constants.h"
 
 @implementation PracticeRootViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.viewTitleLabel.text = @"Pick the test";
-    self.catogoriesArray = @[@"Select the right tones", @"Write down the \nright Pinyin", @"Write down the right \nPinyin and tones"];
+    self.catogoriesArray = @[[self attributedStringFromString:@"Select the right tones"], [self attributedStringFromString:@"Write down the \nright pinyin"], [self attributedStringFromString:@"Write down the right \npinyin and tones"]];
 }
+
+- (NSMutableAttributedString *)attributedStringFromString:(NSString *)string
+{
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string];
+    [attributedString addAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:listenCellLabelWordsFontPercentWidth * WIDTH]} range:NSMakeRange(0, attributedString.length)];
+    return attributedString;
+}
+
 
 - (void)selectConfirmed:(id)sender
 {
@@ -32,6 +41,22 @@
         PracticeThreeViewController *threeController = [[PracticeThreeViewController alloc] init];
         [self presentViewController:threeController animated:YES completion:nil];
     }
+}
+
+#pragma mark - UICollectionView Data Source
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.catogoriesArray.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ParentRootCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ListenCell" forIndexPath:indexPath];
+    [cell.selectButton setTitle:@"Press to enter" forState:UIControlStateNormal];
+    cell.contentLabel.attributedText = self.catogoriesArray[indexPath.row];
+    [cell.selectButton addTarget:self action:@selector(selectConfirmed:) forControlEvents:UIControlEventTouchUpInside];
+    return cell;
 }
 
 @end

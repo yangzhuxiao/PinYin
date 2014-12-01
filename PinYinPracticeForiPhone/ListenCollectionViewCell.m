@@ -19,7 +19,7 @@
         
         _contentLabel = [[UILabel alloc] initWithFrame:contentRect];
         _contentLabel.textAlignment = NSTextAlignmentCenter;
-        _contentLabel.font = [UIFont systemFontOfSize:listenCellLabelFontPercentWidth * frame.size.width];
+//        _contentLabel.font = [UIFont systemFontOfSize:listenCellLabelWordsFontPercentWidth * frame.size.width];
         _contentLabel.numberOfLines = 0;
         [self.contentView addSubview:_contentLabel];
         

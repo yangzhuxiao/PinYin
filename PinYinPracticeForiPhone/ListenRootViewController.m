@@ -16,7 +16,15 @@
     [super viewDidLoad];
     _tag = 0;
     self.viewTitleLabel.text = @"Pick the tone of the first charater";
-    self.catogoriesArray = @[@"Level Tone", @"Rising Tone", @"Falling-rising Tone", @"Falling Tone"];
+    self.catogoriesArray = @[[self attributedStringFromString:@"ˉ\nLevel Tone"], [self attributedStringFromString:@"ˊ\nRising Tone"], [self attributedStringFromString:@"ˇ\nFalling-rising Tone"], [self attributedStringFromString:@"ˋ\nFalling Tone"]];
+}
+
+- (NSMutableAttributedString *)attributedStringFromString:(NSString *)string
+{
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string];
+    [attributedString addAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:listenCellLabelTonesFontPercentWidth * WIDTH]} range:NSMakeRange(0, 1)];
+    [attributedString addAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:listenCellLabelWordsFontPercentWidth * WIDTH]} range:NSMakeRange(1, attributedString.length-1)];
+    return attributedString;
 }
 
 - (void)selectConfirmed:(id)sender
@@ -40,6 +48,22 @@
     
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"level Tone", @"rising Tone", @"falling-rising tone", @"falling tone", @"light tone", nil];
     [sheet showInView:self.view];
+}
+
+#pragma mark - UICollectionView Data Source
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.catogoriesArray.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ParentRootCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ListenCell" forIndexPath:indexPath];
+    [cell.selectButton setTitle:@"Pick the tone of \nthe second charater" forState:UIControlStateNormal];
+    cell.contentLabel.attributedText = self.catogoriesArray[indexPath.row];
+    [cell.selectButton addTarget:self action:@selector(selectConfirmed:) forControlEvents:UIControlEventTouchUpInside];
+    return cell;
 }
 
 #pragma mark - UIActionSheet Delegate
