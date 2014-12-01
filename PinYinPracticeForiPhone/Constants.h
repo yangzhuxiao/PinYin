@@ -142,7 +142,7 @@ static const CGFloat ToneButtonBasicWidthPercent = 0.15;
 static const CGFloat ToneButtonBasicHeightPercent = 0.06;
 static const CGFloat ToneButtonBasicXOriginPercent = 0.12;
 static const CGFloat ToneButtonBasicYOriginPercent = 0.42;
-static const CGFloat ToneButtonBasicFontPercentWidth = 0.1;
+static const CGFloat ToneButtonBasicFontPercentWidth = 0.2;
 
 // confirmSelectionButton
 static const CGFloat confirmSelectionButtonWidthPercentWidth = 0.2;

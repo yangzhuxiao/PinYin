@@ -61,6 +61,7 @@
                 [toneButton setTitle:buttonText forState:UIControlStateNormal];
                 [toneButton setTitleColor:txtColor forState:UIControlStateNormal];
                 toneButton.showsTouchWhenHighlighted = YES;
+                toneButton.titleEdgeInsets = UIEdgeInsetsMake(toneButton.frame.size.height*0.8, -toneButton.frame.size.width*0.35, 0, 0);
                 
                 toneButton.titleLabel.font = [UIFont systemFontOfSize:frame.size.width * ToneButtonBasicFontPercentWidth];
                 
