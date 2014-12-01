@@ -13,8 +13,8 @@
 + (PhraseManager *)sharedManager;
 
 - (NSMutableArray *)allPhrasesArray;
-- (NSArray *)randomOrderedAllPhrases;
+- (NSArray *)randomlizedAllPhrases;
+- (NSArray *)randomPhrasesArrayForTag:(int)tag;
 
-- (NSMutableArray *)phrasesArrayForTag:(int)tag;
 
 @end

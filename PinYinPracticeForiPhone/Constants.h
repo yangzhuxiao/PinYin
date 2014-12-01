@@ -102,11 +102,11 @@ static const CGFloat IndexLabelYOriginPercent = 0.93;
 static const CGFloat IndexLabelFontPercentWidth = 0.05;
 
 // WordLabel size for Listen
-static const CGFloat WordLabelWidthPercent = 0.8;
-static const CGFloat WordLabelHeightPercent = 0.1;
-static const CGFloat WordLabelXOriginPercent = 0.1;
-static const CGFloat WordLabelYOriginPercent = 0.45;
-static const CGFloat WordLabelFontPercentWidth = 0.15;
+static const CGFloat WordLabelWidthPercent = 0.95;
+static const CGFloat WordLabelHeightPercent = 0.6;
+static const CGFloat WordLabelXOriginPercent = 0.025;
+static const CGFloat WordLabelYOriginPercent = 0.15;
+static const CGFloat WordLabelFontPercentWidth = 0.17;
 
 // WordLabel size for Practice One
 static const CGFloat PinYinLabelOneWidthPercent = 0.4;

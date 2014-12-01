@@ -14,9 +14,7 @@
 {
     NSMutableArray *allPhrasesArray;
 }
-
 @end
-
 
 @implementation PhraseManager
 
@@ -84,12 +82,29 @@
     return allPhrasesArray;
 }
 
-- (NSArray *)randomOrderedAllPhrases
+- (NSArray *)randomlizedAllPhrases
 {
-    NSSet *allPhrasesSet = [NSSet setWithArray:allPhrasesArray];
-    return [allPhrasesSet allObjects];
+    NSMutableArray *orderedArray = [allPhrasesArray mutableCopy];
+    NSUInteger i = [orderedArray count];
+    while(--i > 0) {
+        int j = rand() % (i+1);
+        [orderedArray exchangeObjectAtIndex:i withObjectAtIndex:j];
+    }
+    return [NSArray arrayWithArray:orderedArray];
 }
 
+- (NSArray *)randomPhrasesArrayForTag:(int)tag
+{
+    NSMutableArray *orderedArray = [self phrasesArrayForTag:tag];
+    NSUInteger i = [orderedArray count];
+    while(--i > 0) {
+        int j = rand() % (i+1);
+        [orderedArray exchangeObjectAtIndex:i withObjectAtIndex:j];
+    }
+    return [NSArray arrayWithArray:orderedArray];
+}
+
+// private methods
 - (NSMutableArray *)phrasesArrayForTag:(int)tag
 {
     NSMutableArray *phrases = [NSMutableArray array];
@@ -100,9 +115,6 @@
     }
     return phrases;
 }
-
-// private methods
-
 - (NSString *)toneFromToneNumber:(int)toneNumber
 {
     NSString *tone;

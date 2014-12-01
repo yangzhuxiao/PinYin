@@ -29,11 +29,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     // must not be omitted, otherwise the color of subview "collectionView" will crash
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    _dataArray = [[PhraseManager sharedManager] phrasesArrayForTag:_tag];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    // by not putting it in ViewDidLoad, user can get differents words every time reopen it
+    _dataArray = [[PhraseManager sharedManager] randomPhrasesArrayForTag:_tag];
     
     // The order of the following three must not be changed !
     [self setUpCollectionView];
@@ -188,7 +192,11 @@
     // play once immediately
     [self setUpAudioPlayerWithMp3FilePath:_currentPhrase.mp3Path];
 
-    cell.wordLabel.text = _currentPhrase.characters;
+    NSString *firstChar = [_currentPhrase.characters substringToIndex:1];
+    NSString *secondChar = [_currentPhrase.characters substringFromIndex:1];
+    NSString *newCharsToShow = [NSString stringWithFormat:@"%@ %@",firstChar, secondChar];
+
+    cell.wordLabel.text = [NSString stringWithFormat:@"%@\n%@", _currentPhrase.pinyinFull, newCharsToShow];
     cell.tag = indexPath.row;
     [cell.playButton addTarget:self action:@selector(playMP3File:) forControlEvents:UIControlEventTouchUpInside];
     

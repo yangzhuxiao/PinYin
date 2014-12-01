@@ -32,7 +32,9 @@
         
         // word label
         _wordLabel = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width * WordLabelXOriginPercent, frame.size.height * WordLabelYOriginPercent, frame.size.width * WordLabelWidthPercent, frame.size.height * WordLabelHeightPercent)];
-        _wordLabel.font = [UIFont systemFontOfSize:frame.size.width * WordLabelFontPercentWidth];
+//        _wordLabel.font = [UIFont systemFontOfSize:frame.size.width * WordLabelFontPercentWidth];
+        _wordLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:frame.size.width * WordLabelFontPercentWidth];
+        _wordLabel.numberOfLines = 0;
         _wordLabel.textAlignment = NSTextAlignmentCenter;
         _wordLabel.textColor = txtColor;
         

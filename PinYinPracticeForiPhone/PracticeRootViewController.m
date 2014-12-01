@@ -18,7 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.viewTitleLabel.text = @"Pick the test";
-    self.catogoriesArray = @[[self attributedStringFromString:@"Select the right tones"], [self attributedStringFromString:@"Write down the \nright pinyin"], [self attributedStringFromString:@"Write down the right \npinyin and tones"]];
+    self.catogoriesArray = @[[self attributedStringFromString:@"Select the right tones"],
+                             [self attributedStringFromString:@"Write down the \nright pinyin"],
+                             [self attributedStringFromString:@"Write down the right \npinyin and tones"]];
 }
 
 - (NSMutableAttributedString *)attributedStringFromString:(NSString *)string
