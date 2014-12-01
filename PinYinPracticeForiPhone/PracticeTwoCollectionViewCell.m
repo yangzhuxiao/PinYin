@@ -17,13 +17,13 @@
     if (self) {
 
 // pinyinOneTextField
-        _pinyinOneTextField = [[UITextField alloc] initWithFrame:CGRectMake(pinyinOneTextFieldXOriginPercent * frame.size.width, pinyinOneTextFieldYOriginPercent *frame.size.height, pinyinOneTextFieldWidthPercent *frame.size.width, pinyinOneTextFieldHeightPercent *frame.size.height)];
+        _pinyinOneTextField = [[UITextField alloc] initWithFrame:CGRectMake(pinyinOneTextFieldXOriginPercent * frame.size.width, pinyinOneTextFieldYOriginPercent *frame.size.height, pinyinOneTextFieldWidthPercentWidth *frame.size.width, pinyinOneTextFieldHeightPercentWidth *frame.size.width)];
         _pinyinOneTextField.placeholder = @"Input pinyin";
         _pinyinOneTextField.borderStyle = UITextBorderStyleRoundedRect;
         _pinyinOneTextField.textAlignment = NSTextAlignmentCenter;
         
 // pinyinTwoTextField
-        _pinyinTwoTextField = [[UITextField alloc] initWithFrame:CGRectMake(pinyinTwoTextFieldXOriginPercent * frame.size.width, pinyinTwoTextFieldYOriginPercent *frame.size.height, pinyinTwoTextFieldWidthPercent *frame.size.width, pinyinTwoTextFieldHeightPercent *frame.size.height)];
+        _pinyinTwoTextField = [[UITextField alloc] initWithFrame:CGRectMake(pinyinTwoTextFieldXOriginPercent * frame.size.width, pinyinTwoTextFieldYOriginPercent *frame.size.height, pinyinTwoTextFieldWidthPercentWidth *frame.size.width, pinyinTwoTextFieldHeightPercentWidth *frame.size.width)];
         _pinyinTwoTextField.placeholder = @"Input pinyin";
         _pinyinTwoTextField.borderStyle = UITextBorderStyleRoundedRect;
         _pinyinTwoTextField.textAlignment = NSTextAlignmentCenter;

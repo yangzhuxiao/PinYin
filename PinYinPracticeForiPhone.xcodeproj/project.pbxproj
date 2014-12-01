@@ -17,9 +17,9 @@
 		9789D8EE1A220D5600298C9B /* ListenRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9789D8ED1A220D5600298C9B /* ListenRootViewController.m */; };
 		9789D8F11A220D5600298C9B /* PracticeRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9789D8F01A220D5600298C9B /* PracticeRootViewController.m */; };
 		9789D8F41A220D5600298C9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9789D8F21A220D5600298C9B /* Main.storyboard */; };
-		9789D8F61A220D5600298C9B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9789D8F51A220D5600298C9B /* Images.xcassets */; };
 		9789D8F91A220D5600298C9B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9789D8F71A220D5600298C9B /* LaunchScreen.xib */; };
 		9789D9051A220D5600298C9B /* PinYinPracticeForiPhoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9789D9041A220D5600298C9B /* PinYinPracticeForiPhoneTests.m */; };
+		978CE8061A2C4EE800B144FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 978CE8051A2C4EE800B144FE /* Images.xcassets */; };
 		97B024901A2769D7005964FB /* PracticeTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97B0248F1A2769D7005964FB /* PracticeTwoViewController.m */; };
 		97B024931A276A75005964FB /* PracticeTwoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97B024921A276A75005964FB /* PracticeTwoCollectionViewCell.m */; };
 		97B024971A277F19005964FB /* PracticeThreeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97B024961A277F18005964FB /* PracticeThreeCollectionViewCell.m */; };
@@ -69,11 +69,11 @@
 		9789D8EF1A220D5600298C9B /* PracticeRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PracticeRootViewController.h; sourceTree = "<group>"; };
 		9789D8F01A220D5600298C9B /* PracticeRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PracticeRootViewController.m; sourceTree = "<group>"; };
 		9789D8F31A220D5600298C9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9789D8F51A220D5600298C9B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9789D8F81A220D5600298C9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9789D8FE1A220D5600298C9B /* PinYinPracticeForiPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinYinPracticeForiPhoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9789D9031A220D5600298C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9789D9041A220D5600298C9B /* PinYinPracticeForiPhoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PinYinPracticeForiPhoneTests.m; sourceTree = "<group>"; };
+		978CE8051A2C4EE800B144FE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		97B0248E1A2769D7005964FB /* PracticeTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PracticeTwoViewController.h; sourceTree = "<group>"; };
 		97B0248F1A2769D7005964FB /* PracticeTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PracticeTwoViewController.m; sourceTree = "<group>"; };
 		97B024911A276A75005964FB /* PracticeTwoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PracticeTwoCollectionViewCell.h; sourceTree = "<group>"; };
@@ -191,8 +191,8 @@
 				97616FD01A22D06B00C3CBD1 /* Listen */,
 				97891A941A26154700FBE71F /* Practice */,
 				9789D8F21A220D5600298C9B /* Main.storyboard */,
-				9789D8F51A220D5600298C9B /* Images.xcassets */,
 				9789D8F71A220D5600298C9B /* LaunchScreen.xib */,
+				978CE8051A2C4EE800B144FE /* Images.xcassets */,
 				9789D8E51A220D5600298C9B /* Supporting Files */,
 			);
 			path = PinYinPracticeForiPhone;
@@ -385,9 +385,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9789D8F41A220D5600298C9B /* Main.storyboard in Resources */,
+				978CE8061A2C4EE800B144FE /* Images.xcassets in Resources */,
 				9789D8F91A220D5600298C9B /* LaunchScreen.xib in Resources */,
 				97C897A61A28E02400C56490 /* FinalPinYinList.txt in Resources */,
-				9789D8F61A220D5600298C9B /* Images.xcassets in Resources */,
 				97C897A81A28E03D00C56490 /* FullPinyin in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

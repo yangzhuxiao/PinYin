@@ -30,9 +30,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
-//    self.tabBarItem setImage:[FAKIcon ]
-    
     // must not be omitted, otherwise the color of subview "collectionView" will crash
     self.view.backgroundColor = [UIColor whiteColor];
     

@@ -9,11 +9,25 @@
 #import "ListenRootViewController.h"
 #import "ListenItemViewController.h"
 #import "Constants.h"
+#import <FontAwesomeKit/FAKIonIcons.h>
+#import "PracticeRootViewController.h"
 
 @implementation ListenRootViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    FAKIonIcons *listenTabIcon = [FAKIonIcons headphoneIconWithSize:25];
+    FAKIonIcons *practiceTabIcon = [FAKIonIcons composeIconWithSize:25];
+
+    NSArray *viewControllers = [self.tabBarController viewControllers];
+    for (id controller in viewControllers) {
+        if ([controller isKindOfClass:[self class]]) {
+            [[controller tabBarItem] setImage:[listenTabIcon imageWithSize:CGSizeMake(30, 30)]];
+        } else if ([controller isKindOfClass:[PracticeRootViewController class]]) {
+            [[controller tabBarItem] setImage:[practiceTabIcon imageWithSize:CGSizeMake(30, 30)]];
+        }
+    }
+        
     _tag = 0;
     self.viewTitleLabel.text = @"Pick the tone of the first charater";
     self.catogoriesArray = @[[self attributedStringFromString:@"ˉ\nLevel Tone"], [self attributedStringFromString:@"ˊ\nRising Tone"], [self attributedStringFromString:@"ˇ\nFalling-rising Tone"], [self attributedStringFromString:@"ˋ\nFalling Tone"]];
@@ -44,9 +58,15 @@
             break;
         default:
             break;
+
     }
     
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"level Tone", @"rising Tone", @"falling-rising tone", @"falling tone", @"light tone", nil];
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
+                            @"level tone            \"  ˉ  \"",
+                            @"rising tone           \"  ˊ  \"",
+                            @"falling-rising tone \"  ˇ  \"",
+                            @"falling tone          \"  ˋ  \"",
+                            @"light tone            \"     \"", nil];
     [sheet showInView:self.view];
 }
 

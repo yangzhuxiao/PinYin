@@ -180,14 +180,14 @@ static const NSTimeInterval ScrollingTimeInterval = 2.5;
 #pragma mark - Practice Two
 
 // pinyinOneTextField size
-static const CGFloat pinyinOneTextFieldWidthPercent = 0.4;
-static const CGFloat pinyinOneTextFieldHeightPercent = 0.1;
+static const CGFloat pinyinOneTextFieldWidthPercentWidth = 0.4;
+static const CGFloat pinyinOneTextFieldHeightPercentWidth = 0.2;
 static const CGFloat pinyinOneTextFieldXOriginPercent = 0.08;
 static const CGFloat pinyinOneTextFieldYOriginPercent = 0.40;
 
 // pinyinTwoTextField size
-static const CGFloat pinyinTwoTextFieldWidthPercent = 0.4;
-static const CGFloat pinyinTwoTextFieldHeightPercent = 0.1;
+static const CGFloat pinyinTwoTextFieldWidthPercentWidth = 0.4;
+static const CGFloat pinyinTwoTextFieldHeightPercentWidth = 0.2;
 static const CGFloat pinyinTwoTextFieldXOriginPercent = 0.52;
 static const CGFloat pinyinTwoTextFieldYOriginPercent = 0.40;
 
@@ -207,14 +207,14 @@ static const CGFloat ToneLabelTwoFontPercentWidth = 0.12;
 #pragma mark - Practice Three
 
 // pinyinOneTextFieldForPrac3 size
-static const CGFloat pinyinOneTextFieldForPrac3WidthPercent = 0.35;
-static const CGFloat pinyinOneTextFieldForPrac3HeightPercent = 0.1;
+static const CGFloat pinyinOneTextFieldForPrac3WidthPercentWidth = 0.35;
+static const CGFloat pinyinOneTextFieldForPrac3HeightPercentWidth = 0.1;
 static const CGFloat pinyinOneTextFieldForPrac3XOriginPercent = 0.12;
 static const CGFloat pinyinOneTextFieldForPrac3YOriginPercent = 0.20;
 
 // pinyinTwoTextFieldForPrac3 size
-static const CGFloat pinyinTwoTextFieldForPrac3WidthPercent = 0.35;
-static const CGFloat pinyinTwoTextFieldForPrac3HeightPercent = 0.1;
+static const CGFloat pinyinTwoTextFieldForPrac3WidthPercentWidth = 0.35;
+static const CGFloat pinyinTwoTextFieldForPrac3HeightPercentWidth = 0.1;
 static const CGFloat pinyinTwoTextFieldForPrac3XOriginPercent = 0.53;
 static const CGFloat pinyinTwoTextFieldForPrac3YOriginPercent = 0.20;
 
