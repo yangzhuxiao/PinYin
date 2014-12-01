@@ -16,7 +16,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // content Label
-        CGRect contentRect = CGRectMake(0, frame.size.height * 0.1, frame.size.width, frame.size.height * 0.6);
+        CGRect contentRect = CGRectMake(0, 0, frame.size.width, frame.size.height * 0.8);
         _contentLabel = [[UILabel alloc] initWithFrame:contentRect];
         _contentLabel.textAlignment = NSTextAlignmentCenter;
         _contentLabel.numberOfLines = 0;
@@ -24,7 +24,7 @@
         [self.contentView addSubview:_contentLabel];
         
         // select button
-        CGRect buttonRect = CGRectMake(frame.size.width * 0.1, frame.size.height * 0.75, frame.size.width * 0.8, frame.size.height * 0.15);
+        CGRect buttonRect = CGRectMake(frame.size.width * 0.1, frame.size.height * 0.8, frame.size.width * 0.8, frame.size.height * 0.15);
         _selectButton = [[UIButton alloc] initWithFrame:buttonRect];
         _selectButton.titleLabel.textAlignment = NSTextAlignmentCenter;
         _selectButton.titleLabel.numberOfLines = 0;

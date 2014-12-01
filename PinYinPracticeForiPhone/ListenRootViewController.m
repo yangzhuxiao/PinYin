@@ -30,7 +30,7 @@
         
     _tag = 0;
     self.viewTitleLabel.text = @"Pick the tone of the first charater";
-    self.catogoriesArray = @[[self attributedStringFromString:@"ˉ\nLevel Tone"], [self attributedStringFromString:@"ˊ\nRising Tone"], [self attributedStringFromString:@"ˇ\nFalling-rising Tone"], [self attributedStringFromString:@"ˋ\nFalling Tone"]];
+    self.catogoriesArray = @[[self attributedStringFromString:@"ˉ\nLevel Tone"], [self attributedStringFromString:@"ˊ\nRising Tone"], [self attributedStringFromString:@"ˇ\nFalling-rising\nTone"], [self attributedStringFromString:@"ˋ\nFalling Tone"]];
 }
 
 - (NSMutableAttributedString *)attributedStringFromString:(NSString *)string

@@ -18,15 +18,19 @@
 
 // pinyinOneTextField
         _pinyinOneTextField = [[UITextField alloc] initWithFrame:CGRectMake(pinyinOneTextFieldXOriginPercent * frame.size.width, pinyinOneTextFieldYOriginPercent *frame.size.height, pinyinOneTextFieldWidthPercentWidth *frame.size.width, pinyinOneTextFieldHeightPercentWidth *frame.size.width)];
-        _pinyinOneTextField.placeholder = @"Input pinyin";
+//        _pinyinOneTextField.placeholder = @"pinyin";
         _pinyinOneTextField.borderStyle = UITextBorderStyleRoundedRect;
         _pinyinOneTextField.textAlignment = NSTextAlignmentCenter;
+        _pinyinOneTextField.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:pinyinOneTextFieldFontPercentWidth*frame.size.width];
+        _pinyinOneTextField.placeholder = @"pin yin";
         
 // pinyinTwoTextField
         _pinyinTwoTextField = [[UITextField alloc] initWithFrame:CGRectMake(pinyinTwoTextFieldXOriginPercent * frame.size.width, pinyinTwoTextFieldYOriginPercent *frame.size.height, pinyinTwoTextFieldWidthPercentWidth *frame.size.width, pinyinTwoTextFieldHeightPercentWidth *frame.size.width)];
-        _pinyinTwoTextField.placeholder = @"Input pinyin";
+        
         _pinyinTwoTextField.borderStyle = UITextBorderStyleRoundedRect;
         _pinyinTwoTextField.textAlignment = NSTextAlignmentCenter;
+        _pinyinTwoTextField.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:pinyinTwoTextFieldFontPercentWidth*frame.size.width];
+        _pinyinTwoTextField.placeholder = @"pin yin";
         
 // ToneLabelOne
         _toneLabelOne = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width * ToneLabelOneXOriginPercent, frame.size.height * ToneLabelOneYOriginPercent, frame.size.width * ToneLabelOneWidthPercent, frame.size.height * ToneLabelOneHeightPercent)];

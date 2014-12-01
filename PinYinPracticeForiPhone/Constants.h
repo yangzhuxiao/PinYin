@@ -56,8 +56,8 @@ static const CGFloat TitleLabelFontPercentWidth = 0.06;
 #define SectionInsetRight CollectionViewWidth * 0.25
 
 // CollectionViewCell content
-static const CGFloat listenCellLabelWordsFontPercentWidth = 0.08;
-static const CGFloat listenCellButtonFontPercentWidth = 0.06;
+static const CGFloat listenCellLabelWordsFontPercentWidth = 0.1;
+static const CGFloat listenCellButtonFontPercentWidth = 0.07;
 static const CGFloat listenCellLabelTonesFontPercentWidth = 0.3;
 
 // ScrollView size
@@ -184,39 +184,47 @@ static const CGFloat pinyinOneTextFieldWidthPercentWidth = 0.4;
 static const CGFloat pinyinOneTextFieldHeightPercentWidth = 0.2;
 static const CGFloat pinyinOneTextFieldXOriginPercent = 0.08;
 static const CGFloat pinyinOneTextFieldYOriginPercent = 0.40;
+static const CGFloat pinyinOneTextFieldFontPercentWidth = 0.08;
 
 // pinyinTwoTextField size
 static const CGFloat pinyinTwoTextFieldWidthPercentWidth = 0.4;
 static const CGFloat pinyinTwoTextFieldHeightPercentWidth = 0.2;
 static const CGFloat pinyinTwoTextFieldXOriginPercent = 0.52;
 static const CGFloat pinyinTwoTextFieldYOriginPercent = 0.40;
+static const CGFloat pinyinTwoTextFieldFontPercentWidth = 0.08;
+
+static const CGFloat pinyinTextFieldPlaceHolderFontPercentWidth = 0.03;
+
+
 
 // toneLabelOne size
-static const CGFloat ToneLabelOneWidthPercent = 0.1;
-static const CGFloat ToneLabelOneHeightPercent = 0.05;
-static const CGFloat ToneLabelOneXOriginPercent = 0.2;
-static const CGFloat ToneLabelOneYOriginPercent = 0.35;
-static const CGFloat ToneLabelOneFontPercentWidth = 0.12;
+static const CGFloat ToneLabelOneWidthPercent = 0.2;
+static const CGFloat ToneLabelOneHeightPercent = 0.2;
+static const CGFloat ToneLabelOneXOriginPercent = 0.125;
+static const CGFloat ToneLabelOneYOriginPercent = 0.3;
+static const CGFloat ToneLabelOneFontPercentWidth = 0.2;
 
-static const CGFloat ToneLabelTwoWidthPercent = 0.1;
-static const CGFloat ToneLabelTwoHeightPercent = 0.05;
-static const CGFloat ToneLabelTwoXOriginPercent = 0.65;
-static const CGFloat ToneLabelTwoYOriginPercent = 0.35;
-static const CGFloat ToneLabelTwoFontPercentWidth = 0.12;
+static const CGFloat ToneLabelTwoWidthPercent = 0.2;
+static const CGFloat ToneLabelTwoHeightPercent = 0.2;
+static const CGFloat ToneLabelTwoXOriginPercent = 0.565;
+static const CGFloat ToneLabelTwoYOriginPercent = 0.3;
+static const CGFloat ToneLabelTwoFontPercentWidth = 0.2;
 
 #pragma mark - Practice Three
 
 // pinyinOneTextFieldForPrac3 size
 static const CGFloat pinyinOneTextFieldForPrac3WidthPercentWidth = 0.35;
-static const CGFloat pinyinOneTextFieldForPrac3HeightPercentWidth = 0.1;
+static const CGFloat pinyinOneTextFieldForPrac3HeightPercentWidth = 0.2;
 static const CGFloat pinyinOneTextFieldForPrac3XOriginPercent = 0.12;
 static const CGFloat pinyinOneTextFieldForPrac3YOriginPercent = 0.20;
+static const CGFloat pinyinOneTextFieldFontForPrac3PercentWidth = 0.08;
 
 // pinyinTwoTextFieldForPrac3 size
 static const CGFloat pinyinTwoTextFieldForPrac3WidthPercentWidth = 0.35;
-static const CGFloat pinyinTwoTextFieldForPrac3HeightPercentWidth = 0.1;
+static const CGFloat pinyinTwoTextFieldForPrac3HeightPercentWidth = 0.2;
 static const CGFloat pinyinTwoTextFieldForPrac3XOriginPercent = 0.53;
 static const CGFloat pinyinTwoTextFieldForPrac3YOriginPercent = 0.20;
+static const CGFloat pinyinTwoTextFieldFontForPrac3PercentWidth = 0.08;
 
 
 #endif
