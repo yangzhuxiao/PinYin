@@ -51,16 +51,32 @@
 }
 
 - (void)confirmSelection:(id)sender {
+    PracticeThreeCollectionViewCell *selectedCell;
+    id superView1 = [sender superview];
+    if ([superView1 isKindOfClass:[PracticeThreeCollectionViewCell class]]) {
+        selectedCell = (PracticeThreeCollectionViewCell *)superView1;
+    } else {
+        id superView2 = [superView1 superview];
+        if ([superView2 isKindOfClass:[PracticeThreeCollectionViewCell class]]) {
+            selectedCell = (PracticeThreeCollectionViewCell *)superView2;
+        } else {
+            id superView3 = [superView2 superview];
+            if ([superView3 isKindOfClass:[PracticeThreeCollectionViewCell class]]) {
+                selectedCell = (PracticeThreeCollectionViewCell *)superView3;
+            } else return;
+        }
+    }
+    
     if ([self.tempFirstTone isEqualToString:self.firstTone]
         && [self.tempSecondTone isEqualToString:self.secondTone]
-        && [_selectedCell.pinyinOneTextField.text isEqualToString:self.firstPinyin]
-        && [_selectedCell.pinyinTwoTextField.text isEqualToString:self.secondPinyin]) {
-        _selectedCell.congratulateLabel.hidden = NO;
+        && [selectedCell.pinyinOneTextField.text isEqualToString:self.firstPinyin]
+        && [selectedCell.pinyinTwoTextField.text isEqualToString:self.secondPinyin]) {
+        selectedCell.congratulateLabel.hidden = NO;
         self.correctNumber ++;
     } else {
-        _selectedCell.righAnswerLabel.hidden = NO;
+        selectedCell.righAnswerLabel.hidden = NO;
     }
-    _selectedCell.confirmSelectionButton.hidden = YES;
+    selectedCell.confirmSelectionButton.hidden = YES;
     self.currentIndex ++;
     [self updateCountLabel];
 }
@@ -74,21 +90,33 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    PracticeThreeCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ThreeCell" forIndexPath: indexPath];
+    PracticeThreeCollectionViewCell *cell;
     
-    self.currentPhrase = self.dataArray[indexPath.row];
+    if ([collectionView.panGestureRecognizer velocityInView:self.view].x>0 ) {
+        // must plus 1, cuz the reuse mechanism
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForItem:(indexPath.item+1) inSection:indexPath.section];
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ThreeCell" forIndexPath:newIndexPath];
+        self.currentPhrase = self.dataArray[newIndexPath.row];
+        cell.tag = newIndexPath.row;
+        self.itemCollectionView.scrollEnabled = NO;
+        self.itemCollectionView.scrollEnabled = YES;
+    }
+    else {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ThreeCell" forIndexPath:indexPath];
+        self.currentPhrase = self.dataArray[indexPath.row];
+        cell.tag = indexPath.row;
+    }
+    
+    // must do this, otherwise the two buttons will be seen !
+    cell.congratulateLabel.hidden = YES;
+    cell.righAnswerLabel.hidden = YES;
+    cell.confirmSelectionButton.hidden = NO;
+    cell.pinyinOneTextField.text = @"";
+    cell.pinyinTwoTextField.text = @"";
     
     // play once immediately
     [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
 
-    // must do this, otherwise the two buttons will be seen !
-    _selectedCell.confirmSelectionButton.hidden = NO;
-    cell.congratulateLabel.hidden = YES;
-    cell.righAnswerLabel.hidden = YES;
-    cell.pinyinOneTextField.text = @"";
-    cell.pinyinTwoTextField.text = @"";
-
-    
     // store the right tones for latter comparing use
     self.firstTone = [[self.currentPhrase tones] substringToIndex:toneStringLength];
     self.secondTone = [[self.currentPhrase tones] substringFromIndex:toneStringLength];
@@ -116,7 +144,6 @@
             [subview addTarget:self action:@selector(toneIsSelected:) forControlEvents:UIControlEventTouchUpInside];
         }
     }
-    _selectedCell = cell;
     return cell;
 }
 

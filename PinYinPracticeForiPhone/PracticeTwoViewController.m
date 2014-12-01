@@ -35,14 +35,29 @@
 }
 
 - (void)confirmSelection:(id)sender {
-    if ([_selectedCell.pinyinOneTextField.text isEqualToString:self.firstPinyin]
-        && [_selectedCell.pinyinTwoTextField.text isEqualToString:self.secondPinyin]) {
-        _selectedCell.congratulateLabel.hidden = NO;
+    PracticeTwoCollectionViewCell *selectedCell;
+    id superView1 = [sender superview];
+    if ([superView1 isKindOfClass:[PracticeTwoCollectionViewCell class]]) {
+        selectedCell = (PracticeTwoCollectionViewCell *)superView1;
+    } else {
+        id superView2 = [superView1 superview];
+        if ([superView2 isKindOfClass:[PracticeTwoCollectionViewCell class]]) {
+            selectedCell = (PracticeTwoCollectionViewCell *)superView2;
+        } else {
+            id superView3 = [superView2 superview];
+            if ([superView3 isKindOfClass:[PracticeTwoCollectionViewCell class]]) {
+                selectedCell = (PracticeTwoCollectionViewCell *)superView3;
+            } else return;
+        }
+    }
+    if ([selectedCell.pinyinOneTextField.text isEqualToString:self.firstPinyin]
+        && [selectedCell.pinyinTwoTextField.text isEqualToString:self.secondPinyin]) {
+        selectedCell.congratulateLabel.hidden = NO;
         self.correctNumber ++;
     } else {
-        _selectedCell.righAnswerLabel.hidden = NO;
+        selectedCell.righAnswerLabel.hidden = NO;
     }
-    _selectedCell.confirmSelectionButton.hidden = YES;
+    selectedCell.confirmSelectionButton.hidden = YES;
     self.currentIndex ++;
     [self updateCountLabel];
 }
@@ -56,20 +71,33 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    PracticeTwoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TwoCell" forIndexPath: indexPath];
+    PracticeTwoCollectionViewCell *cell;
     
-    self.currentPhrase = self.dataArray[indexPath.row];
-    
-    // play once immediately
-    [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
+    if ([collectionView.panGestureRecognizer velocityInView:self.view].x>0 ) {
+        // must plus 1, cuz the reuse mechanism
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForItem:(indexPath.item+1) inSection:indexPath.section];
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TwoCell" forIndexPath:newIndexPath];
+        self.currentPhrase = self.dataArray[newIndexPath.row];
+        cell.tag = newIndexPath.row;
+        self.itemCollectionView.scrollEnabled = NO;
+        self.itemCollectionView.scrollEnabled = YES;
+    }
+    else {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TwoCell" forIndexPath:indexPath];
+        self.currentPhrase = self.dataArray[indexPath.row];
+        cell.tag = indexPath.row;
+    }
     
     // must do this, otherwise the two buttons will be seen !
-    _selectedCell.confirmSelectionButton.hidden= NO;
     cell.congratulateLabel.hidden = YES;
     cell.righAnswerLabel.hidden = YES;
+    cell.confirmSelectionButton.hidden = NO;
     cell.pinyinOneTextField.text = @"";
     cell.pinyinTwoTextField.text = @"";
 
+    // play once immediately
+    [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
+    
     // store the right pinyin for latter comparing use
     NSArray *pinYinWithoutTones = [[self.currentPhrase pinyinWithoutTones] componentsSeparatedByString:@" "];
     self.firstPinyin = pinYinWithoutTones[0];
@@ -88,8 +116,6 @@
     [cell.playButton addTarget:self action:@selector(playMP3File:) forControlEvents:UIControlEventTouchUpInside];
     // register for confimation Input
     [cell.confirmSelectionButton addTarget:self action:@selector(confirmSelection:) forControlEvents:UIControlEventTouchUpInside];
-    
-    _selectedCell = cell;
     return cell;
 }
 
@@ -102,9 +128,3 @@
 }
 
 @end
-
-
-
-
-
-
