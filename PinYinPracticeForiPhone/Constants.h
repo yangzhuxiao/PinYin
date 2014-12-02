@@ -213,4 +213,11 @@ static const CGFloat ToneLabelOneForPrac2YOriginPercentHeight = 0.3;
 static const CGFloat ToneLabelTwoForPrac2XOriginPercentWidth = 0.52;
 static const CGFloat ToneLabelTwoForPrac2YOriginPercentHeight = 0.3;
 
+// toneLabelOne For Practice 3 offset
+static const CGFloat ToneLabelOneForPrac3XOriginPercentWidth = 0.08;
+static const CGFloat ToneLabelOneForPrac3YOriginPercentHeight = 0.12;
+// toneLabelTwo For Practice 3 offset
+static const CGFloat ToneLabelTwoForPrac3XOriginPercentWidth = 0.52;
+static const CGFloat ToneLabelTwoForPrac3YOriginPercentHeight = 0.12;
+
 #endif

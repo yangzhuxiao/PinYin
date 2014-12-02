@@ -10,6 +10,7 @@
 #import "ParentPracticeCollectionViewCell.h"
 #import "CustomSelectToneIndicatorLabel.h"
 #import "CustomPinyinTextField.h"
+#import "CustomToneLabel.h"
 
 @interface PracticeThreeCollectionViewCell : ParentPracticeCollectionViewCell
 
@@ -18,5 +19,8 @@
 
 @property (nonatomic, strong) UILabel *SelectToneIndicatorLabelOne;
 @property (nonatomic, strong) UILabel *SelectToneIndicatorLabelTwo;
+
+@property (nonatomic, strong) CustomToneLabel *toneLabelOne;
+@property (nonatomic, strong) CustomToneLabel *toneLabelTwo;
 
 @end

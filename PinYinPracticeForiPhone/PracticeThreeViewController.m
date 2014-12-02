@@ -35,18 +35,37 @@
 }
 
 - (void)toneIsSelected:(id)sender {
+    PracticeThreeCollectionViewCell *selectedCell;
+    id superView1 = [sender superview];
+    if ([superView1 isKindOfClass:[PracticeThreeCollectionViewCell class]]) {
+        selectedCell = (PracticeThreeCollectionViewCell *)superView1;
+    } else {
+        id superView2 = [superView1 superview];
+        if ([superView2 isKindOfClass:[PracticeThreeCollectionViewCell class]]) {
+            selectedCell = (PracticeThreeCollectionViewCell *)superView2;
+        } else {
+            id superView3 = [superView2 superview];
+            if ([superView3 isKindOfClass:[PracticeThreeCollectionViewCell class]]) {
+                selectedCell = (PracticeThreeCollectionViewCell *)superView3;
+            } else return;
+        }
+    }
+
     [sender setSelected:YES];
-    
     if ([sender tag] >= 10) {
         [self.selectedButtonSecondRow setSelected:NO];
         self.selectedButtonSecondRow = sender;
         [self.selectedButtonSecondRow setSelected:YES];
         self.tempSecondTone = [sender titleLabel].text;
+        selectedCell.toneLabelTwo.text = [[sender titleLabel].text substringWithRange:NSMakeRange(2, 1)];
+        selectedCell.toneLabelTwo.hidden = NO;
     } else if ([sender tag] < 10) {
         [self.selectedButtonFirstRow setSelected:NO];
         self.selectedButtonFirstRow = sender;
         [self.selectedButtonFirstRow setSelected:YES];
         self.tempFirstTone = [sender titleLabel].text;
+        selectedCell.toneLabelOne.text = [[sender titleLabel].text substringWithRange:NSMakeRange(2, 1)];
+        selectedCell.toneLabelOne.hidden = NO;
     }
 }
 

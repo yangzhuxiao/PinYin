@@ -32,20 +32,19 @@
         
 // ToneLabelOne
         _toneLabelOne = [[CustomToneLabel alloc] initWithFrame:CGRectMake
-                         (frame.size.width * ToneLabelOneForPrac2XOriginPercentWidth,
-                          frame.size.height * ToneLabelOneForPrac2YOriginPercentHeight,
+                         (frame.size.width * ToneLabelOneForPrac3XOriginPercentWidth,
+                          frame.size.height * ToneLabelOneForPrac3YOriginPercentHeight,
                           frame.size.width * ToneLabelWidthPercentWidth,
                           frame.size.width * ToneLabelHeightPercentWidth)];
-        _toneLabelOne.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.2];
 
         
 // ToneLabelTwo
         _toneLabelTwo = [[CustomToneLabel alloc] initWithFrame:CGRectMake
-                         (frame.size.width * ToneLabelTwoForPrac1XOriginPercentWidth,
-                          frame.size.height * ToneLabelTwoForPrac2YOriginPercentHeight,
+                         (frame.size.width * ToneLabelTwoForPrac3XOriginPercentWidth,
+                          frame.size.height * ToneLabelTwoForPrac3YOriginPercentHeight,
                           frame.size.width * ToneLabelWidthPercentWidth,
                           frame.size.width * ToneLabelHeightPercentWidth)];
-        
+
         [self.contentView addSubview:_pinyinOneTextField];
         [self.contentView addSubview:_pinyinTwoTextField];
         

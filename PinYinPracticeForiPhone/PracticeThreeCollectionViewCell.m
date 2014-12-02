@@ -68,6 +68,21 @@
             }
         }
         
+        // ToneLabelOne
+        _toneLabelOne = [[CustomToneLabel alloc] initWithFrame:CGRectMake
+                         (frame.size.width * ToneLabelOneForPrac3XOriginPercentWidth,
+                          frame.size.height * ToneLabelOneForPrac3YOriginPercentHeight,
+                          frame.size.width * ToneLabelWidthPercentWidth,
+                          frame.size.width * ToneLabelHeightPercentWidth)];
+        
+        
+        // ToneLabelTwo
+        _toneLabelTwo = [[CustomToneLabel alloc] initWithFrame:CGRectMake
+                         (frame.size.width * ToneLabelTwoForPrac3XOriginPercentWidth,
+                          frame.size.height * ToneLabelTwoForPrac3YOriginPercentHeight,
+                          frame.size.width * ToneLabelWidthPercentWidth,
+                          frame.size.width * ToneLabelHeightPercentWidth)];
+        
         // pinyinOneTextField
         _pinyinOneTextField = [[CustomPinyinTextField alloc] initWithFrame:
                                CGRectMake(pinyinOneTextFieldForPrac3XOriginPercent * frame.size.width,
@@ -81,6 +96,9 @@
                                           pinyinTwoTextFieldForPrac3YOriginPercent *frame.size.height,
                                           pinyinTextFieldWidthPercentWidth *frame.size.width,
                                           pinyinTextFieldHeightPercentWidth *frame.size.width)];
+        
+        [self.contentView addSubview:_toneLabelOne];
+        [self.contentView addSubview:_toneLabelTwo];
         
         [self.contentView addSubview:_SelectToneIndicatorLabelOne];
         [self.contentView addSubview:_SelectToneIndicatorLabelTwo];

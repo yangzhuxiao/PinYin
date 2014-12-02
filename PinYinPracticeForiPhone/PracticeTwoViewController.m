@@ -103,9 +103,6 @@
     self.firstPinyin = pinYinWithoutTones[0];
     self.secondPinyin = pinYinWithoutTones[1];
     
-    cell.toneLabelOne.text = [[self.currentPhrase tones] substringToIndex:toneStringLength];
-    cell.toneLabelTwo.text = [[self.currentPhrase tones] substringFromIndex:toneStringLength];
-    
     cell.toneLabelOne.text = [[[self.currentPhrase tones] substringToIndex:toneStringLength] substringWithRange:NSMakeRange(2, 1)];
     cell.toneLabelTwo.text = [[[self.currentPhrase tones] substringFromIndex:toneStringLength] substringWithRange:NSMakeRange(2, 1)];
 
