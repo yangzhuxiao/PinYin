@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "ParentPracticeCollectionViewCell.h"
+#import "CustomPinyinTextField.h"
+#import "CustomToneLabel.h"
 
 @interface PracticeTwoCollectionViewCell : ParentPracticeCollectionViewCell
 
-@property (nonatomic, strong) UILabel *toneLabelOne;
-@property (nonatomic, strong) UILabel *toneLabelTwo;
+@property (nonatomic, strong) CustomToneLabel *toneLabelOne;
+@property (nonatomic, strong) CustomToneLabel *toneLabelTwo;
 
-@property (nonatomic, strong) UITextField *pinyinOneTextField;
-@property (nonatomic, strong) UITextField *pinyinTwoTextField;
+@property (nonatomic, strong) CustomPinyinTextField *pinyinOneTextField;
+@property (nonatomic, strong) CustomPinyinTextField *pinyinTwoTextField;
 
 @end

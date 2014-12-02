@@ -15,6 +15,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    NSLog(@"%@", [UIFont familyNames]);
+    NSLog(@"%@", [UIFont fontNamesForFamilyName:@"Helvetica"]);
+
+    
     [[PhraseManager sharedManager] allPhrasesArray];
         
 // construct plist file

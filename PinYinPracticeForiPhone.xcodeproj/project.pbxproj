@@ -20,6 +20,10 @@
 		9789D9051A220D5600298C9B /* PinYinPracticeForiPhoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9789D9041A220D5600298C9B /* PinYinPracticeForiPhoneTests.m */; };
 		978CE8061A2C4EE800B144FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 978CE8051A2C4EE800B144FE /* Images.xcassets */; };
 		9799DC121A2D5B8600F6579D /* CustomToneButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9799DC111A2D5B8600F6579D /* CustomToneButton.m */; };
+		9799DC161A2D671A00F6579D /* CustomSelectToneIndicatorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9799DC151A2D671A00F6579D /* CustomSelectToneIndicatorLabel.m */; };
+		9799DC191A2D690500F6579D /* CustomPinYinLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9799DC181A2D690500F6579D /* CustomPinYinLabel.m */; };
+		9799DC1C1A2D6E6100F6579D /* CustomPinyinTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9799DC1B1A2D6E6100F6579D /* CustomPinyinTextField.m */; };
+		9799DC1F1A2D8A7E00F6579D /* CustomToneLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9799DC1E1A2D8A7E00F6579D /* CustomToneLabel.m */; };
 		97B024901A2769D7005964FB /* PracticeTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97B0248F1A2769D7005964FB /* PracticeTwoViewController.m */; };
 		97B024931A276A75005964FB /* PracticeTwoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97B024921A276A75005964FB /* PracticeTwoCollectionViewCell.m */; };
 		97B024971A277F19005964FB /* PracticeThreeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97B024961A277F18005964FB /* PracticeThreeCollectionViewCell.m */; };
@@ -74,6 +78,14 @@
 		978CE8051A2C4EE800B144FE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9799DC101A2D5B8600F6579D /* CustomToneButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomToneButton.h; sourceTree = "<group>"; };
 		9799DC111A2D5B8600F6579D /* CustomToneButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomToneButton.m; sourceTree = "<group>"; };
+		9799DC141A2D671A00F6579D /* CustomSelectToneIndicatorLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSelectToneIndicatorLabel.h; sourceTree = "<group>"; };
+		9799DC151A2D671A00F6579D /* CustomSelectToneIndicatorLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSelectToneIndicatorLabel.m; sourceTree = "<group>"; };
+		9799DC171A2D690500F6579D /* CustomPinYinLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPinYinLabel.h; sourceTree = "<group>"; };
+		9799DC181A2D690500F6579D /* CustomPinYinLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPinYinLabel.m; sourceTree = "<group>"; };
+		9799DC1A1A2D6E6100F6579D /* CustomPinyinTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPinyinTextField.h; sourceTree = "<group>"; };
+		9799DC1B1A2D6E6100F6579D /* CustomPinyinTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPinyinTextField.m; sourceTree = "<group>"; };
+		9799DC1D1A2D8A7E00F6579D /* CustomToneLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomToneLabel.h; sourceTree = "<group>"; };
+		9799DC1E1A2D8A7E00F6579D /* CustomToneLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomToneLabel.m; sourceTree = "<group>"; };
 		97B0248E1A2769D7005964FB /* PracticeTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PracticeTwoViewController.h; sourceTree = "<group>"; };
 		97B0248F1A2769D7005964FB /* PracticeTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PracticeTwoViewController.m; sourceTree = "<group>"; };
 		97B024911A276A75005964FB /* PracticeTwoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PracticeTwoCollectionViewCell.h; sourceTree = "<group>"; };
@@ -230,6 +242,14 @@
 			children = (
 				9799DC101A2D5B8600F6579D /* CustomToneButton.h */,
 				9799DC111A2D5B8600F6579D /* CustomToneButton.m */,
+				9799DC141A2D671A00F6579D /* CustomSelectToneIndicatorLabel.h */,
+				9799DC151A2D671A00F6579D /* CustomSelectToneIndicatorLabel.m */,
+				9799DC171A2D690500F6579D /* CustomPinYinLabel.h */,
+				9799DC181A2D690500F6579D /* CustomPinYinLabel.m */,
+				9799DC1A1A2D6E6100F6579D /* CustomPinyinTextField.h */,
+				9799DC1B1A2D6E6100F6579D /* CustomPinyinTextField.m */,
+				9799DC1D1A2D8A7E00F6579D /* CustomToneLabel.h */,
+				9799DC1E1A2D8A7E00F6579D /* CustomToneLabel.m */,
 			);
 			name = CustomViewComponents;
 			sourceTree = "<group>";
@@ -449,12 +469,15 @@
 			files = (
 				97FA57521A26CA0100C47156 /* PracticeOneCollectionViewCell.m in Sources */,
 				97C826A61A29C74000016328 /* ParentPracticeCollectionViewCell.m in Sources */,
+				9799DC161A2D671A00F6579D /* CustomSelectToneIndicatorLabel.m in Sources */,
 				97C826A31A2969DE00016328 /* ParentPracticeViewController.m in Sources */,
+				9799DC191A2D690500F6579D /* CustomPinYinLabel.m in Sources */,
 				97891A971A26199C00FBE71F /* PracticeOneViewController.m in Sources */,
 				97B024971A277F19005964FB /* PracticeThreeCollectionViewCell.m in Sources */,
 				97B024901A2769D7005964FB /* PracticeTwoViewController.m in Sources */,
 				97C877DC1A283B6A00C56490 /* Phrase.m in Sources */,
 				97616FD61A23201000C3CBD1 /* ParentRootViewFlowLayout.m in Sources */,
+				9799DC1C1A2D6E6100F6579D /* CustomPinyinTextField.m in Sources */,
 				97134EAC1A2447D8009A748D /* ListenItemViewController.m in Sources */,
 				97C826981A295DA100016328 /* ParentRootViewController.m in Sources */,
 				97C877DF1A283BDE00C56490 /* PhraseManager.m in Sources */,
@@ -465,6 +488,7 @@
 				9789D8F11A220D5600298C9B /* PracticeRootViewController.m in Sources */,
 				9789D8EB1A220D5600298C9B /* AppDelegate.m in Sources */,
 				9789D8EE1A220D5600298C9B /* ListenRootViewController.m in Sources */,
+				9799DC1F1A2D8A7E00F6579D /* CustomToneLabel.m in Sources */,
 				97C8269F1A2968BD00016328 /* ParentRootCollectionViewCell.m in Sources */,
 				9789D8E81A220D5600298C9B /* main.m in Sources */,
 			);

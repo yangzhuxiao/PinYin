@@ -20,8 +20,6 @@
 }
 
 - (void)playMP3File:(id)sender {
-//    [sender setSelected:YES];
-//    NSLog(@"%@", [[sender titleLabel] textColor]);
     if (self.audioPlayer.isPlaying == YES) {
         [self.audioPlayer stop];
         //very important, otherwise start from where stopped last time
@@ -37,16 +35,37 @@
 }
 
 - (void)toneIsSelected:(id)sender {
+    
+    PracticeOneCollectionViewCell *selectedCell;
+    id superView1 = [sender superview];
+    if ([superView1 isKindOfClass:[PracticeOneCollectionViewCell class]]) {
+        selectedCell = (PracticeOneCollectionViewCell *)superView1;
+    } else {
+        id superView2 = [superView1 superview];
+        if ([superView2 isKindOfClass:[PracticeOneCollectionViewCell class]]) {
+            selectedCell = (PracticeOneCollectionViewCell *)superView2;
+        } else {
+            id superView3 = [superView2 superview];
+            if ([superView3 isKindOfClass:[PracticeOneCollectionViewCell class]]) {
+                selectedCell = (PracticeOneCollectionViewCell *)superView3;
+            } else return;
+        }
+    }
+    
     if ([sender tag] >= 10) {
         [self.selectedButtonSecondRow setSelected:NO];
         self.selectedButtonSecondRow = sender;
         [self.selectedButtonSecondRow setSelected:YES];
         self.tempSecondTone = [sender titleLabel].text;
+        selectedCell.toneLabelTwo.text = [[sender titleLabel].text substringWithRange:NSMakeRange(2, 1)];
+        selectedCell.toneLabelTwo.hidden = NO;
     } else if ([sender tag] < 10) {
         [self.selectedButtonFirstRow setSelected:NO];
         self.selectedButtonFirstRow = sender;
         [self.selectedButtonFirstRow setSelected:YES];
         self.tempFirstTone = [sender titleLabel].text;
+        selectedCell.toneLabelOne.text = [[sender titleLabel].text substringWithRange:NSMakeRange(2, 1)];
+        selectedCell.toneLabelOne.hidden = NO;
     }
 }
 
@@ -108,6 +127,8 @@
     cell.congratulateLabel.hidden = YES;
     cell.righAnswerLabel.hidden = YES;
     cell.confirmSelectionButton.hidden = NO;
+    cell.toneLabelOne.hidden = YES;
+    cell.toneLabelTwo.hidden = YES;
     
     // play once immediately
     [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];

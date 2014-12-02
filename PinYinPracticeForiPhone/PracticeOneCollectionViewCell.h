@@ -8,13 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "ParentPracticeCollectionViewCell.h"
+#import "CustomSelectToneIndicatorLabel.h"
+#import "CustomPinYinLabel.h"
+#import "CustomToneLabel.h"
 
 @interface PracticeOneCollectionViewCell : ParentPracticeCollectionViewCell
 
-@property (nonatomic, strong) UILabel *PinYinLabelOne;
-@property (nonatomic, strong) UILabel *PinYinLabelTwo;
+@property (nonatomic, strong) CustomPinYinLabel *PinYinLabelOne;
+@property (nonatomic, strong) CustomPinYinLabel *PinYinLabelTwo;
 
-@property (nonatomic, strong) UILabel *SelectToneIndicatorLabelOne;
-@property (nonatomic, strong) UILabel *SelectToneIndicatorLabelTwo;
+@property (nonatomic, strong) CustomSelectToneIndicatorLabel *SelectToneIndicatorLabelOne;
+@property (nonatomic, strong) CustomSelectToneIndicatorLabel *SelectToneIndicatorLabelTwo;
+
+@property (nonatomic, strong) CustomToneLabel *toneLabelOne;
+@property (nonatomic, strong) CustomToneLabel *toneLabelTwo;
 
 @end

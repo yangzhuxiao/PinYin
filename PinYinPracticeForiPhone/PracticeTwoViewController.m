@@ -106,6 +106,10 @@
     cell.toneLabelOne.text = [[self.currentPhrase tones] substringToIndex:toneStringLength];
     cell.toneLabelTwo.text = [[self.currentPhrase tones] substringFromIndex:toneStringLength];
     
+    cell.toneLabelOne.text = [[[self.currentPhrase tones] substringToIndex:toneStringLength] substringWithRange:NSMakeRange(2, 1)];
+    cell.toneLabelTwo.text = [[[self.currentPhrase tones] substringFromIndex:toneStringLength] substringWithRange:NSMakeRange(2, 1)];
+
+    
     cell.righAnswerLabel.text = [NSString stringWithFormat:@"Sorry! The answer is \n\" %@\"", self.currentPhrase.pinyinFull];
     
     // set textfield's delegate

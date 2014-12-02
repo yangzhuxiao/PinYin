@@ -8,6 +8,7 @@
 
 #import "PracticeThreeCollectionViewCell.h"
 #import "Constants.h"
+#import "CustomToneButton.h"
 
 @implementation PracticeThreeCollectionViewCell
 
@@ -17,76 +18,69 @@
     if (self) {
         
         // SelectToneIndicatorLabel - One
-        _SelectToneIndicatorLabelOne = [[UILabel alloc] initWithFrame:CGRectMake(SelectToneIndicatorLabelOneXOriginPercent * frame.size.width, SelectToneIndicatorLabelOneYOriginPercent *frame.size.height, SelectToneIndicatorLabelOneWidthPercent * frame.size.width, SelectToneIndicatorLabelOneHeightPercent * frame.size.height)];
+        _SelectToneIndicatorLabelOne = [[CustomSelectToneIndicatorLabel alloc] initWithFrame:CGRectMake(SelectToneIndicatorLabelOneXOriginPercent * frame.size.width, SelectToneIndicatorLabelOneYOriginPercent *frame.size.height, SelectToneIndicatorLabelOneWidthPercent * frame.size.width, SelectToneIndicatorLabelOneHeightPercent * frame.size.height)];
         _SelectToneIndicatorLabelOne.text = @" Pick a tone for the first pinyin";
-        _SelectToneIndicatorLabelOne.font = [UIFont systemFontOfSize:frame.size.width * SelectToneIndicatorLabelOneFontPercentWidth];
-        _SelectToneIndicatorLabelOne.textAlignment = NSTextAlignmentLeft;
-        _SelectToneIndicatorLabelOne.textColor = txtColor;
         
         // SelectToneIndicatorLabel - Two
-        _SelectToneIndicatorLabelTwo = [[UILabel alloc] initWithFrame:CGRectMake(SelectToneIndicatorLabelTwoXOriginPercent * frame.size.width, SelectToneIndicatorLabelTwoYOriginPercent *frame.size.height, SelectToneIndicatorLabelTwoWidthPercent * frame.size.width, SelectToneIndicatorLabelTwoHeightPercent * frame.size.height)];
+        _SelectToneIndicatorLabelTwo = [[CustomSelectToneIndicatorLabel alloc] initWithFrame:CGRectMake(SelectToneIndicatorLabelTwoXOriginPercent * frame.size.width, SelectToneIndicatorLabelTwoYOriginPercent *frame.size.height, SelectToneIndicatorLabelTwoWidthPercent * frame.size.width, SelectToneIndicatorLabelTwoHeightPercent * frame.size.height)];
         _SelectToneIndicatorLabelTwo.text = @" Pick a tone for the second pinyin";
-        _SelectToneIndicatorLabelTwo.font = [UIFont systemFontOfSize:frame.size.width * SelectToneIndicatorLabelTwoFontPercentWidth];
-        _SelectToneIndicatorLabelTwo.textAlignment = NSTextAlignmentLeft;
-        _SelectToneIndicatorLabelTwo.textColor = txtColor;
-        
         
         // ToneButtons
         for (int i = 0; i < 2; i++) {
             for (int j=0; j<5; j++) {
-                
-                UIButton *toneButton = [UIButton buttonWithType:UIButtonTypeSystem];
-                [toneButton setFrame:CGRectMake((ToneButtonBasicXOriginPercent + j * ToneButtonXSpaceWidthPercent) * frame.size.width, (ToneButtonBasicYOriginPercent + i * ToneButtonYSpaceHeightPercent) *frame.size.height, ToneButtonBasicWidthPercent * frame.size.width, ToneButtonBasicHeightPercent * frame.size.height)];
-                
-                NSString *buttonText;
+                CustomToneButton *toneButton =
+                [[CustomToneButton alloc] initWithFrame:
+                 CGRectMake(
+                            (ToneButtonBasicXOriginPercent + j * ToneButtonXSpaceWidthPercent) * frame.size.width,
+                            (ToneButtonBasicYOriginPercent + i * ToneButtonYSpaceHeightPercent) *frame.size.height,
+                            ToneButtonBasicWidthPercent * frame.size.width,
+                            ToneButtonBasicHeightPercent * frame.size.height)];
+                NSMutableAttributedString *buttonText;
                 switch (j) {
                     case 0:
-                        buttonText = (NSString *)firstToneString;
+                        buttonText = [[NSMutableAttributedString alloc] initWithString:(NSString *)firstToneString];
+                        [buttonText addAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:frame.size.width * ToneButtonBasicFontPercentWidth]} range:NSMakeRange(0, buttonText.length)];
                         break;
                     case 1:
-                        buttonText = (NSString *)secondToneString;
+                        buttonText = [[NSMutableAttributedString alloc] initWithString:(NSString *)secondToneString];
+                        [buttonText addAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:frame.size.width * ToneButtonBasicFontPercentWidth * 0.6]} range:NSMakeRange(0, buttonText.length)];
                         break;
                     case 2:
-                        buttonText = (NSString *)thirdToneString;
+                        buttonText = [[NSMutableAttributedString alloc] initWithString:(NSString *)thirdToneString];
+                        [buttonText addAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:frame.size.width * ToneButtonBasicFontPercentWidth]} range:NSMakeRange(0, buttonText.length)];
                         break;
                     case 3:
-                        buttonText = (NSString *)fourthToneString;
+                        buttonText = [[NSMutableAttributedString alloc] initWithString:(NSString *)fourthToneString];
+                        [buttonText addAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:frame.size.width * ToneButtonBasicFontPercentWidth * 0.6]} range:NSMakeRange(0, buttonText.length)];
                         break;
                     case 4:
-                        buttonText = (NSString *)lightToneString;
+                        buttonText = [[NSMutableAttributedString alloc] initWithString:(NSString *)lightToneString];
+                        [buttonText addAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:frame.size.width * ToneButtonBasicFontPercentWidth]} range:NSMakeRange(0, buttonText.length)];
                         break;
-                        
                     default:
                         break;
                 }
                 
-                [toneButton setTitle:buttonText forState:UIControlStateNormal];
-                [toneButton setTitleColor:txtColor forState:UIControlStateNormal];
-                toneButton.showsTouchWhenHighlighted = YES;
-                
-                toneButton.titleLabel.font = [UIFont systemFontOfSize:frame.size.width * ToneButtonBasicFontPercentWidth];
-                
-                toneButton.layer.borderWidth = 1.0f;
-                toneButton.layer.borderColor = bdColor.CGColor;
-                toneButton.layer.cornerRadius = 5.0f;
+                [toneButton setAttributedTitle:buttonText forState:UIControlStateNormal];
+                toneButton.titleEdgeInsets = UIEdgeInsetsMake(toneButton.frame.size.height*0.8, -toneButton.frame.size.width*0.35, 0, 0);
                 toneButton.tag = i*10+j;
                 [self.contentView addSubview:toneButton];
             }
         }
         
         // pinyinOneTextField
-        _pinyinOneTextField = [[UITextField alloc] initWithFrame:CGRectMake(pinyinOneTextFieldForPrac3XOriginPercent * frame.size.width, pinyinOneTextFieldForPrac3YOriginPercent *frame.size.height, pinyinOneTextFieldForPrac3WidthPercentWidth *frame.size.width, pinyinOneTextFieldForPrac3HeightPercentWidth *frame.size.width)];
-        _pinyinOneTextField.placeholder = @"pin yin";
-        _pinyinOneTextField.borderStyle = UITextBorderStyleRoundedRect;
-        _pinyinOneTextField.textAlignment = NSTextAlignmentCenter;
-        _pinyinOneTextField.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:pinyinOneTextFieldFontPercentWidth*frame.size.width];
+        _pinyinOneTextField = [[CustomPinyinTextField alloc] initWithFrame:
+                               CGRectMake(pinyinOneTextFieldForPrac3XOriginPercent * frame.size.width,
+                                          pinyinOneTextFieldForPrac3YOriginPercent *frame.size.height,
+                                          pinyinTextFieldWidthPercentWidth *frame.size.width,
+                                          pinyinTextFieldHeightPercentWidth *frame.size.width)];
         
         // pinyinTwoTextField
-        _pinyinTwoTextField = [[UITextField alloc] initWithFrame:CGRectMake(pinyinTwoTextFieldForPrac3XOriginPercent * frame.size.width, pinyinTwoTextFieldForPrac3YOriginPercent *frame.size.height, pinyinTwoTextFieldForPrac3WidthPercentWidth *frame.size.width, pinyinTwoTextFieldForPrac3HeightPercentWidth *frame.size.width)];
-        _pinyinTwoTextField.placeholder = @"pin yin";
-        _pinyinTwoTextField.borderStyle = UITextBorderStyleRoundedRect;
-        _pinyinTwoTextField.textAlignment = NSTextAlignmentCenter;
-        _pinyinTwoTextField.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:pinyinTwoTextFieldFontPercentWidth*frame.size.width];
+        _pinyinTwoTextField = [[CustomPinyinTextField alloc] initWithFrame:
+                               CGRectMake(pinyinTwoTextFieldForPrac3XOriginPercent * frame.size.width,
+                                          pinyinTwoTextFieldForPrac3YOriginPercent *frame.size.height,
+                                          pinyinTextFieldWidthPercentWidth *frame.size.width,
+                                          pinyinTextFieldHeightPercentWidth *frame.size.width)];
         
         [self.contentView addSubview:_SelectToneIndicatorLabelOne];
         [self.contentView addSubview:_SelectToneIndicatorLabelTwo];
