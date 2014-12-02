@@ -14,9 +14,7 @@
 #define bgColor [UIColor colorWithRed:204/255 green:1 blue:204/255 alpha:0.1]
 #define txtColor [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4]
 #define bdColor [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4]
-
-
-
+#define hightlightedColor [UIColor colorWithRed:0 green:0.478431 blue:1 alpha:1]
 
 // tones
 

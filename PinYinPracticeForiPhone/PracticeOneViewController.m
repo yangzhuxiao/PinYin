@@ -20,6 +20,8 @@
 }
 
 - (void)playMP3File:(id)sender {
+//    [sender setSelected:YES];
+//    NSLog(@"%@", [[sender titleLabel] textColor]);
     if (self.audioPlayer.isPlaying == YES) {
         [self.audioPlayer stop];
         //very important, otherwise start from where stopped last time
@@ -128,6 +130,7 @@
             [subview addTarget:self action:@selector(toneIsSelected:) forControlEvents:UIControlEventTouchUpInside];
         }
     }
+    _selectedCell = cell;
     return cell;
 }
 

@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ParentPracticeViewController.h"
+@class PracticeOneCollectionViewCell;
 
 @interface PracticeOneViewController : ParentPracticeViewController < UICollectionViewDelegate, UICollectionViewDataSource >
+
+@property (nonatomic, strong) PracticeOneCollectionViewCell *selectedCell;
 
 @end

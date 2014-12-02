@@ -9,6 +9,7 @@
 #import "PracticeOneCollectionViewCell.h"
 #import "Constants.h"
 #import <FontAwesomeKit/FAKIonIcons.h>
+#import "CustomToneButton.h"
 
 @implementation PracticeOneCollectionViewCell
 
@@ -33,33 +34,7 @@
         // ToneButtons
         for (int i = 0; i < 2; i++) {
             for (int j=0; j<5; j++) {
-                
-//                UIButton *toneButton = [UIButton buttonWithType:UIButtonTypeSystem];
-                UIButton *toneButton = [UIButton buttonWithType:UIButtonTypeCustom];
-
-                [toneButton setFrame:CGRectMake((ToneButtonBasicXOriginPercent + j * ToneButtonXSpaceWidthPercent) * frame.size.width, (ToneButtonBasicYOriginPercent + i * ToneButtonYSpaceHeightPercent) *frame.size.height, ToneButtonBasicWidthPercent * frame.size.width, ToneButtonBasicHeightPercent * frame.size.height)];
-                
-//                NSString *buttonText;
-//                switch (j) {
-//                    case 0:
-//                        buttonText = (NSString *)firstToneString;
-//                        break;
-//                    case 1:
-//                        buttonText = (NSString *)secondToneString;
-//                        break;
-//                    case 2:
-//                        buttonText = (NSString *)thirdToneString;
-//                        break;
-//                    case 3:
-//                        buttonText = (NSString *)fourthToneString;
-//                        break;
-//                    case 4:
-//                        buttonText = (NSString *)lightToneString;
-//                        break;
-//                        
-//                    default:
-//                        break;
-//                }
+                CustomToneButton *toneButton = [[CustomToneButton alloc] initWithFrame:CGRectMake((ToneButtonBasicXOriginPercent + j * ToneButtonXSpaceWidthPercent) * frame.size.width, (ToneButtonBasicYOriginPercent + i * ToneButtonYSpaceHeightPercent) *frame.size.height, ToneButtonBasicWidthPercent * frame.size.width, ToneButtonBasicHeightPercent * frame.size.height)];
                 
                 NSMutableAttributedString *buttonText;
                 switch (j) {
@@ -92,40 +67,30 @@
                 FAKIonIcons *checkMarkIcon = [FAKIonIcons ios7CheckmarkEmptyIconWithSize:toneButton.frame.size.width];
 //                [checkMarkIcon setAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:toneButton.frame.size.width*0.5], NSForegroundColorAttributeName: [UIColor redColor]}];
 //                [toneButton setBackgroundImage:[checkMarkIcon imageWithSize:toneButton.frame.size] forState:UIControlStateSelected];
-                toneButton.backgroundColor = [UIColor whiteColor];
+//                toneButton.backgroundColor = [UIColor whiteColor];
                 
-                UIView *selectedView = [[UIView alloc] initWithFrame:toneButton.bounds];
-                selectedView.backgroundColor = [UIColor redColor];
-                selectedView.layer.cornerRadius = 5.0f;
+//                UIView *selectedView = [[UIView alloc] initWithFrame:toneButton.bounds];
+//                selectedView.backgroundColor = [UIColor redColor];
+//                selectedView.layer.cornerRadius = 5.0f;
+//                
+//                UIGraphicsBeginImageContext(selectedView.bounds.size);
+//                [selectedView.layer renderInContext:UIGraphicsGetCurrentContext()];
+//                UIImage *selectedImage = UIGraphicsGetImageFromCurrentImageContext();
+//                UIGraphicsEndImageContext();
                 
-                UIGraphicsBeginImageContext(selectedView.bounds.size);
-                [selectedView.layer renderInContext:UIGraphicsGetCurrentContext()];
-                UIImage *selectedImage = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
-                
-                [toneButton setBackgroundImage:selectedImage forState:UIControlStateSelected];
-
-                
-                
-                
-                
-                
-                
-                
-                
-                
+//                [toneButton setBackgroundImage:selectedImage forState:UIControlStateSelected];
 
                 [toneButton setAttributedTitle:buttonText forState:UIControlStateNormal];
-                [toneButton setTitleColor:txtColor forState:UIControlStateNormal];
-                toneButton.showsTouchWhenHighlighted = YES;
+//                [toneButton setTitleColor:txtColor forState:UIControlStateNormal];
+//                toneButton.showsTouchWhenHighlighted = YES;
                 toneButton.titleEdgeInsets = UIEdgeInsetsMake(toneButton.frame.size.height*0.8, -toneButton.frame.size.width*0.35, 0, 0);
                 
 //                toneButton.titleLabel.font = [UIFont systemFontOfSize:frame.size.width * ToneButtonBasicFontPercentWidth];
-                toneButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:frame.size.width * ToneButtonBasicFontPercentWidth * 0.5];
+//                toneButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:frame.size.width * ToneButtonBasicFontPercentWidth * 0.5];
                 
 //                toneButton.layer.borderWidth = 1.0f;
 //                toneButton.layer.borderColor = bdColor.CGColor;
-                toneButton.layer.cornerRadius = 5.0f;
+//                toneButton.layer.cornerRadius = 5.0f;
                 toneButton.tag = i*10+j;
                 [self.contentView addSubview:toneButton];
             }
@@ -152,3 +117,7 @@
 }
 
 @end
+
+
+
+
