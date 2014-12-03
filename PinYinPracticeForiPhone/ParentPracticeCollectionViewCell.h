@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CustomPlayMp3Button.h"
 @interface ParentPracticeCollectionViewCell : UICollectionViewCell
 
-@property (nonatomic, strong) UIButton *playButton;
+@property (nonatomic, strong) CustomPlayMp3Button *playButton;
 @property (nonatomic, strong) UIButton *confirmSelectionButton;
 @property (nonatomic, strong) UILabel *congratulateLabel;
 @property (nonatomic, strong) UILabel *righAnswerLabel;

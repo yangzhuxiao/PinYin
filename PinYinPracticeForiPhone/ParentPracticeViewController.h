@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "Phrase.h"
 
-@interface ParentPracticeViewController : UIViewController < UIScrollViewDelegate >
+@interface ParentPracticeViewController : UIViewController < UIScrollViewDelegate, AVAudioPlayerDelegate >
 
 // UI
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;

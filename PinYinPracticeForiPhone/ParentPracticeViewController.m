@@ -113,6 +113,7 @@
     {
         return;
     }
+    [_audioPlayer setDelegate:self];
     [_audioPlayer setNumberOfLoops:0];
     [_audioPlayer setVolume:1];
     [_audioPlayer prepareToPlay];
@@ -121,34 +122,6 @@
 
 - (void)backToRoot:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-#pragma mark - UIScrollView Delegate
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    [_audioPlayer stop];
-    _audioPlayer.currentTime = 0;
-}
-
-- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
-{
-    [_selectedButtonSecondRow setSelected:NO];
-    [_selectedButtonFirstRow setSelected:NO];
-    _selectedButtonFirstRow = nil;
-    _selectedButtonSecondRow = nil;
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    int index = fabs(scrollView.contentOffset.x)/self.view.frame.size.width;
-    
-    _audioPlayer = nil;
-    _currentPhrase = _dataArray[index];
-    [self setUpAudioPlayerWithMp3FilePath:_currentPhrase.mp3Path];
-    
-    // figure out the page down the view, must be "index+1", otherwise will start from 0
-    _indexLabel.text = [NSString stringWithFormat:@"%d/%lu", index+1, (unsigned long)_dataArray.count];
 }
 
 @end

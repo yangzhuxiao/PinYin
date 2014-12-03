@@ -17,17 +17,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // play button
-        _playButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [_playButton setFrame:CGRectMake(PlayButtonXOriginPercent * frame.size.width, PlayButtonYOriginPercent * frame.size.height, PlayButtonWidthPercentWidth*frame.size.width, PlayButtonHeightPercentWidth*frame.size.width)];
-        _playButton.layer.borderWidth = 1.0f;
-        _playButton.layer.cornerRadius = 3.0f;
-        _playButton.layer.borderColor = bdColor.CGColor;
-        
-        FAKIcon *playIconNormal = [FAKIonIcons ios7PlayIconWithSize:PlayButtonHeightPercentWidth*frame.size.width];
-        playIconNormal.drawingPositionAdjustment = UIOffsetMake(PlayButtonWidthPercentWidth * frame.size.width*0.05, 0);
-        UIImage *playImageNormal = [playIconNormal imageWithSize:CGSizeMake(_playButton.frame.size.width, _playButton.frame.size.height)];
-        [_playButton setImage:playImageNormal forState:UIControlStateNormal];
-        _playButton.showsTouchWhenHighlighted = YES;
+        _playButton = [[CustomPlayMp3Button alloc] initWithFrame:CGRectMake(PlayButtonXOriginPercent * frame.size.width, PlayButtonYOriginPercent * frame.size.height, PlayButtonWidthPercentWidth*frame.size.width, PlayButtonHeightPercentWidth*frame.size.width)];
         
 // confirmSelectionButton
         _confirmSelectionButton = [[UIButton alloc] initWithFrame:CGRectMake(frame.size.width * confirmSelectionButtonXOriginPercent, frame.size.height * confirmSelectionButtonYOriginPercent, frame.size.width * confirmSelectionButtonWidthPercentWidth, frame.size.width * confirmSelectionButtonHeightPercentWidth)];

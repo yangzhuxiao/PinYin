@@ -20,6 +20,7 @@
 }
 
 - (void)playMP3File:(id)sender {
+    [sender setSelected:YES];
     if (self.audioPlayer.isPlaying == YES) {
         [self.audioPlayer stop];
         //very important, otherwise start from where stopped last time
@@ -117,6 +118,7 @@
     [cell.playButton addTarget:self action:@selector(playMP3File:) forControlEvents:UIControlEventTouchUpInside];
     // register for confimation Input
     [cell.confirmSelectionButton addTarget:self action:@selector(confirmSelection:) forControlEvents:UIControlEventTouchUpInside];
+    _currentCell = cell;
     return cell;
 }
 
@@ -127,5 +129,51 @@
     [textField resignFirstResponder];
     return YES;
 }
+
+#pragma mark - UIScrollView Delegate
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.audioPlayer stop];
+    self.audioPlayer.currentTime = 0;
+    [_currentCell.playButton setSelected:NO];
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+    [self.selectedButtonSecondRow setSelected:NO];
+    [self.selectedButtonFirstRow setSelected:NO];
+    self.selectedButtonFirstRow = nil;
+    self.selectedButtonSecondRow = nil;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    int index = fabs(scrollView.contentOffset.x)/self.view.frame.size.width;
+    
+    self.audioPlayer = nil;
+    self.currentPhrase = self.dataArray[index];
+    
+    // This can avoid the inaccuracy of 'cellForItemAtIndexPath'
+    _currentCell = [(UICollectionView *)scrollView visibleCells][0];
+    [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
+    [_currentCell.playButton setSelected:YES];
+    
+    // figure out the page down the view, must be "index+1", otherwise will start from 0
+    self.indexLabel.text = [NSString stringWithFormat:@"%d/%lu", index+1, (unsigned long)self.dataArray.count];
+}
+
+#pragma mark - AVAudioPlayerDelegate
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    [_currentCell.playButton setSelected:NO];
+}
+
+- (void)audioPlayerBeginInterruption:(AVAudioPlayer *)player
+{
+    [_currentCell.playButton setSelected:NO];
+}
+
 
 @end

@@ -203,11 +203,11 @@
     cell.tag = indexPath.row;
     [cell.playButton addTarget:self action:@selector(playMP3File:) forControlEvents:UIControlEventTouchUpInside];
     
+    _currentCell = cell;
     if (isAutoPlaying == YES) {
         // only calulate here while isAutoPlaying, otherwise calculate in 'scrollViewDidEndDecelerating:'
         _indexLabel.text = [NSString stringWithFormat:@"%ld/%lu", (long)indexPath.row + 1, (unsigned long)_dataArray.count];
         // only when autoScrolling is _currentCell the same with cell. Otherwise assign it in 'scrollViewDidEndDecelerating'
-        _currentCell = cell;
         // set playButton selected and Play once immediately
         [cell.playButton setSelected:YES];
     }

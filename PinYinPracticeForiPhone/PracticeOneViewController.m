@@ -20,6 +20,7 @@
 }
 
 - (void)playMP3File:(id)sender {
+    [sender setSelected:YES];
     if (self.audioPlayer.isPlaying == YES) {
         [self.audioPlayer stop];
         //very important, otherwise start from where stopped last time
@@ -130,8 +131,6 @@
     cell.toneLabelOne.hidden = YES;
     cell.toneLabelTwo.hidden = YES;
     
-    // play once immediately
-    [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
     // store the right tones for latter comparing use
     self.firstTone = [[self.currentPhrase tones] substringToIndex:toneStringLength];
     self.secondTone = [[self.currentPhrase tones] substringFromIndex:toneStringLength];
@@ -151,8 +150,55 @@
             [subview addTarget:self action:@selector(toneIsSelected:) forControlEvents:UIControlEventTouchUpInside];
         }
     }
-    _selectedCell = cell;
+    // play once immediately
+    [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
+    _currentCell = cell;
     return cell;
+}
+
+#pragma mark - UIScrollView Delegate
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.audioPlayer stop];
+    self.audioPlayer.currentTime = 0;
+    [_currentCell.playButton setSelected:NO];
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+    [self.selectedButtonSecondRow setSelected:NO];
+    [self.selectedButtonFirstRow setSelected:NO];
+    self.selectedButtonFirstRow = nil;
+    self.selectedButtonSecondRow = nil;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    int index = fabs(scrollView.contentOffset.x)/self.view.frame.size.width;
+    
+    self.audioPlayer = nil;
+    self.currentPhrase = self.dataArray[index];
+    
+    // This can avoid the inaccuracy of 'cellForItemAtIndexPath'
+    _currentCell = [(UICollectionView *)scrollView visibleCells][0];
+    [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
+    [_currentCell.playButton setSelected:YES];
+    
+    // figure out the page down the view, must be "index+1", otherwise will start from 0
+    self.indexLabel.text = [NSString stringWithFormat:@"%d/%lu", index+1, (unsigned long)self.dataArray.count];
+}
+
+#pragma mark - AVAudioPlayerDelegate
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    [_currentCell.playButton setSelected:NO];
+}
+
+- (void)audioPlayerBeginInterruption:(AVAudioPlayer *)player
+{
+    [_currentCell.playButton setSelected:NO];
 }
 
 @end
