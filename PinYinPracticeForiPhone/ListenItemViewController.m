@@ -89,20 +89,7 @@
 
 - (void)setUpAutoPlayButton
 {
-    _autoPlayButton = [UIButton buttonWithType:UIButtonTypeCustom];
-
-    [_autoPlayButton setFrame:CGRectMake((1 - autoPlayButtonXOffsetToRightPercent - autoPlayButtonWidthPercentWidth) *WIDTH, autoPlayButtonYOriginPercent *HEIGHT, autoPlayButtonWidthPercentWidth *WIDTH, autoPlayButtonHeightPercentWidth *WIDTH)];
-    
-    FAKIonIcons *backIconNormal = [FAKIonIcons videocameraIconWithSize:autoPlayButtonWidthPercentWidth*WIDTH];
-    [backIconNormal addAttribute:NSForegroundColorAttributeName value:hightlightedColor];
-    UIImage *backImageNormal = [backIconNormal imageWithSize:CGSizeMake(autoPlayButtonWidthPercentWidth*WIDTH, autoPlayButtonWidthPercentWidth*WIDTH)];
-    [_autoPlayButton setImage:backImageNormal forState:UIControlStateNormal];
-    
-    FAKIonIcons *backIconSelected = [FAKIonIcons videocameraIconWithSize:autoPlayButtonWidthPercentWidth*WIDTH];
-    [backIconSelected addAttribute:NSForegroundColorAttributeName value:[UIColor redColor]];
-    UIImage *backImageSelected = [backIconSelected imageWithSize:CGSizeMake(autoPlayButtonWidthPercentWidth*WIDTH, autoPlayButtonWidthPercentWidth*WIDTH)];
-    [_autoPlayButton setImage:backImageSelected forState:UIControlStateSelected];
-    _autoPlayButton.showsTouchWhenHighlighted = YES;
+    _autoPlayButton = [[CustomAutoPlayButton alloc] initWithFrame:CGRectMake((1 - autoPlayButtonXOffsetToRightPercent - autoPlayButtonWidthPercentWidth) *WIDTH, autoPlayButtonYOriginPercent *HEIGHT, autoPlayButtonWidthPercentWidth *WIDTH, autoPlayButtonHeightPercentWidth *WIDTH)];
     
     [_autoPlayButton addTarget:self action:@selector(beginAutoPlay:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -236,7 +223,7 @@
     [_autoPlayButton setSelected:NO];
     [_audioPlayer stop];
     _audioPlayer.currentTime = 0;
-//    [_currentCell.playButton setSelected:NO];
+    [_currentCell.playButton setSelected:NO];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView

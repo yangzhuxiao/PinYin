@@ -79,10 +79,10 @@ static const CGFloat BackButtonXOriginPercent = 0.0469;
 static const CGFloat BackButtonYOriginPercent = 0.05;
 
 // AutoPlayButton size
-static const CGFloat autoPlayButtonWidthPercentWidth = 0.12;
-static const CGFloat autoPlayButtonHeightPercentWidth = 0.12;
+static const CGFloat autoPlayButtonWidthPercentWidth = 0.15;
+static const CGFloat autoPlayButtonHeightPercentWidth = 0.15;
 static const CGFloat autoPlayButtonXOffsetToRightPercent = 0.0469;
-static const CGFloat autoPlayButtonYOriginPercent = 0.05;
+static const CGFloat autoPlayButtonYOriginPercent = 0.04;
 
 // CountLabel size
 static const CGFloat CountLabelWidthPercent = 0.4;

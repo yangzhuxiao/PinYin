@@ -39,6 +39,7 @@
 		97C897A81A28E03D00C56490 /* FullPinyin in Resources */ = {isa = PBXBuildFile; fileRef = 97C897A71A28E03D00C56490 /* FullPinyin */; };
 		97FA57521A26CA0100C47156 /* PracticeOneCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FA57511A26CA0100C47156 /* PracticeOneCollectionViewCell.m */; };
 		97FDE4E01A2EABFF004D9F84 /* CustomPlayMp3Button.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FDE4DF1A2EABFF004D9F84 /* CustomPlayMp3Button.m */; };
+		97FDE4E31A2ED6ED004D9F84 /* CustomAutoPlayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FDE4E21A2ED6ED004D9F84 /* CustomAutoPlayButton.m */; };
 		A21CAD2EDAC5426F9FC0040A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D101F4BFE0492EA0764C61 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,8 @@
 		97FA57511A26CA0100C47156 /* PracticeOneCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PracticeOneCollectionViewCell.m; sourceTree = "<group>"; };
 		97FDE4DE1A2EABFF004D9F84 /* CustomPlayMp3Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPlayMp3Button.h; sourceTree = "<group>"; };
 		97FDE4DF1A2EABFF004D9F84 /* CustomPlayMp3Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPlayMp3Button.m; sourceTree = "<group>"; };
+		97FDE4E11A2ED6ED004D9F84 /* CustomAutoPlayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAutoPlayButton.h; sourceTree = "<group>"; };
+		97FDE4E21A2ED6ED004D9F84 /* CustomAutoPlayButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAutoPlayButton.m; sourceTree = "<group>"; };
 		A4AAA91D6DCD45D1935DA92F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -255,6 +258,8 @@
 				9799DC1E1A2D8A7E00F6579D /* CustomToneLabel.m */,
 				97FDE4DE1A2EABFF004D9F84 /* CustomPlayMp3Button.h */,
 				97FDE4DF1A2EABFF004D9F84 /* CustomPlayMp3Button.m */,
+				97FDE4E11A2ED6ED004D9F84 /* CustomAutoPlayButton.h */,
+				97FDE4E21A2ED6ED004D9F84 /* CustomAutoPlayButton.m */,
 			);
 			name = CustomViewComponents;
 			sourceTree = "<group>";
@@ -483,6 +488,7 @@
 				97FDE4E01A2EABFF004D9F84 /* CustomPlayMp3Button.m in Sources */,
 				97C877DC1A283B6A00C56490 /* Phrase.m in Sources */,
 				97616FD61A23201000C3CBD1 /* ParentRootViewFlowLayout.m in Sources */,
+				97FDE4E31A2ED6ED004D9F84 /* CustomAutoPlayButton.m in Sources */,
 				9799DC1C1A2D6E6100F6579D /* CustomPinyinTextField.m in Sources */,
 				97134EAC1A2447D8009A748D /* ListenItemViewController.m in Sources */,
 				97C826981A295DA100016328 /* ParentRootViewController.m in Sources */,
