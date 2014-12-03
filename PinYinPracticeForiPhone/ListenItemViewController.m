@@ -12,8 +12,9 @@
 #import "Phrase.h"
 #import "ItemCollectionViewCell.h"
 #import <FontAwesomeKit/FAKIonIcons.h>
+#import "CustomPlayMp3Button.h"
 
-@interface ListenItemViewController () < UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate >
+@interface ListenItemViewController () < UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate, AVAudioPlayerDelegate >
 {
     NSUInteger timeCount;
     BOOL isAutoPlaying;
@@ -22,6 +23,7 @@
 }
 @property (nonatomic, copy) NSArray *dataArray;
 @property (nonatomic, strong) Phrase *currentPhrase;
+@property (nonatomic, strong) ItemCollectionViewCell *currentCell;
 
 @end
 
@@ -87,12 +89,19 @@
 
 - (void)setUpAutoPlayButton
 {
-    _autoPlayButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    _autoPlayButton = [UIButton buttonWithType:UIButtonTypeCustom];
+
     [_autoPlayButton setFrame:CGRectMake((1 - autoPlayButtonXOffsetToRightPercent - autoPlayButtonWidthPercentWidth) *WIDTH, autoPlayButtonYOriginPercent *HEIGHT, autoPlayButtonWidthPercentWidth *WIDTH, autoPlayButtonHeightPercentWidth *WIDTH)];
     
-    FAKIonIcons *backIcon = [FAKIonIcons videocameraIconWithSize:autoPlayButtonWidthPercentWidth*WIDTH];
-    UIImage *backImage = [backIcon imageWithSize:CGSizeMake(autoPlayButtonWidthPercentWidth*WIDTH, autoPlayButtonWidthPercentWidth*WIDTH)];
-    [_autoPlayButton setImage:backImage forState:UIControlStateNormal];
+    FAKIonIcons *backIconNormal = [FAKIonIcons videocameraIconWithSize:autoPlayButtonWidthPercentWidth*WIDTH];
+    [backIconNormal addAttribute:NSForegroundColorAttributeName value:hightlightedColor];
+    UIImage *backImageNormal = [backIconNormal imageWithSize:CGSizeMake(autoPlayButtonWidthPercentWidth*WIDTH, autoPlayButtonWidthPercentWidth*WIDTH)];
+    [_autoPlayButton setImage:backImageNormal forState:UIControlStateNormal];
+    
+    FAKIonIcons *backIconSelected = [FAKIonIcons videocameraIconWithSize:autoPlayButtonWidthPercentWidth*WIDTH];
+    [backIconSelected addAttribute:NSForegroundColorAttributeName value:[UIColor redColor]];
+    UIImage *backImageSelected = [backIconSelected imageWithSize:CGSizeMake(autoPlayButtonWidthPercentWidth*WIDTH, autoPlayButtonWidthPercentWidth*WIDTH)];
+    [_autoPlayButton setImage:backImageSelected forState:UIControlStateSelected];
     _autoPlayButton.showsTouchWhenHighlighted = YES;
     
     [_autoPlayButton addTarget:self action:@selector(beginAutoPlay:) forControlEvents:UIControlEventTouchUpInside];
@@ -130,16 +139,20 @@
     {
         return;
     }
+    [_audioPlayer setDelegate:self];
     [_audioPlayer setNumberOfLoops:0];
     [_audioPlayer setVolume:1];
     [_audioPlayer prepareToPlay];
+    // play once immediately
     [_audioPlayer play];
 }
 
 - (void)playMP3File:(id)sender {
+    [sender setSelected:YES];
     if (isAutoPlaying == YES) {
         [timer invalidate];
         isAutoPlaying = NO;
+        [_autoPlayButton setSelected:NO];
     }
     
     if (_audioPlayer.isPlaying == YES) {
@@ -157,18 +170,24 @@
 }
 
 - (void)beginAutoPlay:(id)sender {
-    if (isAutoPlaying == YES) {
+    isAutoPlaying = !isAutoPlaying;
+    if (isAutoPlaying == NO) {
         [timer invalidate];
         isAutoPlaying = NO;
+        [_autoPlayButton setSelected:NO];
         return;
+    } else {
+        isDragging = NO;
+        [_autoPlayButton setSelected:YES];
+        [self autoScrollPage:nil];
+        timer = [NSTimer scheduledTimerWithTimeInterval:ScrollingTimeInterval target:self selector:@selector(autoScrollPage:) userInfo:nil repeats:YES];
     }
-    isDragging = NO;
-    timer = [NSTimer scheduledTimerWithTimeInterval:ScrollingTimeInterval target:self selector:@selector(autoScrollPage:) userInfo:nil repeats:YES];
 }
 
 - (void)autoScrollPage:(id)sender {
     if (isDragging == YES || timeCount == _dataArray.count) {
         isAutoPlaying = NO;
+        [_currentCell.playButton setSelected:NO];
         [timer invalidate];
         return;
     }
@@ -188,9 +207,6 @@
 {
     ItemCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ItemCell" forIndexPath: indexPath];
     _currentPhrase = _dataArray[indexPath.row];
-    
-    // play once immediately
-    [self setUpAudioPlayerWithMp3FilePath:_currentPhrase.mp3Path];
 
     NSString *firstChar = [_currentPhrase.characters substringToIndex:1];
     NSString *secondChar = [_currentPhrase.characters substringFromIndex:1];
@@ -200,10 +216,15 @@
     cell.tag = indexPath.row;
     [cell.playButton addTarget:self action:@selector(playMP3File:) forControlEvents:UIControlEventTouchUpInside];
     
-    // only calulate here while isAutoPlaying, otherwise calculate in 'scrollViewDidEndDecelerating:'
     if (isAutoPlaying == YES) {
+        // only calulate here while isAutoPlaying, otherwise calculate in 'scrollViewDidEndDecelerating:'
         _indexLabel.text = [NSString stringWithFormat:@"%ld/%lu", (long)indexPath.row + 1, (unsigned long)_dataArray.count];
+        // only when autoScrolling is _currentCell the same with cell. Otherwise assign it in 'scrollViewDidEndDecelerating'
+        _currentCell = cell;
+        // set playButton selected and Play once immediately
+        [cell.playButton setSelected:YES];
     }
+    [self setUpAudioPlayerWithMp3FilePath:_currentPhrase.mp3Path];
     return cell;
 }
 
@@ -212,8 +233,10 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     isDragging = YES;
+    [_autoPlayButton setSelected:NO];
     [_audioPlayer stop];
     _audioPlayer.currentTime = 0;
+//    [_currentCell.playButton setSelected:NO];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -221,12 +244,29 @@
     int index = fabs(scrollView.contentOffset.x)/self.view.frame.size.width;
     _audioPlayer = nil;
     _currentPhrase = _dataArray[index];
+    
+    // This can avoid the inaccuracy of 'cellForItemAtIndexPath'
+    _currentCell = [(UICollectionView *)scrollView visibleCells][0];
     [self setUpAudioPlayerWithMp3FilePath:_currentPhrase.mp3Path];
+    [_currentCell.playButton setSelected:YES];
     
     timeCount = index;
     // figure out the page down the view, must be "index+1", otherwise will start from 0
     _indexLabel.text = [NSString stringWithFormat:@"%d/%lu", index+1, (unsigned long)_dataArray.count];
 }
+
+#pragma mark - AVAudioPlayerDelegate
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    [_currentCell.playButton setSelected:NO];
+}
+
+- (void)audioPlayerBeginInterruption:(AVAudioPlayer *)player
+{
+    [_currentCell.playButton setSelected:NO];
+}
+
 
 @end
 
