@@ -85,23 +85,13 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    PracticeTwoCollectionViewCell *cell;
-    
+    PracticeTwoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TwoCell" forIndexPath:indexPath];
+    self.currentPhrase = self.dataArray[indexPath.row];
+    cell.tag = indexPath.row;
     if ([collectionView.panGestureRecognizer velocityInView:self.view].x>0 ) {
-        // must plus 1, cuz the reuse mechanism
-        NSIndexPath *newIndexPath = [NSIndexPath indexPathForItem:(indexPath.item+1) inSection:indexPath.section];
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TwoCell" forIndexPath:newIndexPath];
-        self.currentPhrase = self.dataArray[newIndexPath.row];
-        cell.tag = newIndexPath.row;
-        self.itemCollectionView.scrollEnabled = NO;
-        self.itemCollectionView.scrollEnabled = YES;
+        collectionView.scrollEnabled = NO;
+        collectionView.scrollEnabled = YES;
     }
-    else {
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TwoCell" forIndexPath:indexPath];
-        self.currentPhrase = self.dataArray[indexPath.row];
-        cell.tag = indexPath.row;
-    }
-    
     // must do this, otherwise the two buttons will be seen !
     cell.congratulateLabel.hidden = YES;
     cell.righAnswerLabel.hidden = YES;
@@ -109,28 +99,25 @@
     cell.pinyinOneTextField.text = @"";
     cell.pinyinTwoTextField.text = @"";
 
-    // play once immediately
-    [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
-    
     // store the right pinyin for latter comparing use
     NSArray *pinYinWithoutTones = [[self.currentPhrase pinyinWithoutTones] componentsSeparatedByString:@" "];
     self.firstPinyin = pinYinWithoutTones[0];
     self.secondPinyin = pinYinWithoutTones[1];
-    
+    // toneLabels
     cell.toneLabelOne.text = [[[self.currentPhrase tones] substringToIndex:toneStringLength] substringWithRange:NSMakeRange(2, 1)];
     cell.toneLabelTwo.text = [[[self.currentPhrase tones] substringFromIndex:toneStringLength] substringWithRange:NSMakeRange(2, 1)];
-
-    
+    // righAnswerLabel
     cell.righAnswerLabel.text = [NSString stringWithFormat:@"Sorry! The answer is \n\" %@\"", self.currentPhrase.pinyinFull];
-    
     // set textfield's delegate
     cell.pinyinOneTextField.delegate = self;
     cell.pinyinTwoTextField.delegate = self;
-
     // register for touch event
     [cell.playButton addTarget:self action:@selector(playMP3File:) forControlEvents:UIControlEventTouchUpInside];
     // register for confimation Input
     [cell.confirmSelectionButton addTarget:self action:@selector(confirmSelection:) forControlEvents:UIControlEventTouchUpInside];
+    // play once immediately
+    [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
+    // must do this, cuz the scrollviewdecelerating delegate won't be called the first time, the _currentCell will be nil
     _currentCell = cell;
     return cell;
 }
@@ -139,7 +126,11 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    textField.returnKeyType = UIReturnKeyDone;
+    if (textField == _currentCell.pinyinOneTextField) {
+        textField.returnKeyType = UIReturnKeyNext;
+    } else if (textField == _currentCell.pinyinTwoTextField) {
+        textField.returnKeyType = UIReturnKeyDone;
+    }
     if (self.itemCollectionView.frame.origin.y == 0) {
         [self.itemCollectionView setFrame:CGRectOffset(self.itemCollectionView.frame, 0, -1.5*textField.frame.size.height)];
     }
@@ -148,13 +139,17 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
-    [self.itemCollectionView setFrame:CGRectOffset(self.itemCollectionView.frame, 0, 1.5*textField.frame.size.height)];
-    
-    // must prevent from user's double or tripple touching return key to invoke Confirm button !
-    if (!_alreadyAnswered) {
-        _currentCell.confirmSelectionButton.enabled = YES;
-        [_currentCell.confirmSelectionButton animateFirstTouchAtPoint:_currentCell.confirmSelectionButton.center];
+    if (textField == _currentCell.pinyinOneTextField) {
+        [_currentCell.pinyinTwoTextField becomeFirstResponder];
+    } else if (textField == _currentCell.pinyinTwoTextField) {
+        [textField resignFirstResponder];
+        [self.itemCollectionView setFrame:CGRectOffset(self.itemCollectionView.frame, 0, 1.5*textField.frame.size.height)];
+        
+        // must prevent from user's double or tripple touching return key to invoke Confirm button !
+        if (!_alreadyAnswered) {
+            _currentCell.confirmSelectionButton.enabled = YES;
+            [_currentCell.confirmSelectionButton animateFirstTouchAtPoint:_currentCell.confirmSelectionButton.center];
+        }
     }
     return YES;
 }
@@ -183,8 +178,19 @@
     self.audioPlayer = nil;
     self.currentPhrase = self.dataArray[index];
     
-    // This can avoid the inaccuracy of 'cellForItemAtIndexPath'
-    _currentCell = [(UICollectionView *)scrollView visibleCells][0];
+    // locating the visible cell with a smaller x offset
+    if ([(UICollectionView *)scrollView visibleCells].count == 1) {
+        _currentCell = [(UICollectionView *)scrollView visibleCells][0];
+    } else if ([(UICollectionView *)scrollView visibleCells].count == 2){
+        PracticeTwoCollectionViewCell *firstCell = [(UICollectionView *)scrollView visibleCells][0];
+        PracticeTwoCollectionViewCell *secondCell = [(UICollectionView *)scrollView visibleCells][1];
+        if (firstCell.frame.origin.x < secondCell.frame.origin.x) {
+            _currentCell = firstCell;
+        } else {
+            _currentCell = secondCell;
+        }
+    }
+
     [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
     [_currentCell.playButton setSelected:YES];
     

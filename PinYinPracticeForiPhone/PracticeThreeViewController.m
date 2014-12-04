@@ -139,32 +139,19 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    PracticeThreeCollectionViewCell *cell;
-    
+    PracticeThreeCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ThreeCell" forIndexPath:indexPath];
+    self.currentPhrase = self.dataArray[indexPath.row];
+    cell.tag = indexPath.row;
     if ([collectionView.panGestureRecognizer velocityInView:self.view].x>0 ) {
-        // must plus 1, cuz the reuse mechanism
-        NSIndexPath *newIndexPath = [NSIndexPath indexPathForItem:(indexPath.item+1) inSection:indexPath.section];
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ThreeCell" forIndexPath:newIndexPath];
-        self.currentPhrase = self.dataArray[newIndexPath.row];
-        cell.tag = newIndexPath.row;
-        self.itemCollectionView.scrollEnabled = NO;
-        self.itemCollectionView.scrollEnabled = YES;
+        collectionView.scrollEnabled = NO;
+        collectionView.scrollEnabled = YES;
     }
-    else {
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ThreeCell" forIndexPath:indexPath];
-        self.currentPhrase = self.dataArray[indexPath.row];
-        cell.tag = indexPath.row;
-    }
-    
     // must do this, otherwise the two buttons will be seen !
     cell.congratulateLabel.hidden = YES;
     cell.righAnswerLabel.hidden = YES;
     cell.confirmSelectionButton.enabled = NO;
     cell.pinyinOneTextField.text = @"";
     cell.pinyinTwoTextField.text = @"";
-    
-    // play once immediately
-    [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
 
     // store the right tones for latter comparing use
     self.firstTone = [[self.currentPhrase tones] substringToIndex:toneStringLength];
@@ -194,7 +181,8 @@
             [subview addTarget:self action:@selector(toneIsSelected:) forControlEvents:UIControlEventTouchUpInside];
         }
     }
-    _currentCell = cell;
+    // play once immediately
+    [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
     return cell;
 }
 
@@ -230,8 +218,18 @@
     self.audioPlayer = nil;
     self.currentPhrase = self.dataArray[index];
     
-    // This can avoid the inaccuracy of 'cellForItemAtIndexPath'
-    _currentCell = [(UICollectionView *)scrollView visibleCells][0];
+    // locating the visible cell with a smaller x offset
+    if ([(UICollectionView *)scrollView visibleCells].count == 1) {
+        _currentCell = [(UICollectionView *)scrollView visibleCells][0];
+    } else if ([(UICollectionView *)scrollView visibleCells].count == 2){
+        PracticeThreeCollectionViewCell *firstCell = [(UICollectionView *)scrollView visibleCells][0];
+        PracticeThreeCollectionViewCell *secondCell = [(UICollectionView *)scrollView visibleCells][1];
+        if (firstCell.frame.origin.x < secondCell.frame.origin.x) {
+            _currentCell = firstCell;
+        } else {
+            _currentCell = secondCell;
+        }
+    }
     [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
     [_currentCell.playButton setSelected:YES];
     
@@ -258,6 +256,4 @@
 }
 
 @end
-
-
 

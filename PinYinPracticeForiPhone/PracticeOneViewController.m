@@ -136,28 +136,14 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    PracticeOneCollectionViewCell *cell;
-    cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"OneCell" forIndexPath:indexPath];
-    NSLog(@"Cell Just Dequeued: %@", cell);
-    NSLog(@"Cell Just Dequeued RightAnswer: %@", cell.righAnswerLabel.text);
+    PracticeOneCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"OneCell" forIndexPath:indexPath];
     self.currentPhrase = self.dataArray[indexPath.row];
     cell.tag = indexPath.row;
     if ([collectionView.panGestureRecognizer velocityInView:self.view].x>0 ) {
-//        // must plus 1, cuz the reuse mechanism
-//        NSIndexPath *newIndexPath = [NSIndexPath indexPathForItem:(indexPath.item+1) inSection:indexPath.section];
-//        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"OneCell" forIndexPath:newIndexPath];
-//        self.currentPhrase = self.dataArray[newIndexPath.row];
-//        cell.tag = newIndexPath.row;
         collectionView.scrollEnabled = NO;
         collectionView.scrollEnabled = YES;
     }
-//    else {
-//        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"OneCell" forIndexPath:indexPath];
-//        self.currentPhrase = self.dataArray[indexPath.row];
-//        cell.tag = indexPath.row;
-//    }
-    
-    // must do this, otherwise the buttons will be seen !
+    // must do this, otherwise the two buttons will be seen !
     cell.congratulateLabel.hidden = YES;
     cell.righAnswerLabel.hidden = YES;
     cell.confirmSelectionButton.enabled = NO;
@@ -186,9 +172,6 @@
     }
     // play once immediately
     [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
-//    _currentCell = cell;
-    NSLog(@"Cell About To Return: %@", cell);
-    NSLog(@"Cell About To Return RightAnswer: %@", cell.righAnswerLabel.text);
     return cell;
 }
 
@@ -209,11 +192,6 @@
     self.selectedButtonSecondRow = nil;
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-    decelerate = NO;
-}
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     int index = fabs(scrollView.contentOffset.x)/self.view.frame.size.width;
@@ -221,9 +199,7 @@
     self.audioPlayer = nil;
     self.currentPhrase = self.dataArray[index];
     
-    // This can avoid the inaccuracy of 'cellForItemAtIndexPath'
-    NSLog(@"Visible Cells: %@", [(UICollectionView *)scrollView visibleCells]);
-    
+    // locating the visible cell with a smaller x offset
     if ([(UICollectionView *)scrollView visibleCells].count == 1) {
         _currentCell = [(UICollectionView *)scrollView visibleCells][0];
     } else if ([(UICollectionView *)scrollView visibleCells].count == 2){
@@ -235,9 +211,6 @@
             _currentCell = secondCell;
         }
     }
-    
-    NSLog(@"Scroll Ended Cell : %@", _currentCell);
-    NSLog(@"Scroll Ended Cell rightAnswerLabel: %@", _currentCell.righAnswerLabel.text);
     [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
     [_currentCell.playButton setSelected:YES];
     
