@@ -134,7 +134,7 @@
     if (_currentCell.confirmSelectionButton.alpha != 0) {
         [UIView animateWithDuration:0.5 animations:^{
             _currentCell.frame = CGRectOffset(_currentCell.frame, 0, -0.15*HEIGHT);
-            _currentCell.playButton.frame = CGRectOffset(_currentCell.playButton.frame, 0, -0.15*HEIGHT);
+            _currentCell.playButton.frame = CGRectOffset(_currentCell.playButton.frame, 0, -0.12*HEIGHT);
             _currentCell.confirmSelectionButton.alpha = 0;
         }];
     }
@@ -150,7 +150,7 @@
         if (_currentCell.confirmSelectionButton.alpha == 0) {
             [UIView animateWithDuration:0.5 animations:^{
                 _currentCell.frame = CGRectOffset(_currentCell.frame, 0, 0.15*HEIGHT);
-                _currentCell.playButton.frame = CGRectOffset(_currentCell.playButton.frame, 0, 0.15*HEIGHT);
+                _currentCell.playButton.frame = CGRectOffset(_currentCell.playButton.frame, 0, 0.12*HEIGHT);
                 _currentCell.confirmSelectionButton.alpha = 1;
                 // must prevent from user's double or tripple touching return key to invoke Confirm button !
                 

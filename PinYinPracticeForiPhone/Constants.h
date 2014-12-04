@@ -33,7 +33,7 @@ static const NSInteger toneStringLength = 5;
 #define TitleLabelWidth self.view.frame.size.width * 0.9
 #define TitleLabelHeight self.view.frame.size.height * 0.1
 #define TitleLabelXOffset self.view.frame.size.width * 0.05
-#define TitleLabelYOffset self.view.frame.size.width * 0.2
+#define TitleLabelYOffset self.view.frame.size.width * 0.1
 static const CGFloat TitleLabelFontPercentWidth = 0.06;
 
 
@@ -45,7 +45,7 @@ static const CGFloat TitleLabelFontPercentWidth = 0.06;
 
 // CollectionViewCell item size
 #define ItemWidth CollectionViewWidth * 0.6
-#define ItemHeight CollectionViewHeight * 0.55
+#define ItemHeight CollectionViewHeight * 0.5
 
 // CollectionView sectionInset
 #define SectionInsetTop CollectionViewHeight * 0.3
@@ -56,7 +56,7 @@ static const CGFloat TitleLabelFontPercentWidth = 0.06;
 // CollectionViewCell content
 static const CGFloat listenCellLabelWordsFontPercentWidth = 0.1;
 static const CGFloat listenCellButtonFontPercentWidth = 0.07;
-static const CGFloat listenCellLabelTonesFontPercentWidth = 0.3;
+static const CGFloat listenCellLabelTonesFontPercentWidth = 0.25;
 
 // ScrollView size
 #define ItemColletionViewWidth self.view.frame.size.width
@@ -112,10 +112,10 @@ static const CGFloat PinYinLabelWidthPercentWidth = 0.45;
 static const CGFloat PinYinLabelHeightPercentWidth = 0.20;
 // PinYinLabel One Offset
 static const CGFloat PinYinLabelOneXOriginPercentWidth = 0.025;
-static const CGFloat PinYinLabelOneYOriginPercentHeight = 0.25;
+static const CGFloat PinYinLabelOneYOriginPercentHeight = 0.2;
 // PinYinLabel Two Offset
 static const CGFloat PinYinLabelTwoXOriginPercentWidth = 0.525;
-static const CGFloat PinYinLabelTwoYOriginPercentHeight = 0.25;
+static const CGFloat PinYinLabelTwoYOriginPercentHeight = 0.2;
 
 // SelectToneIndicatorLabel
 static const CGFloat SelectToneIndicatorLabelOneWidthPercent = 0.8;
@@ -159,7 +159,7 @@ static const CGFloat righAnswerLabelWidthPercent = 0.8;
 static const CGFloat righAnswerLabelHeightPercent = 0.12;
 static const CGFloat righAnswerLabelXOriginPercent = 0.12;
 static const CGFloat righAnswerLabelYOriginPercent = 0.80;
-static const CGFloat righAnswerLabelFontPercentWidth = 0.06;
+static const CGFloat righAnswerLabelFontPercentWidth = 0.05;
 
 
 
@@ -201,10 +201,10 @@ static const CGFloat ToneLabelHeightPercentWidth = 0.3;
 
 // toneLabelOne For Practice 1 offset
 static const CGFloat ToneLabelOneForPrac1XOriginPercentWidth = 0.025;
-static const CGFloat ToneLabelOneForPrac1YOriginPercentHeight = 0.2;
+static const CGFloat ToneLabelOneForPrac1YOriginPercentHeight = 0.15;
 // toneLabelTwo For Practice 1 offset
 static const CGFloat ToneLabelTwoForPrac1XOriginPercentWidth = 0.525;
-static const CGFloat ToneLabelTwoForPrac1YOriginPercentHeight = 0.2;
+static const CGFloat ToneLabelTwoForPrac1YOriginPercentHeight = 0.15;
 
 // toneLabelOne For Practice 2 offset
 static const CGFloat ToneLabelOneForPrac2XOriginPercentWidth = 0.08;
@@ -215,9 +215,9 @@ static const CGFloat ToneLabelTwoForPrac2YOriginPercentHeight = 0.3;
 
 // toneLabelOne For Practice 3 offset
 static const CGFloat ToneLabelOneForPrac3XOriginPercentWidth = 0.08;
-static const CGFloat ToneLabelOneForPrac3YOriginPercentHeight = 0.12;
+static const CGFloat ToneLabelOneForPrac3YOriginPercentHeight = 0.10;
 // toneLabelTwo For Practice 3 offset
 static const CGFloat ToneLabelTwoForPrac3XOriginPercentWidth = 0.52;
-static const CGFloat ToneLabelTwoForPrac3YOriginPercentHeight = 0.12;
+static const CGFloat ToneLabelTwoForPrac3YOriginPercentHeight = 0.10;
 
 #endif
