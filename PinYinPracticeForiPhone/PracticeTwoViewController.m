@@ -131,8 +131,11 @@
     } else if (textField == _currentCell.pinyinTwoTextField) {
         textField.returnKeyType = UIReturnKeyDone;
     }
-    if (self.itemCollectionView.frame.origin.y == 0) {
-        [self.itemCollectionView setFrame:CGRectOffset(self.itemCollectionView.frame, 0, -1.5*textField.frame.size.height)];
+    if (_currentCell.confirmSelectionButton.alpha != 0) {
+        [UIView animateWithDuration:0.5 animations:^{
+            _currentCell.frame = CGRectOffset(_currentCell.frame, 0, -0.2*HEIGHT);
+            _currentCell.confirmSelectionButton.alpha = 0;
+        }];
     }
     return YES;
 }
@@ -143,15 +146,25 @@
         [_currentCell.pinyinTwoTextField becomeFirstResponder];
     } else if (textField == _currentCell.pinyinTwoTextField) {
         [textField resignFirstResponder];
-        [self.itemCollectionView setFrame:CGRectOffset(self.itemCollectionView.frame, 0, 1.5*textField.frame.size.height)];
-        
-        // must prevent from user's double or tripple touching return key to invoke Confirm button !
-        if (!_alreadyAnswered) {
-            _currentCell.confirmSelectionButton.enabled = YES;
-            [_currentCell.confirmSelectionButton animateFirstTouchAtPoint:_currentCell.confirmSelectionButton.center];
+        if (_currentCell.confirmSelectionButton.alpha == 0) {
+            [UIView animateWithDuration:0.5 animations:^{
+                _currentCell.frame = CGRectOffset(_currentCell.frame, 0, 0.2*HEIGHT);
+                _currentCell.confirmSelectionButton.alpha = 1;
+                // must prevent from user's double or tripple touching return key to invoke Confirm button !
+                
+            }];
         }
+        [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(animateConfirmButton:) userInfo:nil repeats:NO];
     }
     return YES;
+}
+
+- (void)animateConfirmButton:(id)timer
+{
+    if (!_alreadyAnswered) {
+        _currentCell.confirmSelectionButton.enabled = YES;
+        [_currentCell.confirmSelectionButton animateFirstTouchAtPoint:_currentCell.confirmSelectionButton.center];
+    }
 }
 
 #pragma mark - UIScrollView Delegate

@@ -152,6 +152,8 @@
     cell.confirmSelectionButton.enabled = NO;
     cell.pinyinOneTextField.text = @"";
     cell.pinyinTwoTextField.text = @"";
+    cell.toneLabelOne.hidden = YES;
+    cell.toneLabelTwo.hidden = YES;
 
     // store the right tones for latter comparing use
     self.firstTone = [[self.currentPhrase tones] substringToIndex:toneStringLength];
@@ -183,14 +185,59 @@
     }
     // play once immediately
     [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
+    _currentCell = cell;
     return cell;
 }
 
 #pragma mark - UITextField Delegate
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if (textField == _currentCell.pinyinOneTextField) {
+        textField.returnKeyType = UIReturnKeyNext;
+    } else if (textField == _currentCell.pinyinTwoTextField) {
+        textField.returnKeyType = UIReturnKeyDone;
+    }
+    if (_currentCell.confirmSelectionButton.alpha != 0) {
+        [UIView animateWithDuration:0.5 animations:^{
+            for (id subview in _currentCell.contentView.subviews) {
+                if ([subview isKindOfClass:[UIButton class]]
+                    && subview != _currentCell.playButton
+                    && subview != _currentCell.confirmSelectionButton) {
+                    [(UIButton *)subview setAlpha:0];
+                }
+            }
+            _currentCell.playButton.frame = CGRectOffset(_currentCell.playButton.frame, 0, -0.3*HEIGHT);
+            _currentCell.confirmSelectionButton.alpha = 0;
+            _currentCell.SelectToneIndicatorLabelOne.alpha = 0;
+            _currentCell.SelectToneIndicatorLabelTwo.alpha = 0;
+        }];
+    }
+    return YES;
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
+    if (textField == _currentCell.pinyinOneTextField) {
+        [_currentCell.pinyinTwoTextField becomeFirstResponder];
+    } else if (textField == _currentCell.pinyinTwoTextField) {
+        [textField resignFirstResponder];
+        if (_currentCell.confirmSelectionButton.alpha == 0) {
+            [UIView animateWithDuration:0.5 animations:^{
+                for (id subview in _currentCell.contentView.subviews) {
+                    if ([subview isKindOfClass:[UIButton class]]
+                        && subview != _currentCell.playButton
+                        && subview != _currentCell.confirmSelectionButton) {
+                        [(UIButton *)subview setAlpha:1];
+                    }
+                }
+                _currentCell.playButton.frame = CGRectOffset(_currentCell.playButton.frame, 0, 0.3*HEIGHT);
+                _currentCell.confirmSelectionButton.alpha = 1;
+                _currentCell.SelectToneIndicatorLabelOne.alpha = 1;
+                _currentCell.SelectToneIndicatorLabelTwo.alpha = 1;
+            }];
+        }
+    }
     return YES;
 }
 
