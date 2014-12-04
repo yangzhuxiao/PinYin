@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "Phrase.h"
+#import "CustomBackButton.h"
 
 @interface ParentPracticeViewController : UIViewController < UIScrollViewDelegate, AVAudioPlayerDelegate >
 
@@ -16,7 +17,7 @@
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 
 @property (strong, nonatomic) UICollectionView *itemCollectionView;
-@property (nonatomic, strong) UIButton *backButton;
+@property (nonatomic, strong) CustomBackButton *backButton;
 @property (nonatomic, strong) UILabel *indexLabel;
 @property (nonatomic, strong) UILabel *countLabel;
 

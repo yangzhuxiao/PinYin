@@ -40,6 +40,8 @@
 		97FA57521A26CA0100C47156 /* PracticeOneCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FA57511A26CA0100C47156 /* PracticeOneCollectionViewCell.m */; };
 		97FDE4E01A2EABFF004D9F84 /* CustomPlayMp3Button.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FDE4DF1A2EABFF004D9F84 /* CustomPlayMp3Button.m */; };
 		97FDE4E31A2ED6ED004D9F84 /* CustomAutoPlayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FDE4E21A2ED6ED004D9F84 /* CustomAutoPlayButton.m */; };
+		97FDE4E61A2F3B1E004D9F84 /* CustomBackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FDE4E51A2F3B1E004D9F84 /* CustomBackButton.m */; };
+		97FDE4E91A2F61B7004D9F84 /* CustomConfirmButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FDE4E81A2F61B7004D9F84 /* CustomConfirmButton.m */; };
 		A21CAD2EDAC5426F9FC0040A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D101F4BFE0492EA0764C61 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +120,10 @@
 		97FDE4DF1A2EABFF004D9F84 /* CustomPlayMp3Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPlayMp3Button.m; sourceTree = "<group>"; };
 		97FDE4E11A2ED6ED004D9F84 /* CustomAutoPlayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAutoPlayButton.h; sourceTree = "<group>"; };
 		97FDE4E21A2ED6ED004D9F84 /* CustomAutoPlayButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAutoPlayButton.m; sourceTree = "<group>"; };
+		97FDE4E41A2F3B1E004D9F84 /* CustomBackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBackButton.h; sourceTree = "<group>"; };
+		97FDE4E51A2F3B1E004D9F84 /* CustomBackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBackButton.m; sourceTree = "<group>"; };
+		97FDE4E71A2F61B7004D9F84 /* CustomConfirmButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomConfirmButton.h; sourceTree = "<group>"; };
+		97FDE4E81A2F61B7004D9F84 /* CustomConfirmButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomConfirmButton.m; sourceTree = "<group>"; };
 		A4AAA91D6DCD45D1935DA92F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -260,6 +266,10 @@
 				97FDE4DF1A2EABFF004D9F84 /* CustomPlayMp3Button.m */,
 				97FDE4E11A2ED6ED004D9F84 /* CustomAutoPlayButton.h */,
 				97FDE4E21A2ED6ED004D9F84 /* CustomAutoPlayButton.m */,
+				97FDE4E41A2F3B1E004D9F84 /* CustomBackButton.h */,
+				97FDE4E51A2F3B1E004D9F84 /* CustomBackButton.m */,
+				97FDE4E71A2F61B7004D9F84 /* CustomConfirmButton.h */,
+				97FDE4E81A2F61B7004D9F84 /* CustomConfirmButton.m */,
 			);
 			name = CustomViewComponents;
 			sourceTree = "<group>";
@@ -496,11 +506,13 @@
 				97B024931A276A75005964FB /* PracticeTwoCollectionViewCell.m in Sources */,
 				97B0249A1A277F2E005964FB /* PracticeThreeViewController.m in Sources */,
 				97C8269C1A29674700016328 /* ItemCollectionViewCell.m in Sources */,
+				97FDE4E61A2F3B1E004D9F84 /* CustomBackButton.m in Sources */,
 				9799DC121A2D5B8600F6579D /* CustomToneButton.m in Sources */,
 				9789D8F11A220D5600298C9B /* PracticeRootViewController.m in Sources */,
 				9789D8EB1A220D5600298C9B /* AppDelegate.m in Sources */,
 				9789D8EE1A220D5600298C9B /* ListenRootViewController.m in Sources */,
 				9799DC1F1A2D8A7E00F6579D /* CustomToneLabel.m in Sources */,
+				97FDE4E91A2F61B7004D9F84 /* CustomConfirmButton.m in Sources */,
 				97C8269F1A2968BD00016328 /* ParentRootCollectionViewCell.m in Sources */,
 				9789D8E81A220D5600298C9B /* main.m in Sources */,
 			);

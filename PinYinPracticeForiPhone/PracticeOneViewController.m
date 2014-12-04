@@ -19,6 +19,11 @@
     [self.itemCollectionView registerClass:[PracticeOneCollectionViewCell class] forCellWithReuseIdentifier:@"OneCell"];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
 - (void)playMP3File:(id)sender {
     [sender setSelected:YES];
     if (self.audioPlayer.isPlaying == YES) {
@@ -68,6 +73,15 @@
         selectedCell.toneLabelOne.text = [[sender titleLabel].text substringWithRange:NSMakeRange(2, 1)];
         selectedCell.toneLabelOne.hidden = NO;
     }
+    
+    if (selectedCell.toneLabelOne.hidden==NO && selectedCell.toneLabelTwo.hidden==NO) {
+        // prevent the activation if the user didn't actually scroll to the next page !
+        if ([_currentCell.righAnswerLabel.text isEqualToString:_preCell.righAnswerLabel.text]) {
+            return;
+        }
+        selectedCell.confirmSelectionButton.enabled = YES;
+        [selectedCell.confirmSelectionButton animateFirstTouchAtPoint:selectedCell.confirmSelectionButton.center];
+    }
 }
 
 - (void)confirmSelection:(id)sender {
@@ -93,9 +107,24 @@
     } else {
         selectedCell.righAnswerLabel.hidden = NO;
     }
-    selectedCell.confirmSelectionButton.hidden = YES;
+    
+    // disabel confirm button
+    selectedCell.confirmSelectionButton.enabled = NO;
     self.currentIndex ++;
     [self updateCountLabel];
+    
+    // disable toneButtons
+    for (id subview in selectedCell.contentView.subviews) {
+        if ([subview isKindOfClass:[UIButton class]]
+            && subview != selectedCell.playButton
+            && subview != selectedCell.confirmSelectionButton) {
+            [subview setEnabled:NO];
+        }
+    }
+    
+    // for next preparation
+    _preCell = selectedCell;
+    self.itemCollectionView.scrollEnabled = YES;
 }
 
 #pragma mark - UICollectionView Data Source
@@ -108,26 +137,30 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     PracticeOneCollectionViewCell *cell;
-    
+    cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"OneCell" forIndexPath:indexPath];
+    NSLog(@"Cell Just Dequeued: %@", cell);
+    NSLog(@"Cell Just Dequeued RightAnswer: %@", cell.righAnswerLabel.text);
+    self.currentPhrase = self.dataArray[indexPath.row];
+    cell.tag = indexPath.row;
     if ([collectionView.panGestureRecognizer velocityInView:self.view].x>0 ) {
-        // must plus 1, cuz the reuse mechanism
-        NSIndexPath *newIndexPath = [NSIndexPath indexPathForItem:(indexPath.item+1) inSection:indexPath.section];
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"OneCell" forIndexPath:newIndexPath];
-        self.currentPhrase = self.dataArray[newIndexPath.row];
-        cell.tag = newIndexPath.row;
-        self.itemCollectionView.scrollEnabled = NO;
-        self.itemCollectionView.scrollEnabled = YES;
+//        // must plus 1, cuz the reuse mechanism
+//        NSIndexPath *newIndexPath = [NSIndexPath indexPathForItem:(indexPath.item+1) inSection:indexPath.section];
+//        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"OneCell" forIndexPath:newIndexPath];
+//        self.currentPhrase = self.dataArray[newIndexPath.row];
+//        cell.tag = newIndexPath.row;
+        collectionView.scrollEnabled = NO;
+        collectionView.scrollEnabled = YES;
     }
-    else {
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"OneCell" forIndexPath:indexPath];
-        self.currentPhrase = self.dataArray[indexPath.row];
-        cell.tag = indexPath.row;
-    }
+//    else {
+//        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"OneCell" forIndexPath:indexPath];
+//        self.currentPhrase = self.dataArray[indexPath.row];
+//        cell.tag = indexPath.row;
+//    }
     
     // must do this, otherwise the buttons will be seen !
     cell.congratulateLabel.hidden = YES;
     cell.righAnswerLabel.hidden = YES;
-    cell.confirmSelectionButton.hidden = NO;
+    cell.confirmSelectionButton.enabled = NO;
     cell.toneLabelOne.hidden = YES;
     cell.toneLabelTwo.hidden = YES;
     
@@ -147,12 +180,15 @@
         if ([subview isKindOfClass:[UIButton class]]
             && subview != cell.playButton
             && subview != cell.confirmSelectionButton) {
+            [subview setEnabled:YES];
             [subview addTarget:self action:@selector(toneIsSelected:) forControlEvents:UIControlEventTouchUpInside];
         }
     }
     // play once immediately
     [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
-    _currentCell = cell;
+//    _currentCell = cell;
+    NSLog(@"Cell About To Return: %@", cell);
+    NSLog(@"Cell About To Return RightAnswer: %@", cell.righAnswerLabel.text);
     return cell;
 }
 
@@ -173,6 +209,11 @@
     self.selectedButtonSecondRow = nil;
 }
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    decelerate = NO;
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     int index = fabs(scrollView.contentOffset.x)/self.view.frame.size.width;
@@ -181,12 +222,34 @@
     self.currentPhrase = self.dataArray[index];
     
     // This can avoid the inaccuracy of 'cellForItemAtIndexPath'
-    _currentCell = [(UICollectionView *)scrollView visibleCells][0];
+    NSLog(@"Visible Cells: %@", [(UICollectionView *)scrollView visibleCells]);
+    
+    if ([(UICollectionView *)scrollView visibleCells].count == 1) {
+        _currentCell = [(UICollectionView *)scrollView visibleCells][0];
+    } else if ([(UICollectionView *)scrollView visibleCells].count == 2){
+        PracticeOneCollectionViewCell *firstCell = [(UICollectionView *)scrollView visibleCells][0];
+        PracticeOneCollectionViewCell *secondCell = [(UICollectionView *)scrollView visibleCells][1];
+        if (firstCell.frame.origin.x < secondCell.frame.origin.x) {
+            _currentCell = firstCell;
+        } else {
+            _currentCell = secondCell;
+        }
+    }
+    
+    NSLog(@"Scroll Ended Cell : %@", _currentCell);
+    NSLog(@"Scroll Ended Cell rightAnswerLabel: %@", _currentCell.righAnswerLabel.text);
     [self setUpAudioPlayerWithMp3FilePath:self.currentPhrase.mp3Path];
     [_currentCell.playButton setSelected:YES];
     
     // figure out the page down the view, must be "index+1", otherwise will start from 0
     self.indexLabel.text = [NSString stringWithFormat:@"%d/%lu", index+1, (unsigned long)self.dataArray.count];
+    
+    // decide if the user actually didn't scroll to the next page
+    if ([_currentCell.righAnswerLabel.text isEqualToString:_preCell.righAnswerLabel.text]) {
+        return;
+    }
+    self.itemCollectionView.scrollEnabled = NO;
+
 }
 
 #pragma mark - AVAudioPlayerDelegate

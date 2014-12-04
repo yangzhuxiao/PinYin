@@ -33,6 +33,12 @@
     [self setUpCountLabel];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    _itemCollectionView.scrollEnabled = NO;
+}
+
 - (void)setUpCountLabel
 {
     _countLabel = [[UILabel alloc] initWithFrame:CGRectMake(CountLabelXOriginPercent *WIDTH, CountLabelYOriginPercent *HEIGHT, CountLabelWidthPercent *WIDTH, CountLabelHeightPercent *HEIGHT)];
@@ -64,6 +70,7 @@
     layout.itemSize = _itemCollectionView.bounds.size;
     _itemCollectionView.pagingEnabled = YES;
     _itemCollectionView.showsHorizontalScrollIndicator = NO;
+    _itemCollectionView.alwaysBounceHorizontal = NO;
     _itemCollectionView.backgroundColor = bgColor;
 
     [self.view addSubview:_itemCollectionView];
@@ -71,13 +78,7 @@
 
 - (void)setUpBackButton
 {
-    _backButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_backButton setFrame:CGRectMake(BackButtonXOriginPercent *WIDTH, BackButtonYOriginPercent *HEIGHT, BackButtonWidthPercentWidth*WIDTH, BackButtonHeightPercentWidth*WIDTH)];
-    
-    FAKIonIcons *backIcon = [FAKIonIcons ios7CloseOutlineIconWithSize:BackButtonWidthPercentWidth*WIDTH];
-    UIImage *backImage = [backIcon imageWithSize:CGSizeMake(BackButtonWidthPercentWidth*WIDTH, BackButtonWidthPercentWidth*WIDTH)];
-    [_backButton setImage:backImage forState:UIControlStateNormal];
-    
+    _backButton = [[CustomBackButton alloc] initWithFrame:CGRectMake(BackButtonXOriginPercent *WIDTH, BackButtonYOriginPercent *HEIGHT, BackButtonWidthPercentWidth*WIDTH, BackButtonHeightPercentWidth*WIDTH)];
     [_backButton addTarget:self action:@selector(backToRoot:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:_backButton];

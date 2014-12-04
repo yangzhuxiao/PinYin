@@ -20,16 +20,11 @@
         _playButton = [[CustomPlayMp3Button alloc] initWithFrame:CGRectMake(PlayButtonXOriginPercent * frame.size.width, PlayButtonYOriginPercent * frame.size.height, PlayButtonWidthPercentWidth*frame.size.width, PlayButtonHeightPercentWidth*frame.size.width)];
         
 // confirmSelectionButton
-        _confirmSelectionButton = [[UIButton alloc] initWithFrame:CGRectMake(frame.size.width * confirmSelectionButtonXOriginPercent, frame.size.height * confirmSelectionButtonYOriginPercent, frame.size.width * confirmSelectionButtonWidthPercentWidth, frame.size.width * confirmSelectionButtonHeightPercentWidth)];
-        
-        [_confirmSelectionButton setTitle:@"Done" forState:UIControlStateNormal];
-        [_confirmSelectionButton setTitleColor:txtColor forState:UIControlStateNormal];
-        _confirmSelectionButton.titleLabel.font = [UIFont systemFontOfSize:frame.size.width * confirmSelectionButtonFontPercentWidth];
-        
-        _confirmSelectionButton.layer.borderWidth = 1.0f;
-        _confirmSelectionButton.layer.cornerRadius = 5.0f;
-        _confirmSelectionButton.layer.borderColor = bdColor.CGColor;
-
+        _confirmSelectionButton = [[CustomConfirmButton alloc] initWithFrame:CGRectMake
+                                   (frame.size.width * confirmSelectionButtonXOriginPercent,
+                                    frame.size.height * confirmSelectionButtonYOriginPercent,
+                                    frame.size.width * confirmSelectionButtonWidthPercentWidth,
+                                    frame.size.width * confirmSelectionButtonHeightPercentWidth)];
         
 // congratulateLabel
         _congratulateLabel = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width * congratulateLabelXOriginPercent, frame.size.height * congratulateLabelYOriginPercent, frame.size.width * congratulateLabelWidthPercent, frame.size.height * congratulateLabelHeightPercent)];

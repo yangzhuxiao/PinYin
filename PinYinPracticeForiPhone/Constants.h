@@ -145,7 +145,7 @@ static const CGFloat confirmSelectionButtonWidthPercentWidth = 0.2;
 static const CGFloat confirmSelectionButtonHeightPercentWidth = 0.1;
 static const CGFloat confirmSelectionButtonXOriginPercent = 0.12;
 static const CGFloat confirmSelectionButtonYOriginPercent = 0.70;
-static const CGFloat confirmSelectionButtonFontPercentWidth = 0.06;
+static const CGFloat confirmSelectionButtonFontPercentButtonHeight = 0.7;
 
 // congratulateLabel
 static const CGFloat congratulateLabelWidthPercent = 0.8;

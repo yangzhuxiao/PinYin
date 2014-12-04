@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "CustomAutoPlayButton.h"
+#import "CustomBackButton.h"
 
 @interface ListenItemViewController : UIViewController
 
@@ -16,7 +17,7 @@
 
 @property (strong, nonatomic) UICollectionView *itemCollectionView;
 
-@property (nonatomic, strong) UIButton *backButton;
+@property (nonatomic, strong) CustomBackButton *backButton;
 @property (nonatomic, strong) CustomAutoPlayButton *autoPlayButton;
 @property (nonatomic, strong) UILabel *indexLabel;
 

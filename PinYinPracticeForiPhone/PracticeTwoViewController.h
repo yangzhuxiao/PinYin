@@ -13,5 +13,7 @@
 @interface PracticeTwoViewController : ParentPracticeViewController < UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate>
 
 @property (nonatomic, strong) PracticeTwoCollectionViewCell *currentCell;
+@property (nonatomic, strong) PracticeTwoCollectionViewCell *preCell;
+@property (nonatomic, assign) BOOL alreadyAnswered;
 
 @end

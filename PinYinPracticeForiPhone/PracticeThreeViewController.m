@@ -19,6 +19,11 @@
     [self.itemCollectionView registerClass:[PracticeThreeCollectionViewCell class] forCellWithReuseIdentifier:@"ThreeCell"];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
 - (void)playMP3File:(id)sender {
     [sender setSelected:YES];
     if (self.audioPlayer.isPlaying == YES) {
@@ -68,6 +73,15 @@
         selectedCell.toneLabelOne.text = [[sender titleLabel].text substringWithRange:NSMakeRange(2, 1)];
         selectedCell.toneLabelOne.hidden = NO;
     }
+    
+    if (selectedCell.toneLabelOne.hidden==NO && selectedCell.toneLabelTwo.hidden==NO) {
+        // prevent the activation if the user didn't actually scroll to the next page !
+        if ([_currentCell.righAnswerLabel.text isEqualToString:_preCell.righAnswerLabel.text]) {
+            return;
+        }
+        selectedCell.confirmSelectionButton.enabled = YES;
+        [selectedCell.confirmSelectionButton animateFirstTouchAtPoint:selectedCell.confirmSelectionButton.center];
+    }
 }
 
 - (void)confirmSelection:(id)sender {
@@ -96,9 +110,24 @@
     } else {
         selectedCell.righAnswerLabel.hidden = NO;
     }
-    selectedCell.confirmSelectionButton.hidden = YES;
+
+    // disabel confirm button
+    selectedCell.confirmSelectionButton.enabled = NO;
     self.currentIndex ++;
     [self updateCountLabel];
+    
+    // disable toneButtons
+    for (id subview in selectedCell.contentView.subviews) {
+        if ([subview isKindOfClass:[UIButton class]]
+            && subview != selectedCell.playButton
+            && subview != selectedCell.confirmSelectionButton) {
+            [subview setEnabled:NO];
+        }
+    }
+    
+    // for next preparation
+    _preCell = selectedCell;
+    self.itemCollectionView.scrollEnabled = YES;
 }
 
 #pragma mark - UICollectionView Data Source
@@ -130,7 +159,7 @@
     // must do this, otherwise the two buttons will be seen !
     cell.congratulateLabel.hidden = YES;
     cell.righAnswerLabel.hidden = YES;
-    cell.confirmSelectionButton.hidden = NO;
+    cell.confirmSelectionButton.enabled = NO;
     cell.pinyinOneTextField.text = @"";
     cell.pinyinTwoTextField.text = @"";
     
@@ -161,6 +190,7 @@
         if ([subview isKindOfClass:[UIButton class]]
             && subview != cell.playButton
             && subview != cell.confirmSelectionButton) {
+            [subview setEnabled:YES];
             [subview addTarget:self action:@selector(toneIsSelected:) forControlEvents:UIControlEventTouchUpInside];
         }
     }
@@ -207,6 +237,12 @@
     
     // figure out the page down the view, must be "index+1", otherwise will start from 0
     self.indexLabel.text = [NSString stringWithFormat:@"%d/%lu", index+1, (unsigned long)self.dataArray.count];
+    
+    // decide if the user actually didn't scroll to the next page
+    if ([_currentCell.righAnswerLabel.text isEqualToString:_preCell.righAnswerLabel.text]) {
+        return;
+    }
+    self.itemCollectionView.scrollEnabled = NO;
 }
 
 #pragma mark - AVAudioPlayerDelegate

@@ -34,7 +34,7 @@
             [animatedImages addObject:image];
         }
         
-        UIImage *backImageSelected = [UIImage animatedImageWithImages:animatedImages duration:ScrollingTimeInterval];
+        UIImage *backImageSelected = [UIImage animatedImageWithImages:animatedImages duration:ScrollingTimeInterval/2.0];
         [self setImage:backImageSelected forState:UIControlStateSelected];
         self.showsTouchWhenHighlighted = YES;
     }

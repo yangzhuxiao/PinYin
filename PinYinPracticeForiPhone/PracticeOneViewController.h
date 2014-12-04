@@ -13,5 +13,6 @@
 @interface PracticeOneViewController : ParentPracticeViewController < UICollectionViewDelegate, UICollectionViewDataSource >
 
 @property (nonatomic, strong) PracticeOneCollectionViewCell *currentCell;
+@property (nonatomic, strong) PracticeOneCollectionViewCell *preCell;
 
 @end

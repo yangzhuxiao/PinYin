@@ -17,6 +17,12 @@
     self.itemCollectionView.delegate = self;
     self.itemCollectionView.dataSource = self;
     [self.itemCollectionView registerClass:[PracticeTwoCollectionViewCell class] forCellWithReuseIdentifier:@"TwoCell"];
+    _alreadyAnswered = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 - (void)playMP3File:(id)sender {
@@ -58,9 +64,16 @@
     } else {
         selectedCell.righAnswerLabel.hidden = NO;
     }
-    selectedCell.confirmSelectionButton.hidden = YES;
+    
+    // change confirm button status for good
+    _alreadyAnswered = YES;
+    selectedCell.confirmSelectionButton.enabled = NO;
     self.currentIndex ++;
     [self updateCountLabel];
+    
+    // for next preparation
+    _preCell = selectedCell;
+    self.itemCollectionView.scrollEnabled = YES;
 }
 
 #pragma mark - UICollectionView Data Source
@@ -92,7 +105,7 @@
     // must do this, otherwise the two buttons will be seen !
     cell.congratulateLabel.hidden = YES;
     cell.righAnswerLabel.hidden = YES;
-    cell.confirmSelectionButton.hidden = NO;
+    cell.confirmSelectionButton.enabled = NO;
     cell.pinyinOneTextField.text = @"";
     cell.pinyinTwoTextField.text = @"";
 
@@ -124,9 +137,25 @@
 
 #pragma mark - UITextField Delegate
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    textField.returnKeyType = UIReturnKeyDone;
+    if (self.itemCollectionView.frame.origin.y == 0) {
+        [self.itemCollectionView setFrame:CGRectOffset(self.itemCollectionView.frame, 0, -1.5*textField.frame.size.height)];
+    }
+    return YES;
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+    [self.itemCollectionView setFrame:CGRectOffset(self.itemCollectionView.frame, 0, 1.5*textField.frame.size.height)];
+    
+    // must prevent from user's double or tripple touching return key to invoke Confirm button !
+    if (!_alreadyAnswered) {
+        _currentCell.confirmSelectionButton.enabled = YES;
+        [_currentCell.confirmSelectionButton animateFirstTouchAtPoint:_currentCell.confirmSelectionButton.center];
+    }
     return YES;
 }
 
@@ -161,6 +190,15 @@
     
     // figure out the page down the view, must be "index+1", otherwise will start from 0
     self.indexLabel.text = [NSString stringWithFormat:@"%d/%lu", index+1, (unsigned long)self.dataArray.count];
+    
+    // decide if the user actually didn't scroll to the next page
+    if ([_currentCell.righAnswerLabel.text isEqualToString:_preCell.righAnswerLabel.text]) {
+        _currentCell.confirmSelectionButton.enabled = NO;
+        return;
+    }
+    self.itemCollectionView.scrollEnabled = NO;
+    // must not forget, otherwise you will only be able to answer the first question !
+    _alreadyAnswered = NO;
 }
 
 #pragma mark - AVAudioPlayerDelegate

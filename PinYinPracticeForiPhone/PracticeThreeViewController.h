@@ -13,5 +13,7 @@
 @interface PracticeThreeViewController : ParentPracticeViewController < UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate >
 
 @property (nonatomic, strong) PracticeThreeCollectionViewCell *currentCell;
+@property (nonatomic, strong) PracticeThreeCollectionViewCell *preCell;
+
 
 @end
