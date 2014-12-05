@@ -11,7 +11,7 @@
 #import "Phrase.h"
 #import "CustomBackButton.h"
 
-@interface ParentPracticeViewController : UIViewController < UIScrollViewDelegate, AVAudioPlayerDelegate >
+@interface ParentPracticeViewController : UIViewController < UIScrollViewDelegate, AVAudioPlayerDelegate, UIAlertViewDelegate >
 
 // UI
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;

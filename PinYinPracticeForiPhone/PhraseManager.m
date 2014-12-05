@@ -104,6 +104,18 @@
     return [NSArray arrayWithArray:orderedArray];
 }
 
+- (NSMutableArray *)randomlizedPhrasesOfCountOneHundred
+{
+    NSMutableArray *randomArray = [NSMutableArray array];
+    NSMutableArray *allPhrases = [[self allPhrasesArray] mutableCopy];
+    for (int i=0; i<100; i++) {
+        int j = rand()%[allPhrases count];
+        [randomArray addObject:allPhrasesArray[j]];
+        [allPhrases removeObjectAtIndex:j];
+    }
+    return randomArray;
+}
+
 // private methods
 - (NSMutableArray *)phrasesArrayForTag:(int)tag
 {

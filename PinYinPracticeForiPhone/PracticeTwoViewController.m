@@ -234,5 +234,18 @@
     [_currentCell.playButton setSelected:NO];
 }
 
+#pragma mark - UIAlertView Delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Don't show practice two alert again" object:self];
+            break;
+        default:
+            break;
+    }
+    [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
+}
 
 @end

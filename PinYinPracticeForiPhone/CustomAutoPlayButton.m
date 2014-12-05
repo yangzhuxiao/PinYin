@@ -15,7 +15,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        FAKIonIcons *autoPlayIconNormal = [FAKIonIcons videocameraIconWithSize:0.8*frame.size.width];
+        FAKIonIcons *autoPlayIconNormal = [FAKIonIcons wineglassIconWithSize:0.8*frame.size.width];
         [autoPlayIconNormal addAttribute:NSForegroundColorAttributeName value:txtColor];
         UIImage *autoPlayImageNormal = [autoPlayIconNormal imageWithSize:CGSizeMake(frame.size.width, frame.size.width)];
         [self setImage:autoPlayImageNormal forState:UIControlStateNormal];

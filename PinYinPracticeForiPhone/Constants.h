@@ -12,7 +12,7 @@
 #import <UIKit/UIKit.h>
 
 #define bgColor [UIColor colorWithRed:204/255 green:1 blue:204/255 alpha:0.1]
-#define txtColor [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4]
+#define txtColor [UIColor colorWithRed:0 green:0 blue:0 alpha:1]
 #define bdColor [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4]
 #define hightlightedColor [UIColor colorWithRed:0 green:0.478431 blue:1 alpha:1]
 
@@ -81,8 +81,11 @@ static const CGFloat BackButtonYOriginPercent = 0.05;
 // AutoPlayButton size
 static const CGFloat autoPlayButtonWidthPercentWidth = 0.15;
 static const CGFloat autoPlayButtonHeightPercentWidth = 0.15;
-static const CGFloat autoPlayButtonXOffsetToRightPercent = 0.0469;
-static const CGFloat autoPlayButtonYOriginPercent = 0.04;
+//static const CGFloat autoPlayButtonXOffsetToRightPercent = 0.0469;
+static const CGFloat autoPlayButtonXOffsetToRightPercent = 0.75;
+//static const CGFloat autoPlayButtonYOriginPercent = 0.04;
+static const CGFloat autoPlayButtonYOriginPercent = 0.7;
+
 
 // CountLabel size
 static const CGFloat CountLabelWidthPercent = 0.4;
@@ -195,7 +198,7 @@ static const CGFloat pinyinTwoTextFieldForPrac3XOriginPercent = 0.53;
 static const CGFloat pinyinTwoTextFieldForPrac3YOriginPercent = 0.20;
 
 // toneLabelOne size
-static const CGFloat ToneLabelFontPercentLabelHeight = 0.7;
+static const CGFloat ToneLabelFontPercentLabelHeight = 0.8;
 static const CGFloat ToneLabelWidthPercentWidth = 0.45;
 static const CGFloat ToneLabelHeightPercentWidth = 0.3;
 
@@ -215,9 +218,9 @@ static const CGFloat ToneLabelTwoForPrac2YOriginPercentHeight = 0.3;
 
 // toneLabelOne For Practice 3 offset
 static const CGFloat ToneLabelOneForPrac3XOriginPercentWidth = 0.08;
-static const CGFloat ToneLabelOneForPrac3YOriginPercentHeight = 0.10;
+static const CGFloat ToneLabelOneForPrac3YOriginPercentHeight = 0.12;
 // toneLabelTwo For Practice 3 offset
 static const CGFloat ToneLabelTwoForPrac3XOriginPercentWidth = 0.52;
-static const CGFloat ToneLabelTwoForPrac3YOriginPercentHeight = 0.10;
+static const CGFloat ToneLabelTwoForPrac3YOriginPercentHeight = 0.12;
 
 #endif

@@ -38,114 +38,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PinYinPracticeForiPhone/PracticeRootViewController.m"
-            timestampString = "439112535.288635"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-selectConfirmed:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PinYinPracticeForiPhone/PracticeRootViewController.m"
-            timestampString = "439112535.288635"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "-selectConfirmed:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[PracticeRootViewController selectConfirmed:]"
-                  moduleName = "PinYinPracticeForiPhone"
-                  urlString = "file:///Users/yangxiaozhu/Documents/IOS/PinYinPractice/PinYinPracticeForiPhone/PinYinPracticeForiPhone/PracticeRootViewController.m"
-                  timestampString = "439010514.11327"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "200">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[PracticeRootViewController selectConfirmed:]"
-                  moduleName = "PinYinPracticeForiPhone"
-                  urlString = "file:///Users/yangxiaozhu/Documents/IOS/PinYinPractice/PinYinPracticeForiPhone/PinYinPracticeForiPhone/PracticeRootViewController.m"
-                  timestampString = "439010514.11348"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "228">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PinYinPracticeForiPhone/PracticeRootViewController.m"
-            timestampString = "439112535.288635"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "-selectConfirmed:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[PracticeRootViewController selectConfirmed:]"
-                  moduleName = "PinYinPracticeForiPhone"
-                  urlString = "file:///Users/yangxiaozhu/Documents/IOS/PinYinPractice/PinYinPracticeForiPhone/PinYinPracticeForiPhone/PracticeRootViewController.m"
-                  timestampString = "439010514.114776"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "380">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[PracticeRootViewController selectConfirmed:]"
-                  moduleName = "PinYinPracticeForiPhone"
-                  urlString = "file:///Users/yangxiaozhu/Documents/IOS/PinYinPractice/PinYinPracticeForiPhone/PinYinPracticeForiPhone/PracticeRootViewController.m"
-                  timestampString = "439010514.115048"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "408">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -198,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinYinPracticeForiPhone/PhraseManager.m"
-            timestampString = "439310403.485804"
+            timestampString = "439487721.344216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "-toneFromToneNumber:"
             landmarkType = "5">
          </BreakpointContent>

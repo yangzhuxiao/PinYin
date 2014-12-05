@@ -15,7 +15,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:frame.size.height * ToneLabelFontPercentLabelHeight];
+//        self.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:frame.size.height * ToneLabelFontPercentLabelHeight];
+        self.font = [UIFont systemFontOfSize:frame.size.height * ToneLabelFontPercentLabelHeight];
         self.textAlignment = NSTextAlignmentCenter;
         self.textColor = txtColor;
     }

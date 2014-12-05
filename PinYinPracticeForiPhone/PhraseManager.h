@@ -15,6 +15,6 @@
 - (NSMutableArray *)allPhrasesArray;
 - (NSArray *)randomlizedAllPhrases;
 - (NSArray *)randomPhrasesArrayForTag:(int)tag;
-
+- (NSMutableArray *)randomlizedPhrasesOfCountOneHundred;
 
 @end

@@ -22,7 +22,7 @@
     
     // must not be omitted, otherwise the color of subview "collectionView" will crash
     self.view.backgroundColor = [UIColor whiteColor];
-    _dataArray = [[PhraseManager sharedManager] randomlizedAllPhrases];
+    _dataArray = [[PhraseManager sharedManager] randomlizedPhrasesOfCountOneHundred];
     
     // The order of the following three must not be changed !
     [self setUpCollectionView];
@@ -31,6 +31,7 @@
     
     // repare audioPlayer and play once
     [self setUpCountLabel];
+//    [self setUpIndicatorView];
 }
 
 - (void)viewWillAppear:(BOOL)animated

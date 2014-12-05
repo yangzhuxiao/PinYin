@@ -15,7 +15,7 @@
 @implementation ListenRootViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+    [super viewDidLoad];    
     FAKIonIcons *listenTabIcon = [FAKIonIcons headphoneIconWithSize:25];
     FAKIonIcons *practiceTabIcon = [FAKIonIcons composeIconWithSize:25];
     
@@ -36,7 +36,8 @@
 - (NSMutableAttributedString *)attributedStringFromString:(NSString *)string
 {
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string];
-    [attributedString addAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:listenCellLabelTonesFontPercentWidth * WIDTH]} range:NSMakeRange(0, 1)];
+//    [attributedString addAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:listenCellLabelTonesFontPercentWidth * WIDTH]} range:NSMakeRange(0, 1)];
+    [attributedString addAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:listenCellLabelTonesFontPercentWidth * WIDTH]} range:NSMakeRange(0, 1)];
     [attributedString addAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:listenCellLabelWordsFontPercentWidth * WIDTH]} range:NSMakeRange(1, attributedString.length-1)];
     return attributedString;
 }
