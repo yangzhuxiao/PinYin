@@ -48,33 +48,6 @@
     }
 }
 
-#pragma mark - UITableView delegate
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([indexPath section] == 0 && [indexPath row] == 0) {
-        return NO;
-    }
-    if ([indexPath section] == 2) {
-        return NO;
-    }
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([indexPath section] == 1 && [indexPath row] == 0) {
-        [self sendFeedbackWithMailView];
-        return;
-    }
-    
-    if ([indexPath section] == 1 && [indexPath row] == 1) {
-        [self sendAppLocationToFriends];
-        return;
-    }
-
-}
-
 #pragma mark - MFMailComposeViewControllerDelegate
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
@@ -83,6 +56,7 @@
 }
 
 - (IBAction)IconClicked:(id)sender {
+//    UIAppl	ication
 }
 
 - (IBAction)sendFeedBack:(id)sender {

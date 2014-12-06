@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 
-@interface ContactUsViewController : UIViewController < UITableViewDataSource, UITabBarDelegate, MFMailComposeViewControllerDelegate >
+@interface ContactUsViewController : UIViewController < MFMailComposeViewControllerDelegate >
 @property (strong, nonatomic) IBOutlet UIButton *IconButton;
 @property (strong, nonatomic) IBOutlet UIButton *feedBackButton;
 @property (strong, nonatomic) IBOutlet UIButton *forwardButton;
