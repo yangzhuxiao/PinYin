@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Listen-->
@@ -22,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1006.5" y="-354"/>
+            <point key="canvasLocation" x="984" y="-814"/>
         </scene>
         <!--Listen Item View Controller-->
         <scene sceneID="kFB-mz-7FW">
@@ -52,7 +54,253 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="783" y="360"/>
+            <point key="canvasLocation" x="984" y="-104"/>
+        </scene>
+        <!--Contact Us-->
+        <scene sceneID="QXO-C1-Evv">
+            <objects>
+                <viewController id="lm4-Md-g6v" customClass="ContactUsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fsR-L8-3Ct"/>
+                        <viewControllerLayoutGuide type="bottom" id="y3M-K6-4Wd"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="uor-y2-seI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvN-R3-pMp">
+                                <rect key="frame" x="96" y="61" width="408" height="79"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wvN-R3-pMp" secondAttribute="height" multiplier="408:79" id="eZr-Xa-izF"/>
+                                </constraints>
+                                <state key="normal" image="Chinese at Ease.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="IconClicked:" destination="lm4-Md-g6v" eventType="touchUpInside" id="YxT-C6-uKl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AW6-cE-ErV">
+                                <rect key="frame" x="36" y="170" width="528" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="p1v-Wb-vYV">
+                                        <variation key="widthClass=compact" constant="50"/>
+                                        <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="意见反馈"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="35"/>
+                                </variation>
+                                <connections>
+                                    <action selector="sendFeedBack:" destination="lm4-Md-g6v" eventType="touchUpInside" id="O7L-iw-NuL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etb-Ga-dA5">
+                                <rect key="frame" x="36" y="250" width="528" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="fRO-Uf-DNj">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                                        <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="转发给好友"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="35"/>
+                                </variation>
+                                <connections>
+                                    <action selector="forwardToFriends:" destination="lm4-Md-g6v" eventType="touchUpInside" id="CRO-fo-m3d"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联系我们" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U33-CT-yna">
+                                <rect key="frame" x="46" y="370" width="320" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1lU-Ex-vyG">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                                        <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="320" id="Y5u-ns-ITx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+31(0)40 879 5018" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e91-y1-kY3">
+                                <rect key="frame" x="46" y="440" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="5VN-aG-vxe"/>
+                                    <constraint firstAttribute="height" constant="40" id="QkR-2o-3TV">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                        <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="info@chinese-at-ease.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bP2-E0-SCR">
+                                <rect key="frame" x="46" y="498" width="320" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="uGn-4K-IVS">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="15"/>
+                                        <variation key="heightClass=regular-widthClass=regular" constant="25"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="320" id="vqg-00-Mis"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="uGn-4K-IVS"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <mask key="constraints">
+                                        <include reference="uGn-4K-IVS"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVT-dn-oPk">
+                                <rect key="frame" x="46" y="539" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="6Yh-Of-kJV">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                                        <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="50" id="DB1-rA-yX9">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                                        <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                    </constraint>
+                                </constraints>
+                                <state key="normal" title="Button" image="facebook.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGL-rx-KIb">
+                                <rect key="frame" x="126" y="539" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="DLe-xV-SVw">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="50" id="bJ5-xk-Vxl">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                    </constraint>
+                                </constraints>
+                                <state key="normal" title="Button" image="twitter.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQ6-xg-aIO">
+                                <rect key="frame" x="206" y="539" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="SJr-Xa-bfj">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                                        <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="50" id="bO8-Oq-2Nl">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                                        <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                    </constraint>
+                                </constraints>
+                                <state key="normal" title="Button" image="google+.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="SJr-Xa-bfj"/>
+                                        <include reference="bO8-Oq-2Nl"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="wvN-R3-pMp" firstAttribute="top" secondItem="fsR-L8-3Ct" secondAttribute="bottom" constant="41" id="958-Bk-JD2">
+                                <variation key="heightClass=regular-widthClass=compact" constant="41"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="80"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="AW6-cE-ErV" secondAttribute="centerX" id="9da-De-8Qq"/>
+                            <constraint firstItem="QVT-dn-oPk" firstAttribute="top" secondItem="bP2-E0-SCR" secondAttribute="bottom" constant="20" id="Apb-am-gwE">
+                                <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="etb-Ga-dA5" secondAttribute="trailing" constant="20" id="Bhy-8M-Sh1"/>
+                            <constraint firstItem="AW6-cE-ErV" firstAttribute="top" secondItem="wvN-R3-pMp" secondAttribute="bottom" constant="30" id="DKK-XK-hnV">
+                                <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                            </constraint>
+                            <constraint firstItem="bP2-E0-SCR" firstAttribute="leading" secondItem="uor-y2-seI" secondAttribute="leadingMargin" constant="30" id="Jbf-b9-CaO"/>
+                            <constraint firstItem="etb-Ga-dA5" firstAttribute="top" secondItem="AW6-cE-ErV" secondAttribute="bottom" constant="20" id="NnF-lb-imL">
+                                <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="etb-Ga-dA5" secondAttribute="centerX" id="OED-9H-Za6"/>
+                            <constraint firstItem="QVT-dn-oPk" firstAttribute="leading" secondItem="uor-y2-seI" secondAttribute="leadingMargin" constant="30" id="UjQ-MO-EP1"/>
+                            <constraint firstItem="QGL-rx-KIb" firstAttribute="top" secondItem="bP2-E0-SCR" secondAttribute="bottom" constant="20" id="Y1i-LY-b1u">
+                                <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="wvN-R3-pMp" secondAttribute="centerX" id="aka-hr-9rF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AW6-cE-ErV" secondAttribute="trailing" constant="20" id="btV-x5-7RP"/>
+                            <constraint firstItem="AW6-cE-ErV" firstAttribute="leading" secondItem="uor-y2-seI" secondAttribute="leadingMargin" constant="20" id="dRw-iy-4cE"/>
+                            <constraint firstItem="wvN-R3-pMp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uor-y2-seI" secondAttribute="leadingMargin" constant="40" id="dSB-nZ-bgp"/>
+                            <constraint firstItem="U33-CT-yna" firstAttribute="leading" secondItem="uor-y2-seI" secondAttribute="leadingMargin" constant="30" id="g2P-Qx-egI"/>
+                            <constraint firstItem="U33-CT-yna" firstAttribute="top" secondItem="etb-Ga-dA5" secondAttribute="bottom" constant="60" id="gl5-Yb-n6F">
+                                <variation key="heightClass=regular-widthClass=compact" constant="60"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="120"/>
+                            </constraint>
+                            <constraint firstItem="QGL-rx-KIb" firstAttribute="leading" secondItem="QVT-dn-oPk" secondAttribute="trailing" constant="30" id="jBu-gL-GrR"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="wvN-R3-pMp" secondAttribute="trailing" constant="40" id="mRE-PM-mzf"/>
+                            <constraint firstItem="etb-Ga-dA5" firstAttribute="leading" secondItem="uor-y2-seI" secondAttribute="leadingMargin" constant="20" id="ruV-Ob-VlA"/>
+                            <constraint firstItem="e91-y1-kY3" firstAttribute="leading" secondItem="uor-y2-seI" secondAttribute="leadingMargin" constant="30" id="tAY-Xc-MZt"/>
+                            <constraint firstItem="e91-y1-kY3" firstAttribute="top" secondItem="U33-CT-yna" secondAttribute="bottom" constant="20" id="v7s-Uz-QGE"/>
+                            <constraint firstItem="bP2-E0-SCR" firstAttribute="top" secondItem="e91-y1-kY3" secondAttribute="bottom" constant="18" id="wcc-B3-ocY"/>
+                            <constraint firstItem="uQ6-xg-aIO" firstAttribute="leading" secondItem="QGL-rx-KIb" secondAttribute="trailing" constant="30" id="x57-nv-I6r"/>
+                            <constraint firstItem="uQ6-xg-aIO" firstAttribute="top" secondItem="bP2-E0-SCR" secondAttribute="bottom" constant="20" id="xKO-21-Anf">
+                                <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="wvN-R3-pMp" secondAttribute="centerX" id="xaA-eK-Pw7"/>
+                        </constraints>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="uQ6-xg-aIO"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="x57-nv-I6r"/>
+                                <include reference="xKO-21-Anf"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Contact Us" id="1iy-Cx-qym"/>
+                    <connections>
+                        <outlet property="IconButton" destination="wvN-R3-pMp" id="u4R-m4-yFA"/>
+                        <outlet property="feedBackButton" destination="AW6-cE-ErV" id="j7q-Mt-nH1"/>
+                        <outlet property="forwardButton" destination="etb-Ga-dA5" id="Ahz-5e-KNK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ku1-dW-Gk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="973" y="685"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -67,6 +315,7 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="8I2-nN-oMo"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="U9N-vR-M6u"/>
+                        <segue destination="lm4-Md-g6v" kind="relationship" relationship="viewControllers" id="kLq-h7-6PQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -74,4 +323,10 @@
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Chinese at Ease.png" width="353" height="79"/>
+        <image name="facebook.png" width="512" height="512"/>
+        <image name="google+.png" width="512" height="512"/>
+        <image name="twitter.png" width="512" height="512"/>
+    </resources>
 </document>

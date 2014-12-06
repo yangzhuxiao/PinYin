@@ -22,6 +22,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.contentLabel.text = @"1. Select the tones you think are right according to the recording and given pinyin.\n\n2. Click speaker icon to repeat the recording. \n\n3. Click \"Done\" to see if you get the right answer. \n\n4. Scroll right to next question after clicking \"Done\"";
 }
 
 - (void)playMP3File:(id)sender {

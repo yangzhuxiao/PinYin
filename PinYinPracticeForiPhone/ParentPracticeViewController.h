@@ -24,6 +24,11 @@
 @property (nonatomic, strong) UIButton *selectedButtonFirstRow;
 @property (nonatomic, strong) UIButton *selectedButtonSecondRow;
 
+// infoButton for help page
+@property (nonatomic, strong) UIButton *helpButton;
+@property (nonatomic, strong) UIControl *helpPage;
+@property (nonatomic, strong) UILabel *contentLabel;
+
 // Data
 @property (nonatomic, copy) NSArray *dataArray;
 

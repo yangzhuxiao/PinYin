@@ -71,21 +71,21 @@
     if (self.selectedCellIndex == 0) {
         PracticeOneViewController *oneController = [[PracticeOneViewController alloc] init];
         if (_isFirstLaunchingPrac1 == YES) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Select the tones you think right according to the recording and given pinyin. Click speaker icon to repeat. Click \"Done\" to see the right answer. Scroll right to next question after clicking \"Done\"" delegate:oneController cancelButtonTitle:@"Don't show again" otherButtonTitles:@"Show every time", nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Select the tones you think are right according to the recording and given pinyin. Click speaker icon to repeat. Click \"Done\" to see the right answer. Scroll right to next question after clicking \"Done\"" delegate:oneController cancelButtonTitle:@"Don't show again" otherButtonTitles:@"Show every time", nil];
             [alert show];
         }
         [self presentViewController:oneController animated:YES completion:nil];
     } else if (self.selectedCellIndex == 1) {
         PracticeTwoViewController *twoController = [[PracticeTwoViewController alloc] init];
         if (_isFirstLaunchingPrac2 == YES) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Write down the pinyin you think right according to the recording and the given tones. Click speaker icon to repeat. Click \"Done\" to see the answer. Scroll right to next question after clicking \"Done\"" delegate:twoController cancelButtonTitle:@"Don't show again" otherButtonTitles:@"Show every time", nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Write down the pinyin you think are right according to the recording and the given tones. Click speaker icon to repeat. Click \"Done\" to see the answer. Scroll right to next question after clicking \"Done\"" delegate:twoController cancelButtonTitle:@"Don't show again" otherButtonTitles:@"Show every time", nil];
             [alert show];
         }
         [self presentViewController:twoController animated:YES completion:nil];
     } else if (self.selectedCellIndex == 2) {
         PracticeThreeViewController *threeController = [[PracticeThreeViewController alloc] init];
         if (_isFirstLaunchingPrac3 == YES) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Write down the pinyin and tones you think right according to the recording. Click speaker icon to repeat. Click \"Done\" to see the answer. Scroll right to next question after clicking \"Done\"" delegate:threeController cancelButtonTitle:@"Don't show again" otherButtonTitles:@"Show every time", nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Write down the pinyin and tones you think are right according to the recording. Click speaker icon to repeat. Click \"Done\" to see the answer. Scroll right to next question after clicking \"Done\"" delegate:threeController cancelButtonTitle:@"Don't show again" otherButtonTitles:@"Show every time", nil];
             [alert show];
         }
         [self presentViewController:threeController animated:YES completion:nil];

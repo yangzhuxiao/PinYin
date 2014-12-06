@@ -31,7 +31,8 @@
     
     // repare audioPlayer and play once
     [self setUpCountLabel];
-//    [self setUpIndicatorView];
+    [self setUpContentLabel];
+    [self setUpHelpButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -120,6 +121,50 @@
     [_audioPlayer setVolume:1];
     [_audioPlayer prepareToPlay];
     [_audioPlayer play];
+}
+
+- (void)setUpContentLabel
+{
+    _contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.1*WIDTH, 0.1*HEIGHT, 0.8*WIDTH, 0.6*HEIGHT)];
+    _contentLabel.numberOfLines = 0;
+    //    contentLabel.font = [UIFont systemFontOfSize:]
+    _contentLabel.textAlignment = NSTextAlignmentLeft;
+    _contentLabel.textColor = [UIColor blackColor];
+}
+
+- (void)setUpHelpButton
+{
+    FAKIonIcons *helpIcon = [FAKIonIcons ios7HelpOutlineIconWithSize:0.10*WIDTH];
+    UIImage *helpImage = [helpIcon imageWithSize:CGSizeMake(0.10*WIDTH, 0.10*WIDTH)];
+    _helpButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [_helpButton setFrame:CGRectMake(0.75*WIDTH, 0.9*HEIGHT, 0.15*WIDTH, 0.15*WIDTH)];
+    [_helpButton setImage:helpImage forState:UIControlStateNormal];
+    
+    [_helpButton addTarget:self action:@selector(showHelpPage) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_helpButton];
+}
+
+- (void)showHelpPage
+{
+    _helpPage = [[UIControl alloc] initWithFrame:self.view.bounds];
+    _helpPage.backgroundColor = [UIColor whiteColor];
+    
+    UIButton *okButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [okButton setFrame:CGRectMake(0.2*WIDTH, 0.8*HEIGHT, 0.6*WIDTH, 0.1*HEIGHT)];
+    [okButton setTitle:@"OK" forState:UIControlStateNormal];
+    [okButton addTarget:self action:@selector(dismissHelpPage) forControlEvents:UIControlEventTouchUpInside];
+    okButton.layer.borderWidth = 1.0;
+    okButton.layer.borderColor = hightlightedColor.CGColor;
+    okButton.layer.cornerRadius = 3.0;
+    
+    [_helpPage addSubview:_contentLabel];
+    [_helpPage addSubview:okButton];
+    [self.view addSubview:_helpPage];
+}
+
+- (void)dismissHelpPage
+{
+    [_helpPage removeFromSuperview];
 }
 
 - (void)backToRoot:(id)sender {

@@ -15,10 +15,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-//    NSLog(@"%@", [UIFont familyNames]);
-//    NSLog(@"%@", [UIFont fontNamesForFamilyName:@"Helvetica"]);
-
-    
     [[PhraseManager sharedManager] allPhrasesArray];
         
 // construct plist file
@@ -67,7 +63,7 @@
 //    NSString *plistFilePath = [textPath stringByReplacingOccurrencesOfString:@"final" withString:@"FinalPinYinList"];
 //    [newArray writeToFile:plistFilePath atomically:YES];
 
-
+    self.window.backgroundColor = [UIColor whiteColor];
     return YES;
 }
 
