@@ -27,22 +27,18 @@
                                     frame.size.width * confirmSelectionButtonHeightPercentWidth)];
         
 // congratulateLabel
-        _congratulateLabel = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width * congratulateLabelXOriginPercent, frame.size.height * congratulateLabelYOriginPercent, frame.size.width * congratulateLabelWidthPercent, frame.size.height * congratulateLabelHeightPercent)];
-        _congratulateLabel.text = @"Congratulations!";
-        _congratulateLabel.font = [UIFont systemFontOfSize:frame.size.width * congratulateLabelFontPercentWidth];
-        _congratulateLabel.textAlignment = NSTextAlignmentCenter;
-        _congratulateLabel.textColor = txtColor;
-        _congratulateLabel.layer.borderWidth = 1.0f;
-        _congratulateLabel.layer.borderColor = bdColor.CGColor;
+        _congratulateLabel = [[CustomCongratulationLabel alloc] initWithFrame:
+                              CGRectMake(frame.size.width * congratulateLabelXOriginPercent,
+                                         frame.size.height * congratulateLabelYOriginPercent,
+                                         frame.size.width * congratulateLabelWidthPercent,
+                                         frame.size.height * congratulateLabelHeightPercent)];
         
 // righAnswerLabel
-        _righAnswerLabel = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width * congratulateLabelXOriginPercent, frame.size.height * congratulateLabelYOriginPercent, frame.size.width * congratulateLabelWidthPercent, frame.size.height * congratulateLabelHeightPercent)];
-        _righAnswerLabel.font = [UIFont systemFontOfSize:frame.size.width * righAnswerLabelFontPercentWidth];
-        _righAnswerLabel.textAlignment = NSTextAlignmentCenter;
-        _righAnswerLabel.numberOfLines = 0;
-        _righAnswerLabel.textColor = txtColor;
-        _righAnswerLabel.layer.borderWidth = 1.0f;
-        _righAnswerLabel.layer.borderColor = bdColor.CGColor;
+        _righAnswerLabel = [[CustomRightAnswerLabel alloc] initWithFrame:
+                            CGRectMake(frame.size.width * rightAnswerLabelXOriginPercent,
+                                       frame.size.height * rightAnswerLabelYOriginPercent,
+                                       frame.size.width * rightAnswerLabelWidthPercent,
+                                       frame.size.height * rightAnswerLabelHeightPercent)];
         
         [self.contentView addSubview:_playButton];
         [self.contentView addSubview:_confirmSelectionButton];

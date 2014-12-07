@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import <FontAwesomeKit/FAKIonIcons.h>
 #import "PracticeRootViewController.h"
+#import "ContactUsViewController.h"
 
 @implementation ListenRootViewController
 
@@ -18,6 +19,8 @@
     [super viewDidLoad];    
     FAKIonIcons *listenTabIcon = [FAKIonIcons headphoneIconWithSize:25];
     FAKIonIcons *practiceTabIcon = [FAKIonIcons composeIconWithSize:25];
+    FAKIonIcons *contactUsTabIcon = [FAKIonIcons ios7InformationOutlineIconWithSize:25];
+
     
     NSArray *viewControllers = [self.tabBarController viewControllers];
     for (id controller in viewControllers) {
@@ -25,6 +28,8 @@
             [[controller tabBarItem] setImage:[listenTabIcon imageWithSize:CGSizeMake(30, 30)]];
         } else if ([controller isKindOfClass:[PracticeRootViewController class]]) {
             [[controller tabBarItem] setImage:[practiceTabIcon imageWithSize:CGSizeMake(30, 30)]];
+        } else if ([controller isKindOfClass:[ContactUsViewController class]]) {
+            [[controller tabBarItem] setImage:[contactUsTabIcon imageWithSize:CGSizeMake(30, 30)]];
         }
     }
         

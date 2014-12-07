@@ -107,6 +107,7 @@
         self.correctNumber ++;
     } else {
         selectedCell.righAnswerLabel.hidden = NO;
+        self.wrongNumber ++;
     }
     
     // disabel confirm button
@@ -157,7 +158,7 @@
     NSArray *pinYinWithoutTones = [[self.currentPhrase pinyinWithoutTones] componentsSeparatedByString:@" "];
     cell.PinYinLabelOne.text = pinYinWithoutTones[0];
     cell.PinYinLabelTwo.text = pinYinWithoutTones[1];
-    cell.righAnswerLabel.text = [NSString stringWithFormat:@"Sorry! The answer is \n\" %@\"", self.currentPhrase.pinyinFull];
+    cell.righAnswerLabel.text = self.currentPhrase.pinyinFull;
     // register for touch event
     [cell.playButton addTarget:self action:@selector(playMP3File:) forControlEvents:UIControlEventTouchUpInside];
     // register for confimation Input

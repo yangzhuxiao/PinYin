@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "Phrase.h"
 #import "CustomBackButton.h"
+#import "CustomCorrectToWrongLabel.h"
 
 @interface ParentPracticeViewController : UIViewController < UIScrollViewDelegate, AVAudioPlayerDelegate, UIAlertViewDelegate >
 
@@ -19,7 +20,7 @@
 @property (strong, nonatomic) UICollectionView *itemCollectionView;
 @property (nonatomic, strong) CustomBackButton *backButton;
 @property (nonatomic, strong) UILabel *indexLabel;
-@property (nonatomic, strong) UILabel *countLabel;
+@property (nonatomic, strong) CustomCorrectToWrongLabel *correctToWrongLabel;
 
 @property (nonatomic, strong) UIButton *selectedButtonFirstRow;
 @property (nonatomic, strong) UIButton *selectedButtonSecondRow;
@@ -41,6 +42,7 @@
 @property (nonatomic, copy) NSString *secondPinyin;
 
 @property (nonatomic, assign) NSInteger correctNumber;
+@property (nonatomic, assign) NSInteger wrongNumber;
 @property (nonatomic, assign) NSInteger currentIndex;
 
 @property (nonatomic, strong) Phrase *currentPhrase;

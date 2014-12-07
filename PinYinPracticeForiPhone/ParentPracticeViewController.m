@@ -18,6 +18,7 @@
     
     //correctNumber is initialized as 0
     _correctNumber = 0;
+    _wrongNumber = 0;
     _currentIndex = 0;
     
     // must not be omitted, otherwise the color of subview "collectionView" will crash
@@ -43,23 +44,23 @@
 
 - (void)setUpCountLabel
 {
-    _countLabel = [[UILabel alloc] initWithFrame:CGRectMake(CountLabelXOriginPercent *WIDTH, CountLabelYOriginPercent *HEIGHT, CountLabelWidthPercent *WIDTH, CountLabelHeightPercent *HEIGHT)];
-    _countLabel.font = [UIFont systemFontOfSize:self.view.frame.size.width * CountLabelFontPercentWidth];
-    _countLabel.textAlignment = NSTextAlignmentRight;
-    _countLabel.textColor = txtColor;
-    _countLabel.numberOfLines = 0;
+    _correctToWrongLabel = [[CustomCorrectToWrongLabel alloc] initWithFrame:
+                            CGRectMake(CountLabelXOriginPercent *WIDTH,
+                                       CountLabelYOriginPercent *HEIGHT,
+                                       
+                                       CountLabelWidthPercent *WIDTH, CountLabelHeightPercent *HEIGHT)];
     // must initialize, otherwise won't be able to see it at first!
 
-    _countLabel.text = @"Correct/All\n0/0";
+    _correctToWrongLabel.text = @"0:0";
     
     [self updateCountLabel];
     
-    [self.view addSubview:_countLabel];
+    [self.view addSubview:_correctToWrongLabel];
 }
 
 - (void)updateCountLabel
 {
-    _countLabel.text = [NSString stringWithFormat:@"Correct/All\n%ld/%lu", (long)_correctNumber, (unsigned long)_currentIndex];
+    _correctToWrongLabel.text = [NSString stringWithFormat:@"%ld:%ld", (long)_correctNumber, (long)_wrongNumber];
 }
 
 - (void)setUpCollectionView

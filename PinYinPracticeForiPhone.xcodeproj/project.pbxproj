@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		97134EA71A2435D5009A748D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97134EA61A2435D5009A748D /* AVFoundation.framework */; };
 		97134EAC1A2447D8009A748D /* ListenItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97134EAB1A2447D8009A748D /* ListenItemViewController.m */; };
+		971ACE6F1A344120005EE3B2 /* CustomCongratulationLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 971ACE6E1A344120005EE3B2 /* CustomCongratulationLabel.m */; };
+		971ACE721A34521A005EE3B2 /* CustomRightAnswerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 971ACE711A34521A005EE3B2 /* CustomRightAnswerLabel.m */; };
 		97616FD61A23201000C3CBD1 /* ParentRootViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 97616FD51A23201000C3CBD1 /* ParentRootViewFlowLayout.m */; };
 		97891A971A26199C00FBE71F /* PracticeOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97891A961A26199C00FBE71F /* PracticeOneViewController.m */; };
 		9789D8E81A220D5600298C9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9789D8E71A220D5600298C9B /* main.m */; };
@@ -34,6 +36,7 @@
 		97B45B9F1A32C4230026D46B /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 97B45B9C1A32C4230026D46B /* facebook.png */; };
 		97B45BA01A32C4230026D46B /* google+.png in Resources */ = {isa = PBXBuildFile; fileRef = 97B45B9D1A32C4230026D46B /* google+.png */; };
 		97B45BA11A32C4230026D46B /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 97B45B9E1A32C4230026D46B /* twitter.png */; };
+		97BDC52B1A345E29000215CC /* CustomCorrectToWrongLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BDC52A1A345E29000215CC /* CustomCorrectToWrongLabel.m */; };
 		97C826981A295DA100016328 /* ParentRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C826971A295DA100016328 /* ParentRootViewController.m */; };
 		97C8269C1A29674700016328 /* ItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C8269B1A29674700016328 /* ItemCollectionViewCell.m */; };
 		97C8269F1A2968BD00016328 /* ParentRootCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C8269E1A2968BD00016328 /* ParentRootCollectionViewCell.m */; };
@@ -66,6 +69,10 @@
 		97134EA61A2435D5009A748D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		97134EAA1A2447D8009A748D /* ListenItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenItemViewController.h; sourceTree = "<group>"; };
 		97134EAB1A2447D8009A748D /* ListenItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenItemViewController.m; sourceTree = "<group>"; };
+		971ACE6D1A344120005EE3B2 /* CustomCongratulationLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCongratulationLabel.h; sourceTree = "<group>"; };
+		971ACE6E1A344120005EE3B2 /* CustomCongratulationLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCongratulationLabel.m; sourceTree = "<group>"; };
+		971ACE701A34521A005EE3B2 /* CustomRightAnswerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomRightAnswerLabel.h; sourceTree = "<group>"; };
+		971ACE711A34521A005EE3B2 /* CustomRightAnswerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomRightAnswerLabel.m; sourceTree = "<group>"; };
 		97616FD41A23201000C3CBD1 /* ParentRootViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentRootViewFlowLayout.h; sourceTree = "<group>"; };
 		97616FD51A23201000C3CBD1 /* ParentRootViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentRootViewFlowLayout.m; sourceTree = "<group>"; };
 		97616FD71A232EE500C3CBD1 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -112,6 +119,8 @@
 		97B45B9C1A32C4230026D46B /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		97B45B9D1A32C4230026D46B /* google+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google+.png"; sourceTree = "<group>"; };
 		97B45B9E1A32C4230026D46B /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		97BDC5291A345E29000215CC /* CustomCorrectToWrongLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCorrectToWrongLabel.h; sourceTree = "<group>"; };
+		97BDC52A1A345E29000215CC /* CustomCorrectToWrongLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCorrectToWrongLabel.m; sourceTree = "<group>"; };
 		97C826961A295DA100016328 /* ParentRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentRootViewController.h; sourceTree = "<group>"; };
 		97C826971A295DA100016328 /* ParentRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentRootViewController.m; sourceTree = "<group>"; };
 		97C8269A1A29674600016328 /* ItemCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCollectionViewCell.h; sourceTree = "<group>"; };
@@ -289,6 +298,12 @@
 				97FDE4E51A2F3B1E004D9F84 /* CustomBackButton.m */,
 				97FDE4E71A2F61B7004D9F84 /* CustomConfirmButton.h */,
 				97FDE4E81A2F61B7004D9F84 /* CustomConfirmButton.m */,
+				971ACE6D1A344120005EE3B2 /* CustomCongratulationLabel.h */,
+				971ACE6E1A344120005EE3B2 /* CustomCongratulationLabel.m */,
+				971ACE701A34521A005EE3B2 /* CustomRightAnswerLabel.h */,
+				971ACE711A34521A005EE3B2 /* CustomRightAnswerLabel.m */,
+				97BDC5291A345E29000215CC /* CustomCorrectToWrongLabel.h */,
+				97BDC52A1A345E29000215CC /* CustomCorrectToWrongLabel.m */,
 			);
 			name = CustomViewComponents;
 			sourceTree = "<group>";
@@ -521,6 +536,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97BDC52B1A345E29000215CC /* CustomCorrectToWrongLabel.m in Sources */,
 				97FA57521A26CA0100C47156 /* PracticeOneCollectionViewCell.m in Sources */,
 				97C826A61A29C74000016328 /* ParentPracticeCollectionViewCell.m in Sources */,
 				9799DC161A2D671A00F6579D /* CustomSelectToneIndicatorLabel.m in Sources */,
@@ -528,6 +544,7 @@
 				97B45B951A3297940026D46B /* ContactUsViewController.m in Sources */,
 				9799DC191A2D690500F6579D /* CustomPinYinLabel.m in Sources */,
 				97891A971A26199C00FBE71F /* PracticeOneViewController.m in Sources */,
+				971ACE721A34521A005EE3B2 /* CustomRightAnswerLabel.m in Sources */,
 				97B024971A277F19005964FB /* PracticeThreeCollectionViewCell.m in Sources */,
 				97B024901A2769D7005964FB /* PracticeTwoViewController.m in Sources */,
 				97FDE4E01A2EABFF004D9F84 /* CustomPlayMp3Button.m in Sources */,
@@ -536,6 +553,7 @@
 				97FDE4E31A2ED6ED004D9F84 /* CustomAutoPlayButton.m in Sources */,
 				9799DC1C1A2D6E6100F6579D /* CustomPinyinTextField.m in Sources */,
 				97134EAC1A2447D8009A748D /* ListenItemViewController.m in Sources */,
+				971ACE6F1A344120005EE3B2 /* CustomCongratulationLabel.m in Sources */,
 				97C826981A295DA100016328 /* ParentRootViewController.m in Sources */,
 				97C877DF1A283BDE00C56490 /* PhraseManager.m in Sources */,
 				97B024931A276A75005964FB /* PracticeTwoCollectionViewCell.m in Sources */,

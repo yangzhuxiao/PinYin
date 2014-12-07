@@ -63,6 +63,7 @@
         self.correctNumber ++;
     } else {
         selectedCell.righAnswerLabel.hidden = NO;
+        self.wrongNumber ++;
     }
     
     // change confirm button status for good
@@ -107,7 +108,7 @@
     cell.toneLabelOne.text = [[[self.currentPhrase tones] substringToIndex:toneStringLength] substringWithRange:NSMakeRange(2, 1)];
     cell.toneLabelTwo.text = [[[self.currentPhrase tones] substringFromIndex:toneStringLength] substringWithRange:NSMakeRange(2, 1)];
     // righAnswerLabel
-    cell.righAnswerLabel.text = [NSString stringWithFormat:@"Sorry! The answer is \n\" %@\"", self.currentPhrase.pinyinFull];
+    cell.righAnswerLabel.text = self.currentPhrase.pinyinFull;
     // set textfield's delegate
     cell.pinyinOneTextField.delegate = self;
     cell.pinyinTwoTextField.delegate = self;

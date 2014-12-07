@@ -109,6 +109,7 @@
         self.correctNumber ++;
     } else {
         selectedCell.righAnswerLabel.hidden = NO;
+        self.wrongNumber ++;
     }
 
     // disabel confirm button
@@ -164,7 +165,7 @@
     self.firstPinyin = pinYinWithoutTones[0];
     self.secondPinyin = pinYinWithoutTones[1];
     
-    cell.righAnswerLabel.text = [NSString stringWithFormat:@"Sorry! The answer is \n\" %@\"", self.currentPhrase.pinyinFull];
+    cell.righAnswerLabel.text = self.currentPhrase.pinyinFull;
     
     // set textfield's delegate
     cell.pinyinOneTextField.delegate = self;

@@ -90,9 +90,9 @@ static const CGFloat autoPlayButtonYOriginPercent = 0.7;
 // CountLabel size
 static const CGFloat CountLabelWidthPercent = 0.4;
 static const CGFloat CountLabelHeightPercent = 0.1;
-static const CGFloat CountLabelXOriginPercent = 0.5;
+static const CGFloat CountLabelXOriginPercent = 0.65;
 static const CGFloat CountLabelYOriginPercent = 0.05;
-static const CGFloat CountLabelFontPercentWidth = 0.05;
+static const CGFloat CountLabelFontPercentLabelHeight = 0.8;
 
 // IndexLabel size
 static const CGFloat IndexLabelWidthPercent = 0.2;
@@ -151,18 +151,18 @@ static const CGFloat confirmSelectionButtonYOriginPercent = 0.70;
 static const CGFloat confirmSelectionButtonFontPercentButtonHeight = 0.7;
 
 // congratulateLabel
-static const CGFloat congratulateLabelWidthPercent = 0.8;
+static const CGFloat congratulateLabelWidthPercent = 0.9;
 static const CGFloat congratulateLabelHeightPercent = 0.1;
-static const CGFloat congratulateLabelXOriginPercent = 0.12;
+static const CGFloat congratulateLabelXOriginPercent = 0.05;
 static const CGFloat congratulateLabelYOriginPercent = 0.80;
-static const CGFloat congratulateLabelFontPercentWidth = 0.08;
+static const CGFloat congratulateLabelFontPercentLabelHeight = 0.5;
 
-// righAnswerLabel
-static const CGFloat righAnswerLabelWidthPercent = 0.8;
-static const CGFloat righAnswerLabelHeightPercent = 0.12;
-static const CGFloat righAnswerLabelXOriginPercent = 0.12;
-static const CGFloat righAnswerLabelYOriginPercent = 0.80;
-static const CGFloat righAnswerLabelFontPercentWidth = 0.05;
+// rightAnswerLabel
+static const CGFloat rightAnswerLabelWidthPercent = 0.9;
+static const CGFloat rightAnswerLabelHeightPercent = 0.15;
+static const CGFloat rightAnswerLabelXOriginPercent = 0.05;
+static const CGFloat rightAnswerLabelYOriginPercent = 0.75;
+static const CGFloat rightAnswerLabelFontPercentLabelHeight = 0.3;
 
 
 
