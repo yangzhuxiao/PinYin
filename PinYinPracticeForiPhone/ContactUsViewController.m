@@ -55,13 +55,31 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)IconClicked:(id)sender {
-//    UIAppl	ication
-}
-
 - (IBAction)sendFeedBack:(id)sender {
+    [self sendFeedbackWithMailView];
 }
 
 - (IBAction)forwardToFriends:(id)sender {
+    [self sendAppLocationToFriends];
+}
+
+- (IBAction)IconClicked:(id)sender {
+    [self openWebsite:@"http://chinese-at-ease.com/"];
+}
+
+- (IBAction)facebookIconClicked:(id)sender {
+    [self openWebsite:@"https://www.facebook.com/ChineseAtEase"];
+}
+
+- (IBAction)twitterIconClicked:(id)sender {
+    [self openWebsite:@"https://twitter.com/chineseatease"];
+}
+
+- (IBAction)googleIconClicked:(id)sender {
+    [self openWebsite:@"https://plus.google.com/"];
+}
+
+- (void)openWebsite:(NSString *)website {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:website]];
 }
 @end

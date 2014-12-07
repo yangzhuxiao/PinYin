@@ -18,7 +18,8 @@
 - (IBAction)sendFeedBack:(id)sender;
 - (IBAction)forwardToFriends:(id)sender;
 
-
-
+- (IBAction)facebookIconClicked:(id)sender;
+- (IBAction)twitterIconClicked:(id)sender;
+- (IBAction)googleIconClicked:(id)sender;
 
 @end
